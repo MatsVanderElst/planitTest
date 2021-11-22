@@ -8,7 +8,11 @@ $routes = array(
   'register' => array(
     'controller' => 'Pages',
     'action' => 'register'
-  )
+  ),
+  'login' => array(
+    'controller' => 'Pages',
+    'action' => 'login'
+  ),
 
 );
 
