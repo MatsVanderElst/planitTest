@@ -33,7 +33,6 @@ class PagesController extends Controller
           //exit wanneer email al bestaat
           exit();
         }
-
       }
       //is value van acrtion gelijk aan register?
       if ($_POST["action"] === "register") {
@@ -48,7 +47,7 @@ class PagesController extends Controller
         //geen errors? --> juiste user in session steken
         if (empty($errors)) {
           $_SESSION['user']['nickname'] = $user['nickname'];
-          
+
           //in db steken
           $user->save();
           header('Location: index.php?page=personal');
