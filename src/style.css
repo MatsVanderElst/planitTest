@@ -39,10 +39,17 @@ li {
 }
 
 .registerform {
-  background-color: red;
+  background-color: grey;
 }
 
 .error {
   font-size: 1.2rem;
   color: black;
+}
+
+.formStyle {
+  display: flex;
+  flex-direction: column;
+  color: #393e5b;
+  padding: 2rem;
 }
