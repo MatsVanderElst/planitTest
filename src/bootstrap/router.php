@@ -4,13 +4,18 @@ $routes = array(
   'home' => array(
     'controller' => 'Pages',
     'action' => 'index'
+  ),
+  'register' => array(
+    'controller' => 'Pages',
+    'action' => 'register'
   )
+
 );
 
-if(empty($_GET['page'])) {
+if (empty($_GET['page'])) {
   $_GET['page'] = 'home';
 }
-if(empty($routes[$_GET['page']])) {
+if (empty($routes[$_GET['page']])) {
   header('Location: index.php');
   exit();
 }
