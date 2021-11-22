@@ -20,5 +20,7 @@
       <input required name="password" type="text" placeholder="***********">
       <span class="error"><?php if (!empty($errors['password'])) echo $errors['password']; ?></span>
     </div>
+
+    <input type="submit" value="Register" class="submitButton">
   </article>
 </form>
