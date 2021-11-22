@@ -4,7 +4,7 @@ $capsule = new Capsule;
 $capsule->addConnection([
  'driver'    => 'mysql',
  'host'      => getenv('PHP_DB_HOST') ?: 'mysql',
- 'database'  => getenv('PHP_DB_DATABASE') ?: '',
+ 'database'  => getenv('PHP_DB_DATABASE') ?: 'plansdb',
  'username'  => getenv('PHP_DB_USERNAME') ?: 'root',
  'password'  => getenv('PHP_DB_PASSWORD') ?: 'devine4life',
  'charset'   => 'utf8mb4',
