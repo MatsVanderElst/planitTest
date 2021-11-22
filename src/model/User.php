@@ -14,7 +14,7 @@ class User extends Model
     $errors = [];
 
     if (empty($data['nickname'])) {
-      $errors[] = 'Please fill in a name';
+      $errors[] = 'Please fill in a nickname';
     }
     if (empty($data['email'])) {
       $errors[] = 'Please fill in an e-mail';
