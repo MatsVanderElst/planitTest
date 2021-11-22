@@ -53,3 +53,18 @@ li {
   color: #393e5b;
   padding: 2rem;
 }
+
+.input {
+  border: none;
+  border-bottom: 3px solid #efdfb8;
+  color: #393e5b;
+  background: none;
+}
+
+.input::placeholder {
+  color: #393e5b;
+}
+
+.formtitle {
+  color: #393e5b;
+}
