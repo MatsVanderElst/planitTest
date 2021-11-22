@@ -17,9 +17,39 @@ class PagesController extends Controller
 
   }
   public function login(){
+    //logout wanneer je op login terechtkomt
+    unset($_SESSION['user']);
+
+    //adhv post form binnenhalen zie vorige forms
+    if (!empty($_POST['action'])) {
+      if ($_POST["action"] === "login") {
+        //juiste user selecteren adhv email (want is uniek)
+        $exists = User::where('email', '=', $_POST['email'])->get();
+        //bestaat user?
+        if (!empty($exists[0])) {
+          // klopt het password?
+          if ($exists[0]->password == $_POST['password']) {
+            //gebruiker in session steken
+            $_SESSION['user']['nickname'] = $exists[0]->name;
+
+
+            $_SESSION['user']['email'] = $exists[0]->email;
+            header('Location: index.php?page=personal');
+          } else {
+            //pw error
+            $error = 'wrong password';
+            $this->set('error', $error);
+          }
+        } else {
+          //ingegeven email bestaat niet? -> register
+          header('Location: index.php?page=register');
+        }
+      }
+    }
+
 
   }
-  
+
   public function register()
   {
 
