@@ -14,4 +14,7 @@ class PagesController extends Controller {
    // $this->set('demos',$demos);
 
   }
+  public function register() {
+    
+  }
 }
