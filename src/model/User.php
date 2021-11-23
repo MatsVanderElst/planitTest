@@ -22,9 +22,6 @@ class User extends Model
     if (empty($data['password'])) {
       $errors[] = 'Please fill in a password';
     }
-    if (empty($data['credit'])) {
-      $errors[] = 'Please fill in a budget';
-    }
 
     return $errors;
   }
