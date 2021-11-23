@@ -93,4 +93,8 @@ class PagesController extends Controller
       }
     }
   }
+
+  public function credit(){
+    
+  }
 }
