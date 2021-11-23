@@ -11,11 +11,11 @@ $routes = array(
   ),
   'login' => array(
     'controller' => 'Pages',
-    'action' => 'credit'
+    'action' => 'login'
   ),
   'credit' => array(
     'controller' => 'Pages',
-    'action' => 'login'
+    'action' => 'credit'
   ),
 
 );
