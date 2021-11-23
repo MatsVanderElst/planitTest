@@ -84,7 +84,7 @@ class PagesController extends Controller
 
           //in db steken
           $user->save();
-          header('Location: index.php?page=personal');
+          header('Location: index.php?page=credit');
           exit();
           //errors tonen als er zijn
         } else {
