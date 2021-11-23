@@ -17,6 +17,10 @@ $routes = array(
     'controller' => 'Pages',
     'action' => 'credit'
   ),
+  'store' => array(
+    'controller' => 'pages',
+    'action' => 'store'
+  ),
 
 );
 
