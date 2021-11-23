@@ -32,8 +32,7 @@ class PagesController extends Controller
           if ($exists[0]->password == $_POST['password']) {
             //gebruiker in session steken
             $_SESSION['user']['nickname'] = $exists[0]->name;
-
-
+            $_SESSION['user']['credit'] = $exists[0]->credit;
             $_SESSION['user']['email'] = $exists[0]->email;
             header('Location: index.php?page=personal');
           } else {
@@ -95,6 +94,6 @@ class PagesController extends Controller
   }
 
   public function credit(){
-  
+
   }
 }
