@@ -94,23 +94,7 @@ class PagesController extends Controller
     }
   }
 
-  public function credit()
-  {
-
-    if ($_POST["action"] === "credit") {
-
-      //nieuwe credits voor user
-      $newCredit = ['credit' => $_POST['credit']];
-
-      //Na bestellen cart/totale prijs producten in cart leeg maken
-      if (!empty($_GET['credit'])) {
-
-        //credits updaten in database
-        $user = User::where('email', '=', $_SESSION['user']['email'])->update(['credit' => $newCredit]);
-        //users session updaten
-        $_SESSION['user']['credit'] = $newCredit;
-        $user->save();
-      }
-    }
+  public function credit(){
+  
   }
 }
