@@ -80,6 +80,8 @@ class PagesController extends Controller
         //geen errors? --> juiste user in session steken
         if (empty($errors)) {
           $_SESSION['user']['nickname'] = $user['nickname'];
+          $_SESSION['user']['credit'] = $user['credit'];
+
 
           //in db steken
           $user->save();
