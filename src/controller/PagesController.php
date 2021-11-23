@@ -75,6 +75,7 @@ class PagesController extends Controller
           'nickname' => $_POST['nickname'],
           'email' => $_POST['email'],
           'password' => $_POST['password'],
+          'credit' => 0
         ]);
         //is input valid?
         $errors = User::validate($user);
@@ -95,6 +96,6 @@ class PagesController extends Controller
   }
 
   public function credit(){
-    
+
   }
 }
