@@ -14,9 +14,11 @@
   justify-content: center;
   flex-direction: column;
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
   background-color: #393e5b;
   background-image: url(../assets/images/registerBackgrond.svg);
+  background-position: 70% 300%;
+  background-repeat: no-repeat;
 }
 
 .formStyle {
