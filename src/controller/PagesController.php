@@ -84,6 +84,7 @@ class PagesController extends Controller
           $_SESSION['user']['credit'] = $user['credit'];
 
 
+
           //in db steken
           $user->save();
           header('Location: index.php?page=credit');
