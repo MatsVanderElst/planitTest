@@ -10,7 +10,7 @@
 
     <div class="formStyle">
       <label class="formlabel" for="password">Password</label>
-      <input class="input" type="text" name="password">
+      <input class="input" type="password" name="password">
       <span class="error"><?php if (isset($error)) echo $error  ?></span>
     </div>
     <input type="submit" value="Login" class="submitButton">
