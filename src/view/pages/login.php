@@ -1,4 +1,4 @@
-<form class="registerform jsForm" action="index.php?page=login" method="post">
+<form class="loginform jsForm" action="index.php?page=login" method="post">
   <input type="hidden" name="action" value="login">
   <article class="formcontent">
     <h1 class="formtitle">Log in</h1>

@@ -1,4 +1,4 @@
-<form class="creditform" action="index.php?page=credit" method="post">
+<form class="creditform jsForm" action="index.php?page=credit" method="post">
   <input type="hidden" name="action" value="credit">
   <article class="formcontent">
     <h1 class="formtitle">what is your weekly budget for food?</h1>
