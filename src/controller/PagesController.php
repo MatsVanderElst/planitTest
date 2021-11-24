@@ -82,6 +82,11 @@ class PagesController extends Controller
         if (empty($errors)) {
           $_SESSION['user']['nickname'] = $user['nickname'];
           $_SESSION['user']['credit'] = $user['credit'];
+          $_SESSION['user']['id'] = $user['id'];
+          $_SESSION['user']['email'] = $user['email'];
+          $_SESSION['user']['password'] = $user['password'];
+
+
 
 
 
@@ -99,35 +104,49 @@ class PagesController extends Controller
 
   public function credit()
   {
-    if (!empty($_GET['id'])) {
-      $user = User::find($_GET['id']);
+
+
+    //print_r($_SESSION);
+    //MOET NOG FIXED WORDEN
+    /*
+    if (!empty($_GET['email'])) {
+      $user = User::where('email', '=', $_SESSION['user']['email']);
     }
     if (empty($user)) {
       header('Location:index.php');
       exit();
     }
+*/
 
-    // check if form was submitted
-    if (!empty($_POST['action'])) {
-      // which form whas submitted?
-      if ($_POST['action'] === 'credit') {
-        $user->credit = $_POST['credit'];
+    if ($_SESSION) {
 
-        //validate the input
-        $errors = User::validate($user);
-        if (empty($errors)) {
-          //update the  show
-          $user->save();
-          //redirect to convert post to get
-          header('Location:index.php?pages=store');
-          exit();
-        } else {
-          $this->set('errors', $errors);
+
+
+      // check if form was submitted
+      if (!empty($_POST['action'])) {
+        // which form whas submitted?
+        if ($_POST['action'] === 'credit') {
+          $credits = $_POST['credit'];
+          $user = User::where('email', '=', $_SESSION['user']['email'])->update(['credit' => $credits]);
+
+          //validate the input
+          $errors = User::validate($user);
+          if (empty($errors)) {
+            //update the  show
+            $user->save();
+            //redirect to convert post to get
+            header('Location:index.php?pages=store');
+            exit();
+          } else {
+            $this->set('errors', $errors);
+          }
         }
+        $this->set('user', $user);
       }
+    } else {
+      header('Location:index.php');
+      exit();
     }
-
-    $this->set('user', $user);
   }
 
   public function store()
