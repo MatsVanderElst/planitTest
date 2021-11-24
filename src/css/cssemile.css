@@ -2,4 +2,43 @@
   color: #393e5b;
 }
 
+.error {
+  font-size: 1.2rem;
+  color: black;
+}
 
+.formStyle {
+  display: flex;
+  flex-direction: column;
+  color: #393e5b;
+  padding: 2rem;
+}
+
+.input {
+  border: none;
+  border-bottom: 3px solid #efdfb8;
+  color: #393e5b;
+  background: none;
+}
+
+.input::placeholder {
+  color: #393e5b;
+}
+
+.form__container {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  grid-template-rows: 20% 60% 20%;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.registerform {
+  grid-row-start: 2;
+  grid-column-start: 2;
+}
+
+.formcontent {
+  background-color: grey;
+
+}
