@@ -63,7 +63,7 @@
     showValidationInfo(e.currentTarget);
   };
 
-  const init = () => {
+  const validateinit = () => {
 
     const $form = document.querySelector(`.jsForm`);
     if ($form) {
@@ -80,6 +80,6 @@
     }
   };
 
-  init();
+  validateinit();
 }
 
