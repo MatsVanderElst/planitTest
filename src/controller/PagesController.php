@@ -106,8 +106,10 @@ class PagesController extends Controller
   {
 
 
+
     //print_r($_SESSION);
-    //MOET NOG FIXED WORDEN
+
+    //mag weg denk ik
     /*
     if (!empty($_GET['email'])) {
       $user = User::where('email', '=', $_SESSION['user']['email']);
@@ -119,23 +121,18 @@ class PagesController extends Controller
 */
 
     if ($_SESSION) {
-
-
-
       // check if form was submitted
       if (!empty($_POST['action'])) {
         // which form whas submitted?
         if ($_POST['action'] === 'credit') {
           $credits = $_POST['credit'];
-          $user = User::where('email', '=', $_SESSION['user']['email'])->update(['credit' => $credits]);
-
+          $user = User::where('email', '=', $_SESSION['user']['email'])->first(); //->update(['credit' => $credits]);
           //validate the input
           $errors = User::validate($user);
           if (empty($errors)) {
-            //update the  show
-            $user->save();
-            //redirect to convert post to get
-            header('Location:index.php?pages=store');
+            //update the user
+            $user->update(['credit' => $credits]);
+            header('Location:index.php?page=store');
             exit();
           } else {
             $this->set('errors', $errors);
