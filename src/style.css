@@ -79,3 +79,17 @@ li {
   background-color: grey;
 
 }
+
+
+@media screen and (max-width: 440px) {
+  .formstyle {
+    text-align: center;
+    width: 70%;
+
+  }
+
+  .store1 {
+    height: 4rem;
+    background-color: ;
+  }
+}
