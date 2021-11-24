@@ -65,6 +65,8 @@ const handleBlurInput = e => {
 
 export const validateinit = () => {
 
+  console.log('validateWerkt');
+
   const $form = document.querySelector(`.jsForm`);
   if ($form) {
     $form.noValidate = true;
