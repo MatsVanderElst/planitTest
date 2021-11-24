@@ -4,10 +4,14 @@
     <h1 class="formtitle">store selection</h1>
 
     <div class="formStyle">
-      <label class="formlabel" for="email"> Favourite Store</label>
-      <input class="input" required name="store" type="text" placeholder="favourite store">
+      <select name="cars" id="cars">
+        <option value="volvo">Delhaize</option>
+        <option value="saab">Carrefour</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
     </div>
-    
+
     <input type="submit" value="favorite store" class="submitButton">
   </article> 
 </form>
