@@ -118,7 +118,7 @@ class PagesController extends Controller
           //update the  show
           $user->save();
           //redirect to convert post to get
-          header('Location:index.php');
+          header('Location:index.php?pages=store');
           exit();
         } else {
           $this->set('errors', $errors);
