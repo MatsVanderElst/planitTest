@@ -7,7 +7,7 @@ class User extends Model
   public $timestamps = false;
   public $incrementing = false;
 
-  protected $fillable = ['nickname', 'email', 'password', 'credit'];
+  protected $fillable = ['nickname', 'email', 'password', 'credit', 'id'];
 
   public static function validate($data)
   {
