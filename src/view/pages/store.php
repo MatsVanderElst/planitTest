@@ -2,7 +2,7 @@
   <input type="hidden" name="action" value="store">
   <article class="formcontent">
     <h1 class="formtitle">
-      <img src="../../assets/images/title.svg" alt="mealplanner" class="titleImage">
+      <img src="assets/images/title.svg" alt="mealplanner" class="titleImage">
     </h1>
 
     <div class="formStyle">
