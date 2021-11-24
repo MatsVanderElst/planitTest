@@ -1,7 +1,7 @@
 <form class="loginform jsForm" action="index.php?page=login" method="post">
   <input type="hidden" name="action" value="login">
   <article class="formcontent">
-    <h1 class="formtitle">Log in</h1>
+    <h1 class="formtitle hide">Log in</h1>
 
     <div class="formStyle">
       <label class="formlabel" for="email"> E-mail</label>
@@ -15,6 +15,7 @@
       <span class="error"><?php if (!empty($errors['password'])) echo $errors['password']; ?></span>
     </div>
 
-    <input type="submit" value="Login" class="submitButton">
+
   </article>
+  <input type="submit" value="Login" class="submitButton">
 </form>
