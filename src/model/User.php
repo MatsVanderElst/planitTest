@@ -22,9 +22,9 @@ class User extends Model
     if (empty($data['password'])) {
       $errors[] = 'Please fill in a password';
     }
-    if (empty($data['favstore'])) {
+    /* if (empty($data['favstore'])) {
       $errors[] = 'Please select a store';
-    }
+    } */
 
     return $errors;
   }

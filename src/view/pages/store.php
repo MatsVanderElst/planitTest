@@ -4,12 +4,12 @@
     <h1 class="formtitle">store selection</h1>
 
     <div class="formStyle">
-      <select name="cars" id="cars">
-        <option value="volvo">Delhaize</option>
-        <option value="saab">Carrefour</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-      </select>
+      <input type="radio" id="carrefour" name="favstore" value="carrefour">
+      <label for="carrefour">Carrefour</label><br>
+      <input type="radio" id="delhaize" name="favstore" value="delhaize">
+      <label for="delhaize">Delhaize</label><br>
+      <input type="radio" id="Albert Hein" name="favstore" value="Albert Hein" select="selected">
+      <label for="Albert Hein">Albert Hein</label><br><br>
     </div>
 
     <input type="submit" value="favorite store" class="submitButton">
