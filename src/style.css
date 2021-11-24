@@ -1,5 +1,6 @@
 @import './css/reset.css';
 @import './css/vars.css';
+@import './css/cssemile.css';
 
 html {
   box-sizing: border-box;
@@ -58,9 +59,7 @@ li {
   color: #393e5b;
 }
 
-.formtitle {
-  color: #393e5b;
-}
+
 
 .form__container {
   display: grid;
