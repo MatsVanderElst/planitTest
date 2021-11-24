@@ -1,5 +1,5 @@
 <div class="form__container">
-  <form class="registerform" action="index.php?page=register" method="POST">
+  <form class="registerform jsForm" action="index.php?page=register" method="POST">
     <input type="hidden" name="action" value="register" />
     <article class="formcontent">
       <h1 class="formtitle">Register now</h1>
