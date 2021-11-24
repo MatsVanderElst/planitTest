@@ -1,13 +1,21 @@
-.formtitle {
+.error {
+  font-size: 1.2rem;
   color: #393e5b;
 }
 
-.error {
+.formtitle {
   font-size: 1.2rem;
-  color: black;
+  color: #393e5b;
+}
+
+.loginform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .formStyle {
+  font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   color: #393e5b;
@@ -15,6 +23,7 @@
 }
 
 .input {
+  font-size: 1.2rem;
   border: none;
   border-bottom: 3px solid #efdfb8;
   color: #393e5b;
@@ -39,6 +48,8 @@
 }
 
 .formcontent {
+  width: 100vw;
+  height: 100vw;
   background-color: grey;
-
+  background-image: url(../assets/images/registerBackgrond.svg);
 }

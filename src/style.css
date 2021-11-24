@@ -36,10 +36,8 @@ li {
   text-transform: capitalize;
 }
 
-
-
-
 @media screen and (max-width: 440px) {
+
   .formstyle {
     text-align: center;
     width: 70%;
