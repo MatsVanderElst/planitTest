@@ -12,6 +12,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100vw;
+  height: 100vw;
+  background-color: #393e5b;
+  background-image: url(../assets/images/registerBackgrond.svg);
 }
 
 .formStyle {
@@ -48,8 +52,8 @@
 }
 
 .formcontent {
-  width: 100vw;
-  height: 100vw;
-  background-color: grey;
-  background-image: url(../assets/images/registerBackgrond.svg);
+  margin-top: 20rem;
+  background-color: green;
+  border-radius: 20px;
+  height: 50rem;
 }
