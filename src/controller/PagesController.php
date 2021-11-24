@@ -34,7 +34,7 @@ class PagesController extends Controller
             $_SESSION['user']['nickname'] = $exists[0]->name;
             $_SESSION['user']['credit'] = $exists[0]->credit;
             $_SESSION['user']['email'] = $exists[0]->email;
-            header('Location: index.php?page=personal');
+            header('Location: index.php?page=credit');
           } else {
             //pw error
             $error = 'wrong password';
@@ -96,11 +96,40 @@ class PagesController extends Controller
     }
   }
 
-  public function credit(){
+  public function credit()
+  {
+    if (!empty($_GET['id'])) {
+      $user = User::find($_GET['id']);
+    }
+    if (empty($user)) {
+      header('Location:index.php');
+      exit();
+    }
 
+    // check if form was submitted
+    if (!empty($_POST['action'])) {
+      // which form whas submitted?
+      if ($_POST['action'] === 'credit') {
+        $user->credit = $_POST['credit'];
+
+        //validate the input
+        $errors = User::validate($user);
+        if (empty($errors)) {
+          //update the  show
+          $user->save();
+          //redirect to convert post to get
+          header('Location:index.php');
+          exit();
+        } else {
+          $this->set('errors', $errors);
+        }
+      }
+    }
+
+    $this->set('user', $user);
   }
 
-  public function store(){
-
+  public function store()
+  {
   }
 }
