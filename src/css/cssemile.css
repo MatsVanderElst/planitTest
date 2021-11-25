@@ -15,10 +15,6 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background-color: #393e5b;
-  background-image: url(../assets/images/registerBackgrond.svg);
-  background-position: 70% 300%;
-  background-repeat: no-repeat;
 }
 
 .formStyle {
@@ -55,10 +51,8 @@
 }
 
 .formcontent {
-  margin-top: 20rem;
   background-color: whitesmoke;
   border-radius: 20px;
-  height: 50rem;
 }
 
 .hide {
@@ -66,9 +60,18 @@
 }
 
 .submitButton {
+  border-radius: 10px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: whitesmoke;
   background-color: #393e5b;
-  margin-top: 2rem;
+  height: 2rem;
   width: 10rem;
-  height: 10rem;
+  margin-top: .5rem;
+}
 
+.logintitle {
+  overflow: visible;
+  width: auto;
 }

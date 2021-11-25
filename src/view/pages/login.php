@@ -1,7 +1,10 @@
 <form class="loginform jsForm" action="index.php?page=login" method="post">
   <input type="hidden" name="action" value="login">
+  <h1 class="logintitle">
+    <img src="./assets/images/title.svg" alt="mealplanner" class="titleImage">
+  </h1>
   <article class="formcontent">
-    <h1 class="formtitle hide">Log in</h1>
+
 
     <div class="formStyle">
       <label class="formlabel" for="email"> E-mail</label>

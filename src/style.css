@@ -39,7 +39,7 @@ li {
 }
 
 .storetitle {
-overflow: visible;
+  overflow: visible;
 }
 
 .demo-list {
@@ -118,7 +118,7 @@ overflow: visible;
   margin: auto;
   display: block;
   margin-top: 0.5rem;
-  
+
 }
 
 .storeSubmitButton{
@@ -128,7 +128,7 @@ overflow: visible;
   font-size: 1.1rem;
   color: whitesmoke;
   background-color: #393e5b;
-  
+
   height: 2rem;
   width: 10rem;
 
