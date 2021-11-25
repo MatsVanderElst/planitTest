@@ -31,5 +31,6 @@
       </table>
     </div><br>        
     <input type="submit" value="Submit" class="storeSubmitButton" >
+    <span class="error"><?php if (!empty($errors['store'])) echo $errors['store']; ?></span>
   </article>
 </form>

@@ -14,7 +14,7 @@ class PagesController extends Controller {
     // $this->set('demos',$demos);
 
   }
-  
+
   public function login(){
     //logout wanneer je op login terechtkomt
     unset($_SESSION['user']);
@@ -71,7 +71,7 @@ class PagesController extends Controller {
           'email' => $_POST['email'],
           'password' => $_POST['password'],
           'credit' => 0,
-          'store' => "none"
+          'favstore' => "none"
         ]);
         //is input valid?
         $errors = User::validate($user);
@@ -125,12 +125,29 @@ class PagesController extends Controller {
 
   public function store(){
 
-    if (!empty($_POST['action'])) {
-      // which form whas submitted?
-      if($_POST['action'] === $_POST['store']){
-        $store = $_POST['store']; 
-        $user = User::where('email', '=', $_SESSION['user']['email'])->first();
+   if ($_SESSION) {
+      // check if form was submitted
+      if (!empty($_POST['action'])) {
+        // which form whas submitted?
+        if ($_POST['action'] === 'store') {
+          $store = $_POST['store'];
+          $user = User::where('email', '=', $_SESSION['user']['email'])->first();
+          //validate the user we retrieved from session
+          $errors = User::validate($user);
+          if (empty($errors)) {
+            //update the user
+            $user->update(['favstore' => $store]);
+            header('Location:index.php?page=register');
+            exit();
+          } else {
+            $this->set('errors', $errors);
+          }
+        }
+        $this->set('user', $user);
       }
+    } else {
+      header('Location:index.php');
+      exit();
     }
   }
 }

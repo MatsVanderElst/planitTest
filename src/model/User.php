@@ -7,7 +7,7 @@ class User extends Model
   public $timestamps = false;
   public $incrementing = false;
 
-  protected $fillable = ['nickname', 'email', 'password', 'credit', 'id', 'store'];
+  protected $fillable = ['nickname', 'email', 'password', 'credit', 'id', 'favstore'];
 
   public static function validate($data)
   {
@@ -22,7 +22,7 @@ class User extends Model
     if (empty($data['password'])) {
       $errors[] = 'Please fill in a password';
     }
-    if (empty($data['store'])) {
+    if (empty($data['favstore'])) {
       $errors[] = 'Please select a store';
     } 
 
