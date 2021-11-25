@@ -17,6 +17,7 @@ html {
 
 body {
   font-family: var(--font);
+  background-color: #393e5b;
 }
 
 li {
@@ -26,6 +27,15 @@ li {
 .container {
   width: 100vw;
   height: 100vh;
+  /* background-color: #393e5b;
+  background-image: url("assets/images/mobileBackground1.jpg");
+  background-size: ;
+  background-size: 20rem 60rem;
+  background-repeat: no-repeat; */
+  position: relative;
+  background-image: url("assets/images/mobileBackground1.png");
+  background-repeat:no-repeat;
+  background-size:100% 100vh;
 }
 
 .storetitle {
@@ -39,8 +49,14 @@ overflow: visible;
 
 .storeStyle {
   text-align: center;
+  background-color: whitesmoke;
+  border: 3pt solid #393e5b;
+  border-radius: 15px;
+  height: 20rem;
   width: 70%;
 
+  margin: auto;
+  margin-top: 9.5rem;
 }
 
 .storeParagraph{
@@ -54,16 +70,14 @@ overflow: visible;
 
 .storeformcontent{
   height: 100%;
-  background-color: #393e5b;
-  background-image: url("assets/images/storeBackround.svg");
-  background-position:  10rem 0rem;
-  background-size: 20rem 60rem;
-  background-repeat: no-repeat;
 }
 
 .storeinput{
-  background-color: whitesmoke;
   border: 3pt solid #393e5b;
   border-radius: 15px;
   height: 2rem;
+}
+.storeSubmitButton{
+  height: 2rem;
+  border-radius: 15px;
 }
