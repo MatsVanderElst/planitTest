@@ -1,11 +1,13 @@
 <form class="storeform" action="index.php?page=store" method="post">
   <input type="hidden" name="action" value="store">
-  <article class="formcontent">
-    <h1 class="formtitle">
+  <article class="storeformcontent">
+    <h1 class="storetitle">
       <img src="assets/images/title.svg" alt="mealplanner" class="titleImage">
     </h1>
-
-    <div class="formStyle">
+    <h2>welcome <?php ?></h2>
+    <p class="storeParagraph">What is your favorite grocery store chain?</p>
+    <div class="storeStyle">
+      <input type="input" class="storeinput" name="favstore" value="favorite store"><br>
       <input type="radio" class="store1" name="favstore" value="carrefour">
       <label for="carrefour">Carrefour</label><br>
       <input type="radio" class="store2" name="favstore" value="delhaize">

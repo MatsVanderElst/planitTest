@@ -4,6 +4,7 @@
 
 html {
   box-sizing: border-box;
+  overflow: visible;
 }
 
 /* stylelint-disable */
@@ -27,8 +28,8 @@ li {
   height: 100vh;
 }
 
-.pagetitle {
-  font-size: var(--fontBig);
+.storetitle {
+overflow: visible;
 }
 
 .demo-list {
@@ -36,16 +37,33 @@ li {
   text-transform: capitalize;
 }
 
-@media screen and (max-width: 440px) {
+.storeStyle {
+  text-align: center;
+  width: 70%;
 
-  .formstyle {
-    text-align: center;
-    width: 70%;
+}
 
-  }
+.storeParagraph{
+  color: #393e5b;
+}
 
-  .store1 {
-    height: 4rem;
-    background-color: #393e5b;
-  }
+.store1 {
+  height: 4rem;
+  background-color: #393e5b;
+}
+
+.storeformcontent{
+  height: 100%;
+  background-color: #393e5b;
+  background-image: url("assets/images/storeBackround.svg");
+  background-position:  10rem 0rem;
+  background-size: 20rem 60rem;
+  background-repeat: no-repeat;
+}
+
+.storeinput{
+  background-color: whitesmoke;
+  border: 3pt solid #393e5b;
+  border-radius: 15px;
+  height: 2rem;
 }
