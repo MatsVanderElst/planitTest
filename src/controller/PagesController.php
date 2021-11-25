@@ -4,11 +4,9 @@ require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../model/User.php';
 
 
-class PagesController extends Controller
-{
+class PagesController extends Controller {
 
-  public function index()
-  {
+  public function index(){
     // this should refer to a database query, a hard-coded object is used for demo purposes
     // $demos = Demo::all();
 
@@ -16,8 +14,8 @@ class PagesController extends Controller
     // $this->set('demos',$demos);
 
   }
-  public function login()
-  {
+  
+  public function login(){
     //logout wanneer je op login terechtkomt
     unset($_SESSION['user']);
 
@@ -48,8 +46,7 @@ class PagesController extends Controller
     }
   }
 
-  public function register()
-  {
+  public function register(){
 
     //uitloggen wanneer je hier terechtkomt
     unset($_SESSION['user']);
@@ -66,7 +63,7 @@ class PagesController extends Controller
           exit();
         }
       }
-      //is value van acrtion gelijk aan register?
+      //is value van action gelijk aan register?
       if ($_POST["action"] === "register") {
         //maakt nieuwe var aan voor user
         $user = new User([
@@ -74,7 +71,7 @@ class PagesController extends Controller
           'email' => $_POST['email'],
           'password' => $_POST['password'],
           'credit' => 0,
-          'favstore' => ""
+          'store' => "none"
         ]);
         //is input valid?
         $errors = User::validate($user);
@@ -85,11 +82,7 @@ class PagesController extends Controller
           $_SESSION['user']['id'] = $user['id'];
           $_SESSION['user']['email'] = $user['email'];
           $_SESSION['user']['password'] = $user['password'];
-
-
-
-
-
+        
           //in db steken
           $user->save();
           header('Location: index.php?page=credit');
@@ -102,23 +95,7 @@ class PagesController extends Controller
     }
   }
 
-  public function credit()
-  {
-
-
-
-    //print_r($_SESSION);
-
-    //mag weg denk ik
-    /*
-    if (!empty($_GET['email'])) {
-      $user = User::where('email', '=', $_SESSION['user']['email']);
-    }
-    if (empty($user)) {
-      header('Location:index.php');
-      exit();
-    }
-*/
+  public function credit(){
 
     if ($_SESSION) {
       // check if form was submitted
@@ -146,7 +123,14 @@ class PagesController extends Controller
     }
   }
 
-  public function store()
-  {
+  public function store(){
+
+    if (!empty($_POST['action'])) {
+      // which form whas submitted?
+      if($_POST['action'] === $_POST['store']){
+        $store = $_POST['store']; 
+        $user = User::where('email', '=', $_SESSION['user']['email'])->first();
+      }
+    }
   }
 }
