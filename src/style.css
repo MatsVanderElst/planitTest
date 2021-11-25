@@ -47,20 +47,47 @@ overflow: visible;
   text-transform: capitalize;
 }
 
-.storeStyle {
-  text-align: center;
-  background-color: whitesmoke;
-  border: 3pt solid #393e5b;
-  border-radius: 15px;
-  height: 20rem;
-  width: 70%;
+.storetitle{
+  width: auto;
+}
 
-  margin: auto;
-  margin-top: 9.5rem;
+.titleImage{
+  max-width: 95%;
+  height: auto;
+  margin-top: 1rem;
+}
+
+.storeStyle {
+  background-color: whitesmoke;
+  border: 2pt solid #393e5b;
+  border-radius: 15px;
+  height: 15rem;
+  width: 65%;
+
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.lbl {
+  width: 100px;
+  white-space: nowrap;
+  font-size: 1.375rem;
+  font-family: henderson-slab-basic,serif;
+  font-weight: 600;
+  font-style: normal;
+  margin-left: 20rem;
+  margin-top: 2rem;
+}
+
+.labelStyling{
+  margin-left: 2rem;
+  margin-top: 5rem;
 }
 
 .storeParagraph{
   color: #393e5b;
+  margin-top: 10rem;
+  font-weight: 600;
 }
 
 .store1 {
@@ -70,14 +97,53 @@ overflow: visible;
 
 .storeformcontent{
   height: 100%;
+  text-align: center;
 }
 
-.storeinput{
-  border: 3pt solid #393e5b;
-  border-radius: 15px;
-  height: 2rem;
+.storeWelcomeMessage{
+  font-size: 1.8125rem;
+  font-weight: 700;
+  color: #EFDFB8;
+  margin-left: -8rem;
+  margin-top: 1.5rem;
 }
+
+.storeInput{
+  background-color: whitesmoke;
+  border: 2pt solid #393e5b;
+  border-radius: 15px;
+  width: 65%;
+  height: 2rem;
+
+  margin: auto;
+  display: block;
+  margin-top: 0.5rem;
+  
+}
+
 .storeSubmitButton{
+  border-radius: 10px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: whitesmoke;
+  background-color: #393e5b;
+  
   height: 2rem;
-  border-radius: 15px;
+  width: 10rem;
+
+  margin-top: 0.5rem;
 }
+
+.storeRadioButton {
+  width: 100%;
+  margin-left: 1rem;
+}
+
+.frm {
+  display: inline-block;
+}
+
+/* tr{
+  margin-top: 0.5rem;
+} */
