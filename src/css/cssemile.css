@@ -26,6 +26,7 @@
 }
 
 .input {
+  margin-top: 1.5rem;
   font-size: 1.2rem;
   border: none;
   border-bottom: 3px solid #ffa957;
@@ -68,10 +69,22 @@
   background-color: #393e5b;
   height: 2rem;
   width: 10rem;
-  margin-top: .5rem;
+  margin-top: 1rem;
+  border: none;
+  box-shadow: 3px 3px black;
+
 }
 
 .logintitle {
   overflow: visible;
   width: auto;
+  text-align: center;
+}
+
+@media only screen and (min-width: 700px) {
+
+  .formcontent {
+    display: flex;
+    flex-direction: row;
+  }
 }
