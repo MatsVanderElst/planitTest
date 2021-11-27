@@ -150,4 +150,7 @@ class PagesController extends Controller {
       exit();
     }
   }
+  public function menu(){
+    
+  }
 }

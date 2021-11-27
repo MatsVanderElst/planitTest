@@ -6,18 +6,24 @@
     <p>Create or view your shopping lists or check out what food you still have at home!</p>
     <nav class="navigation__container">
         <div class="main__buttons">
-            <a class="list__button">
+            <a class="list__button" href="#">
                 <p>Shoppig List</p>
                 <img src="#" alt="shopping list icon">
             </a>
-            <a class="products__button">
+            <a class="products__button" href="#">
                 <p>products at home</p>
                 <img src="#" alt="home icon">
             </a>
         </div>
         <div class="secondary__buttons">
-            <p class="Dicsounts__button">Discouts</p>
-            <img src="#" alt="home icon">
+            <p>Discouts</p>
+            <a class="Discounts__button" href="#" >
+                <img src="#" alt="home icon">
+            </a>
+            <p>Recipess</p>
+            <a class="recipes__button" href="#">
+                <img src="#" alt="home icon">
+            </a>
         </div>
     </nav>
 
