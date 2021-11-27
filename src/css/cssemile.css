@@ -49,6 +49,11 @@
   border-radius: 20px;
 }
 
+.formcontent__credit {
+  background-color: whitesmoke;
+  border-radius: 20px;
+}
+
 .hide {
   display: none;
 }
@@ -79,6 +84,10 @@
 }
 
 .registerburger {
+  display: none;
+}
+
+.creditburger {
   display: none;
 }
 
@@ -114,6 +123,11 @@
   .formcontent {
     align-items: center;
   }
+
+  .creditburger {
+
+    display: unset;
+  }
 }
 
 @media only screen and (min-width: 1100px) {
@@ -135,4 +149,37 @@
   flex-direction: column;
   width: 100vw;
   height: 80vh;
+}
+
+.creditform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 80vh;
+}
+
+.warning {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  font-size: 1rem;
+  color: #393e5b;
+}
+
+.bold {
+  font-weight: bold;
+  color: red;
+}
+
+@media only screen and (max-width: 400px) {
+
+  .creditform {
+    width: 100vw;
+    height: 80vh;
+    align-items: center;
+    padding: auto;
+  }
+
 }
