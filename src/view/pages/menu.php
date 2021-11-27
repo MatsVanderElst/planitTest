@@ -26,9 +26,9 @@
             </a>
         </div>
     </nav>
-
-
-
-
-
+    <footer>
+        <a>
+        <img src="#" alt="settings icon">
+        </a>
+    </footer>
 </div>
