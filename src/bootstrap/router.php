@@ -21,6 +21,10 @@ $routes = array(
     'controller' => 'pages',
     'action' => 'store'
   ),
+  'menu' => array(
+    'controller' => 'pages',
+    'action' => 'menu'
+  ),
 
 );
 
