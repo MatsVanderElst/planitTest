@@ -81,6 +81,10 @@
   text-align: center;
 }
 
+.loginBruger {
+  display: none;
+}
+
 @media only screen and (min-width: 700px) {
 
   .formcontent {
@@ -88,3 +92,16 @@
     flex-direction: row;
   }
 }
+
+@media only screen and (min-width: 900px) {
+
+  .loginBruger {
+    display: unset;
+    padding: 2rem;
+  }
+
+  .formcontent{
+    align-items: center;
+  }
+}
+

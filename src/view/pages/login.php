@@ -6,6 +6,7 @@
 
   <article class="formcontent">
 
+    <img src="./assets/images/hamburger.svg" alt="hamburger illustration" class="loginBruger">
 
     <div class="formStyle">
       <label class="formlabel" for="email"> E-mail</label>
