@@ -1,6 +1,7 @@
 .error {
   font-size: 1.1rem;
-  color: #393e5b;
+  color: #ffa957;
+  margin-top: .5rem;
 }
 
 .formtitle {
@@ -38,20 +39,12 @@
   color: #393e5b;
 }
 
-.form__container {
-  display: grid;
-  grid-template-columns: 30% 40% 30%;
-  grid-template-rows: 20% 60% 20%;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-}
-
-.registerform {
-  grid-row-start: 2;
-  grid-column-start: 2;
-}
-
 .formcontent {
+  background-color: whitesmoke;
+  border-radius: 20px;
+}
+
+.formcontent__register {
   background-color: whitesmoke;
   border-radius: 20px;
 }
@@ -85,12 +78,30 @@
   display: none;
 }
 
+.registerburger {
+  display: none;
+}
+
 @media only screen and (min-width: 700px) {
 
   .formcontent {
     display: flex;
     flex-direction: row;
   }
+
+  .submitButton {
+    width: 14rem;
+    height: 4rem;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+
+  .formcontent__register {
+    display: flex;
+    flex-direction: row;
+  }
+
 }
 
 @media only screen and (min-width: 900px) {
@@ -100,8 +111,28 @@
     padding: 2rem;
   }
 
-  .formcontent{
+  .formcontent {
     align-items: center;
   }
 }
 
+@media only screen and (min-width: 1100px) {
+
+  .registerburger {
+    display: unset;
+    padding: 2rem;
+  }
+
+  .formcontent__register {
+    align-items: center;
+  }
+}
+
+.registerform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 80vh;
+}

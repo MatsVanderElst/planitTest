@@ -3,7 +3,8 @@
 </h1>
 <form class="registerform jsForm" action="index.php?page=register" method="POST">
   <input type="hidden" name="action" value="register" />
-  <article class="formcontent">
+  <article class="formcontent__register">
+    <img src="./assets/images/hamburger.svg" alt="hamburger illustration" class="registerburger">
 
     <div class="formStyle">
       <label class="formlabel" for="nickname">Nickname</label>
@@ -22,7 +23,6 @@
       <input class="input" required name="password" type="password" placeholder="***********">
       <span class="error"><?php if (!empty($errors['password'])) echo $errors['password']; ?></span>
     </div>
-
-    <input type="submit" value="Register" class="submitButton">
   </article>
+  <input type="submit" value="Register" class="submitButton">
 </form>
