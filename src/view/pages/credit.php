@@ -5,7 +5,7 @@
 
     <div class="formStyle">
       <label class="formlabel" for="credit">Budget</label>
-      <input class="input" required name="credit" type="number" placeholder="100">
+      <input class="input" required name="credit" type="number" min="1" placeholder="100">
       <span class="error"><?php if (!empty($errors['credit'])) echo $errors['credit']; ?></span>
     </div>
 
