@@ -144,3 +144,14 @@ li {
   display: inline-block;
 }
 
+.menu__subtitle{
+  font-size: 1.8125rem;
+  font-weight: 700;
+  color: #EFDFB8;
+}
+
+.list__button{
+  width: 3rem;
+  height: 3rem;
+  background-color: #F5401D;
+}
