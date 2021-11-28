@@ -91,6 +91,11 @@
   display: none;
 }
 
+.submitButton:hover {
+  cursor: pointer;
+  background-color: #484e72;
+}
+
 @media only screen and (min-width: 700px) {
 
   .formcontent {
@@ -127,6 +132,10 @@
   .creditburger {
 
     display: unset;
+  }
+
+  .formcontent__credit {
+    align-items: center;
   }
 }
 
