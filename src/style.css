@@ -5,6 +5,7 @@
 html {
   box-sizing: border-box;
   overflow: visible;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 /* stylelint-disable */
@@ -155,26 +156,62 @@ li {
   font-weight: 700;
   color: #EFDFB8;
 
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .menu__paragraph{
-  font-size: 1.125rem;
+  font-size: 1.1rem;
   color: #EFDFB8;
+  margin-top: 1rem;
+  width: 20rem;
+  margin: auto;
   margin-top: 1rem;
 }
 
 .list__button{
-  width: 15rem;
-  height: 10rem;
+  width: 17rem;
+  height: 8rem;
   background-color: #F5401D;
 
   border-radius: 25px;
+  margin: auto;
 }
 
 .list__button p{
   margin-top: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
+  font-weight: 800;
   color: #393e5b;
+  text-decoration: none;
 
+  padding-top: 1rem;
+}
+
+.list__button img{
+  margin-top: 1rem;
+}
+
+.products__button{
+  width: 17rem;
+  height: 8rem;
+  background-color: #FFA957;
+
+  border-radius: 25px;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.products__button p{
+  margin-top: 1rem;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #393e5b;
+  text-decoration: none;
+
+  padding-top: 1rem;
+}
+
+.products__button img{
+  margin-top: 1rem;
+  width: 3rem;
 }
