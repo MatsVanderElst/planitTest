@@ -32,7 +32,7 @@ class PagesController extends Controller {
             $_SESSION['user']['nickname'] = $exists[0]->name;
             $_SESSION['user']['credit'] = $exists[0]->credit;
             $_SESSION['user']['email'] = $exists[0]->email;
-            header('Location: index.php?page=credit');
+            header('Location: index.php?page=menu');
           } else {
             //pw error
             $error = 'wrong password';
@@ -82,7 +82,7 @@ class PagesController extends Controller {
           $_SESSION['user']['id'] = $user['id'];
           $_SESSION['user']['email'] = $user['email'];
           $_SESSION['user']['password'] = $user['password'];
-        
+
           //in db steken
           $user->save();
           header('Location: index.php?page=credit');
@@ -137,7 +137,7 @@ class PagesController extends Controller {
           if (empty($errors)) {
             //update the user
             $user->update(['favstore' => $store]);
-            header('Location:index.php?page=register');
+            header('Location:index.php?page=menu');
             exit();
           } else {
             $this->set('errors', $errors);
@@ -151,6 +151,6 @@ class PagesController extends Controller {
     }
   }
   public function menu(){
-    
+
   }
 }
