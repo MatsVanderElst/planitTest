@@ -66,7 +66,8 @@ a{
   border: 2pt solid #393e5b;
   border-radius: 15px;
   height: 15rem;
-  width: 65%;
+  width: 15rem;
+  align-items: center;
 
   margin: 0 auto;
   display: inline-block;
@@ -91,7 +92,9 @@ a{
 .storeParagraph{
   color: #393e5b;
   margin-top: 10rem;
+  margin-bottom: 1rem;
   font-weight: 600;
+  font-size: 1.875;
 }
 
 .store1 {
@@ -108,8 +111,8 @@ a{
   font-size: 1.8125rem;
   font-weight: 700;
   color: #EFDFB8;
-  margin-left: -8rem;
-  margin-top: 1.5rem;
+/*   margin-left: -8rem;
+ */  margin-top: 1.5rem;
 }
 
 .storeInput{
@@ -173,7 +176,7 @@ a{
 
 .list__button{
   width: 17rem;
-  height: 8rem;
+  height: 9rem;
   background-color: #F5401D;
 
   border-radius: 25px;
@@ -281,4 +284,24 @@ a{
 
 .settings__button{
   margin-top: 4rem;
+}
+
+
+@media only screen and (min-width: 700px) {
+  
+  .main__buttons{
+    text-align: center;
+    display: flex;
+  }
+
+  .list__button{
+    margin: auto;
+    margin-right: 1rem;
+  }
+
+  .products__button{
+    margin: auto;
+    margin-left: 1rem;
+  }
+
 }
