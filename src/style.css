@@ -38,6 +38,9 @@ li {
   background-repeat:no-repeat;
   background-size:100% 100vh;
 }
+a{
+  text-decoration: none;
+}
 
 .storetitle {
   overflow: visible;
@@ -175,6 +178,7 @@ li {
 
   border-radius: 25px;
   margin: auto;
+  margin-top: 2rem;
 }
 
 .list__button p{
@@ -193,12 +197,12 @@ li {
 
 .products__button{
   width: 17rem;
-  height: 8rem;
+  height: 9rem;
   background-color: #FFA957;
 
   border-radius: 25px;
   margin: auto;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .products__button p{
@@ -214,4 +218,66 @@ li {
 .products__button img{
   margin-top: 1rem;
   width: 3rem;
+}
+
+.secondary__buttons{ 
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr;
+  
+  margin-top: 2rem;
+}
+
+.discounts__button{
+  grid-area: 2/1/2/2;
+  background-color: #F5401D;
+  width: 8rem;
+  height: 6rem;
+  margin: auto;
+  border-radius: 25px;
+  
+  margin-right: 0.5rem;
+}
+
+.discounts__button img {
+  margin-top: 1.5rem;
+}
+
+
+
+.discounts__title{
+  width: 8rem;
+  color: #EFDFB8;
+  font-weight: 800;
+  font-size: 1.5rem;
+  
+  margin-left: 3rem;
+  margin-bottom: 1rem;
+}
+
+.recipes__title{
+  width: 8rem;
+  color: #EFDFB8;
+  font-weight: 800;
+  font-size: 1.5rem;
+  
+  margin-right: 3rem;
+  margin-bottom: 1rem
+}
+
+.recipes__button{
+  grid-area: "recipes";
+  background-color:  #FFA957;
+  width: 8rem;
+  height: 6rem;
+  margin-left: 0.5rem;
+  border-radius: 25px;
+}
+
+.recipes__button img {
+  margin-top: 1.5rem;
+}
+
+.settings__button{
+  margin-top: 4rem;
 }

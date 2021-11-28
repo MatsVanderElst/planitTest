@@ -20,23 +20,23 @@
             </div>
         </div>
         <div class="secondary__buttons">
-            <p>Discouts</p>
-            <div class="Discounts__button">
+            <p class="discounts__title">Discouts</p>
+            <div class="discounts__button">
                 <a  href="#" >
                     <img src="assets/images/ticketIcon.svg" alt="ticket icon">
                 </a>
             </div>
-            <p>Recipess</p>
+            <p class="recipes__title">Recipess</p>
             <div class="recipes__button">
                 <a href="#">
-                    <img src="assets/images/hamburgerIcon.svf" alt="hamburger icon">
+                    <img src="assets/images/hamburgerIcon.svg" alt="hamburger icon">
                 </a>
             </div>
         </div>
     </nav>
     <footer>
         <a>
-        <img src="assets/images/settingsIcon.svg" alt="settings icon">
+            <img class="settings__button" src="assets/images/settingsIcon.svg" alt="settings icon">
         </a>
     </footer>
 </div>
