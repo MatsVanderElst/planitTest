@@ -189,3 +189,19 @@
   }
 
 }
+
+.list__container {
+  background-color: #393e5b;
+  height: 100%;
+}
+
+.list__welcome {
+  color: #efdfb8;
+  font-size: 1.7rem;
+  padding: 1rem;
+}
+
+.list__text {
+  color: #efdfb8;
+  padding: 1rem;
+}

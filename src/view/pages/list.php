@@ -5,10 +5,10 @@
 
   <article>
     <section>
-      <p><?php echo $_SESSION['user']['nickname'] ?>, <br> you have € <?php echo $_SESSION['user']['credit'] ?> left this week</p>
+      <p class="list__welcome"><?php echo $_SESSION['user']['nickname'] ?>, <br> you have € <?php echo $_SESSION['user']['credit'] ?> left this week</p>
     </section>
     <section>
-      <p>Look for products to put on your list. <br> <br>
+      <p class="list__text">Look for products to put on your list. <br> <br>
 
         The items you choose will be subtracted
         From your budget. </p>
