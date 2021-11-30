@@ -29,7 +29,7 @@ class PagesController extends Controller {
           // klopt het password?
           if ($exists[0]->password == $_POST['password']) {
             //gebruiker in session steken
-            $_SESSION['user']['nickname'] = $exists[0]->name;
+            $_SESSION['user']['nickname'] = $exists[0]->nickname;
             $_SESSION['user']['credit'] = $exists[0]->credit;
             $_SESSION['user']['email'] = $exists[0]->email;
             header('Location: index.php?page=menu');
@@ -107,8 +107,11 @@ class PagesController extends Controller {
           //validate the input
           $errors = User::validate($user);
           if (empty($errors)) {
+
             //update the user
             $user->update(['credit' => $credits]);
+            // update session
+            $_SESSION['user']['credit'] = $user['credit'];
             header('Location:index.php?page=store');
             exit();
           } else {
