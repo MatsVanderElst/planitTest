@@ -5,7 +5,7 @@
 
   <article>
     <section>
-      <p><?php echo $_SESSION['user']['nickname'] ?>, <br> you have € <?php echo $_SESSION['user']['credit'] ?></p>
+      <p><?php echo $_SESSION['user']['nickname'] ?>, <br> you have € <?php echo $_SESSION['user']['credit'] ?> left this week</p>
     </section>
     <section>
       <p>Look for products to put on your list. <br> <br>
