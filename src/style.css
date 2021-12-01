@@ -58,7 +58,6 @@ a{
 }
 
 .titleImage{
-  max-width: 95%;
   height: auto;
   margin-top: 1rem;
 }
@@ -157,6 +156,9 @@ a{
 .frm {
   display: inline-block;
 }
+
+
+/*menu page*/
 
 .menu__container{
   background-color: #393e5b;
@@ -294,28 +296,44 @@ a{
 }
 
 
-@media only screen and (min-width: 700px) {
-  .titleImage{
-    width: 40rem;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+@media only screen and (min-width: 760px) {
+
+  .menu__container{
+    background-image: url("assets/images/backgroundHamburger.svg");
+    background-repeat: no-repeat;
+    background-position: 140% 5%;
+    background-size: 22rem;
   }
 
-  .menu__paragraph {
+  /* .menu__title{
     width: 40rem;
+  } */
+
+  .titleImage{
+    width: 43rem;
+    padding-right: 10REM;
+  }
+
+
+  .menu__paragraph {
+    width: 43rem;
     font-size: 1.5rem;
+    padding-right: 12rem;
   }
   
   .menu__subtitle {
-    width: 50rem;
+    width: 45rem;
     font-size: 1.8rem;
     margin: 0 auto;
+    padding-right: 12rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
   .main__buttons{
     text-align: center;
     display: flex;
-    margin-top: 3rem;
+    margin-top: 5rem;
   }
 
   .secondary__buttons{
@@ -345,7 +363,7 @@ a{
   .recipes__button {
     width: 17rem;
     height: 9rem;
-    margin-right: 1rem;
+    margin-left: 1rem;
 
   }
 
@@ -355,7 +373,7 @@ a{
   }
 
   .products__button img{
-    margin-top: 2.2rem;
+    margin-top: 1.8rem;
     width: 5rem;
   }
 
