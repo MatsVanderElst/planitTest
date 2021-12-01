@@ -23,4 +23,14 @@
       <input type="submit" value="search">
     </form>
   </article>
+
+
+
+  <article class="product__list">
+    <?php foreach ($products as $product) : ?>
+      <div>
+        <h2 class="product__name"><?php echo $product['name'] ?></h2>
+      </div>
+    <?php endforeach; ?>
+  </article>
 </div>
