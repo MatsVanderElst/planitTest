@@ -168,6 +168,8 @@ class PagesController extends Controller
 
   public function list()
   {
+
+    $_SESSION['list'] = array();
     //producten uit db halen
     $products = Product::all();
 
@@ -189,13 +191,17 @@ class PagesController extends Controller
 
       if ($_SESSION['total'] > $_SESSION['user']['credit']) {
         print_r("teveel");
+
       }
     }
 
     if (!empty($_GET['product_product'])) {
       if ($_SESSION['total'] <= $_SESSION['user']['credit']) {
         array_push($_SESSION['list'], $_GET['product_product']);
+        print_r($_SESSION['list']);
+
       }
+
     }
   }
 }
@@ -203,3 +209,4 @@ class PagesController extends Controller
 
 
 
+//unset($_SESSION['total']);
