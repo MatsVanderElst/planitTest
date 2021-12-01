@@ -165,10 +165,10 @@ class PagesController extends Controller {
     //producten uit db halen
     $products = Product::all();
 
-    //zoekfunctie products in variabele ^products aanpassen
-    /*if (!empty($_GET['product'])) {
-      $products = $products->where('product', 'LIKE', '%' . $_GET['product'] . '%');
-    }*/
+    //zoekfunctie
+    if (!empty($_GET['product'])) {
+      $products = Product::where('product', 'LIKE', '%' . $_GET['product'] . '%')->get();
+    }
     //naar html 'sturen' voor echo
     $this->set('products', $products);
   }

@@ -9,18 +9,16 @@
     </section>
     <section>
       <p class="list__text">Look for products to put on your list. <br> <br>
-
         The items you choose will be subtracted
         From your budget. </p>
     </section>
   </article>
 
   <article>
-    <form method="get" action="index.php?page=list" class="search__products">
+    <form method="get" action="index.php?page=list">
       <input type="hidden" name="page" value="list" />
-      <label class="search__label hide" for="searchproduct">Look for products</label>
-      <input class="searchbar" name="searchproduct" id="searchproduct" type="text">
-      <input type="submit" value="search">
+      <input class="searchbar" type="text" name="product" placeholder="Bell Pepper" value="<?php if (!empty($_GET['product'])) echo $_GET['product'];?>" />
+      <button type="submit">Search</button>
     </form>
   </article>
 
