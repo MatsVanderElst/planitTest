@@ -160,5 +160,9 @@ class PagesController extends Controller {
 
   public function list()
   {
+    //producten uit db halen
+    $products = Product::all();
+    //naar html 'sturen' voor echo
+    $this->set('products', $products);
   }
 }
