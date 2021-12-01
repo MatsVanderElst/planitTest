@@ -46,16 +46,15 @@ a{
 
 .storetitle {
   overflow: visible;
+  width: auto;
 }
+
 
 .demo-list {
   margin-top: var(--spacerBig);
   text-transform: capitalize;
 }
 
-.storetitle{
-  width: auto;
-}
 
 .titleImage{
   height: auto;
@@ -67,11 +66,13 @@ a{
   border: 2pt solid #393e5b;
   border-radius: 15px;
   height: 14rem;
-  width: 15rem;
-  align-items: center;
+  width: 40%;
+  min-width: 15rem;
+  max-width: 40rem;
+  text-align: center;
 
   margin: 0 auto;
-  display: inline-block;
+  
 }
 
 .lbl {
@@ -311,21 +312,24 @@ a{
 
   .titleImage{
     width: 43rem;
-    padding-right: 10REM;
+    padding-right: 8rem;
   }
 
+  .storeTitleImage{
+    width: 43rem;
+  }
 
   .menu__paragraph {
     width: 43rem;
     font-size: 1.5rem;
-    padding-right: 12rem;
+    padding-right: 10rem;
   }
   
   .menu__subtitle {
     width: 45rem;
     font-size: 1.8rem;
     margin: 0 auto;
-    padding-right: 12rem;
+    padding-right: 10rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
@@ -394,4 +398,69 @@ a{
   .recipes__title {
     visibility: hidden;  
   }
+
+
+
+  .storeWelcomeMessage{
+    margin-top: 8rem ;
+    font-size: 2rem;
+    color: #F5401D;
+  }
+
+  .storeParagraph{
+    margin-top: 1rem;
+  }
+
+  
+
+  .storeRadioButton{
+    margin-left: 3rem;  }
+
+
+}
+
+@media only screen and (min-width: 850px) {
+
+  .menu__container{
+    background-image: url("assets/images/backgroundHamburger.svg");
+    background-repeat: no-repeat;
+    background-position: 130% 5%;
+    background-size: 22rem;
+  }
+
+}
+
+@media only screen and (min-width: 900px) {
+
+  .menu__container{
+    background-image: url("assets/images/backgroundHamburger.svg");
+    background-repeat: no-repeat;
+    background-position: 130% 5%;
+    background-size: 22rem;
+  }
+
+  .titleImage{
+    padding: 0;
+    width: 35rem;
+  }
+
+  .menu__subtitle{
+    padding: 0;
+  }
+
+  .menu__paragraph{
+    padding: 0;
+    width: 40rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .menu__container{
+    background-image: url("assets/images/backgroundHamburger.svg");
+    background-repeat: no-repeat;
+    background-position: 140% 5%;
+    background-attachment: fixed;
+    background-size: 22rem;
+  }
+
 }

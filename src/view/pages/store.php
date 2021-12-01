@@ -2,7 +2,7 @@
   <input type="hidden" name="action" value="store">
   <article class="storeformcontent">
     <h1 class="storetitle">
-      <img src="assets/images/title.svg" alt="mealplanner" class="titleImage">
+      <img src="assets/images/title.svg" alt="mealplanner" class="storeTitleImage">
     </h1>
     <h2 class="storeWelcomeMessage">Welcome <?php echo $_SESSION['user']['nickname']?><?php ?></h2>
     <p class="storeParagraph">What is your favorite grocery store chain?</p>
