@@ -204,6 +204,10 @@ class PagesController extends Controller
 
     }
   }
+
+  public function cart()
+  {
+  }
 }
 
 
