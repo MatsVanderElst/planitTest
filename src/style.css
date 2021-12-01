@@ -65,7 +65,7 @@ a{
   background-color: whitesmoke;
   border: 2pt solid #393e5b;
   border-radius: 15px;
-  height: 15rem;
+  height: 14rem;
   width: 15rem;
   align-items: center;
 
@@ -81,7 +81,7 @@ a{
   font-weight: 600;
   font-style: normal;
   margin-left: 20rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .labelStyling{
@@ -91,10 +91,14 @@ a{
 
 .storeParagraph{
   color: #393e5b;
-  margin-top: 10rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
-  font-size: 1.875;
+  margin: auto;
+  margin-top: 8rem;
+  margin-bottom: 2rem;
+
+  width: 20rem;
+
+  font-weight: 800;
+  font-size: 1.4rem;
 }
 
 .store1 {
@@ -145,6 +149,7 @@ a{
 .storeRadioButton {
   width: 100%;
   margin-left: 1rem;
+  margin-top: 1.5rem;
 }
 
 .frm {
