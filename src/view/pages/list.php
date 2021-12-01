@@ -28,8 +28,14 @@
 
   <article class="product__list">
     <?php foreach ($products as $product) : ?>
-      <div>
-        <h2 class="product__name"><?php echo $product['name'] ?></h2>
+      <div class="product__single">
+        <button class="add" type="submit" value="list">
+          <span class="material-icons">
+            post_add
+          </span>
+        </button>
+        <p class="product__name"><?php echo $product['product'] ?></p>
+        <p class="product__price"><?php echo $product['price'] ?></p>
       </div>
     <?php endforeach; ?>
   </article>
