@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.typekit.net/rzc0ymb.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <?php echo $css; ?>
   <title>plan-it</title>
 </head>
+
 <body>
   <div class="container">
-      <header><h1 class="pagetitle hide">meal-planner</h1></header>
-      <?php echo $content;?>
+    <header>
+      <h1 class="pagetitle hide">meal-planner</h1>
+    </header>
+    <?php echo $content; ?>
   </div>
   <?php echo $js; ?>
 </body>
+
 </html>
