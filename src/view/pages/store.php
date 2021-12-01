@@ -4,7 +4,7 @@
     <h1 class="storetitle">
       <img src="assets/images/title.svg" alt="mealplanner" class="titleImage">
     </h1>
-    <h2 class="storeWelcomeMessage">Welcome Student<?php ?></h2>
+    <h2 class="storeWelcomeMessage">Welcome <?php echo $_SESSION['user']['nickname']?><?php ?></h2>
     <p class="storeParagraph">What is your favorite grocery store chain?</p>
     <div class="storeStyle">
       <table>
