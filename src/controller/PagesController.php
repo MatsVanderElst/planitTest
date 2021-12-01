@@ -191,6 +191,7 @@ class PagesController extends Controller
 
       if ($_SESSION['total'] > $_SESSION['user']['credit']) {
         print_r("teveel");
+        print_r($_SESSION['list']);
 
       }
     }
