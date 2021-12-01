@@ -6,6 +6,8 @@ html {
   box-sizing: border-box;
   overflow: visible;
   font-family: Helvetica, Arial, sans-serif;
+
+  width: 100%;
 }
 
 /* stylelint-disable */
@@ -293,20 +295,85 @@ a{
 
 
 @media only screen and (min-width: 700px) {
+  .titleImage{
+    width: 40rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  .menu__paragraph {
+    width: 40rem;
+    font-size: 1.5rem;
+  }
   
+  .menu__subtitle {
+    width: 50rem;
+    font-size: 1.8rem;
+    margin: 0 auto;
+  }
+
   .main__buttons{
     text-align: center;
     display: flex;
+    margin-top: 3rem;
   }
+
+  .secondary__buttons{
+    margin-top: 0rem;
+  }
+
 
   .list__button{
     margin: auto;
     margin-right: 1rem;
+    height: 12rem;
   }
 
   .products__button{
     margin: auto;
     margin-left: 1rem;
+    height: 12rem;
   }
 
+  .discounts__button {
+    width: 17rem;
+    height: 9rem;
+    margin-right: 1rem;
+
+  }
+
+  .recipes__button {
+    width: 17rem;
+    height: 9rem;
+    margin-right: 1rem;
+
+  }
+
+  .list__button img{
+    margin-top: 2.2rem;
+    width: 5rem;
+  }
+
+  .products__button img{
+    margin-top: 2.2rem;
+    width: 5rem;
+  }
+
+  .discounts__button img{
+    margin-top: 2rem;
+    width: 5rem;
+  }
+
+  .recipes__button img{
+    margin-top: 2.2rem;
+    width: 5rem;
+  }
+
+  .discounts__title {
+    visibility: hidden;  
+  }
+
+  .recipes__title {
+    visibility: hidden;  
+  }
 }
