@@ -6,9 +6,11 @@ require_once __DIR__ . '/../model/Product.php';
 
 
 
-class PagesController extends Controller {
+class PagesController extends Controller
+{
 
-  public function index(){
+  public function index()
+  {
     // this should refer to a database query, a hard-coded object is used for demo purposes
     // $demos = Demo::all();
 
@@ -17,7 +19,8 @@ class PagesController extends Controller {
 
   }
 
-  public function login(){
+  public function login()
+  {
     //logout wanneer je op login terechtkomt
     unset($_SESSION['user']);
 
@@ -48,7 +51,8 @@ class PagesController extends Controller {
     }
   }
 
-  public function register(){
+  public function register()
+  {
 
     //uitloggen wanneer je hier terechtkomt
     unset($_SESSION['user']);
@@ -97,7 +101,8 @@ class PagesController extends Controller {
     }
   }
 
-  public function credit(){
+  public function credit()
+  {
 
     if ($_SESSION) {
       // check if form was submitted
@@ -128,9 +133,10 @@ class PagesController extends Controller {
     }
   }
 
-  public function store(){
+  public function store()
+  {
 
-   if ($_SESSION) {
+    if ($_SESSION) {
       // check if form was submitted
       if (!empty($_POST['action'])) {
         // which form whas submitted?
@@ -156,8 +162,8 @@ class PagesController extends Controller {
     }
   }
 
-  public function menu(){
-
+  public function menu()
+  {
   }
 
   public function list()
@@ -171,5 +177,29 @@ class PagesController extends Controller {
     }
     //naar html 'sturen' voor echo
     $this->set('products', $products);
+
+
+    if (!empty($_GET['product_product'])) {
+      $selectedProduct = Product::where('product', '=', $_GET['product_product'])->get();
+      //print_r($selectedProduct);
+
+      $_SESSION['total'] = $_SESSION['total'] + $selectedProduct[0]['price'];
+
+      print_r($_SESSION['total']);
+
+      if ($_SESSION['total'] > $_SESSION['user']['credit']) {
+        print_r("teveel");
+      }
+    }
+
+    if (!empty($_GET['product_product'])) {
+      if ($_SESSION['total'] <= $_SESSION['user']['credit']) {
+        array_push($_SESSION['list'], $_GET['product_product']);
+      }
+    }
   }
 }
+
+
+
+

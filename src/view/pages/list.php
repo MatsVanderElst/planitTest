@@ -15,9 +15,9 @@
   </article>
 
   <article>
-    <form method="get" action="index.php?page=list">
+    <form class="product__form" method="get" action="index.php?page=list">
       <input type="hidden" name="page" value="list" />
-      <input class="searchbar" type="text" name="product" placeholder="Bell Pepper" value="<?php if (!empty($_GET['product'])) echo $_GET['product'];?>" />
+      <input class="searchbar" type="text" name="product" placeholder="Bell Pepper" value="<?php if (!empty($_GET['product'])) echo $_GET['product']; ?>" />
       <button type="submit">Search</button>
     </form>
   </article>
@@ -27,11 +27,20 @@
   <article class="product__list">
     <?php foreach ($products as $product) : ?>
       <div class="product__single">
-        <button class="add" type="submit" value="list">
-          <span class="material-icons">
-            post_add
-          </span>
-        </button>
+
+        <form method="get" action="index.php?page=list" class="price">
+          <input type="hidden" value="list" name="page">
+          <input type="hidden" value=<?php echo $product['product'] ?> name="product_product">
+
+          <button class="add" type="submit" value="list">
+            <span class="material-icons">
+              post_add
+            </span>
+          </button>
+
+        </form>
+
+
         <p class="product__name"><?php echo $product['product'] ?></p>
         <p class="product__price"><?php echo $product['price'] ?></p>
       </div>
