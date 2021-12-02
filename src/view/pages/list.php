@@ -15,11 +15,21 @@
   </article>
 
   <article>
-    <form class="product__form" method="get" action="index.php?page=list">
-      <input type="hidden" name="page" value="list" />
-      <input class="searchbar" type="text" name="product" placeholder="Bell Pepper" value="<?php if (!empty($_GET['product'])) echo $_GET['product']; ?>" />
-      <button type="submit">Search</button>
-    </form>
+    <section>
+      <a href="index.php?page=cart" class="basket">
+        <span class="material-icons cart">
+          shopping_cart
+        </span>
+        <span class="amountCart"><?php if (!empty($_SESSION['list'])) echo count($_SESSION['list']) ?></span>
+      </a>
+    </section>
+    <section>
+      <form class="product__form" method="get" action="index.php?page=list">
+        <input type="hidden" name="page" value="list" />
+        <input class="searchbar" type="text" name="product" placeholder="Bell Pepper" value="<?php if (!empty($_GET['product'])) echo $_GET['product']; ?>" />
+        <button type="submit">Search</button>
+      </form>
+    </section>
   </article>
 
 
