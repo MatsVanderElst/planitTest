@@ -24,6 +24,9 @@ class PagesController extends Controller
     //logout wanneer je op login terechtkomt
     unset($_SESSION['user']);
 
+    $_SESSION['total'] = 0;
+    $_SESSION['cart'] = array();
+
     //adhv post form binnenhalen zie vorige forms
     if (!empty($_POST['action'])) {
       if ($_POST["action"] === "login") {
@@ -56,6 +59,9 @@ class PagesController extends Controller
 
     //uitloggen wanneer je hier terechtkomt
     unset($_SESSION['user']);
+
+    $_SESSION['total'] = 0;
+    $_SESSION['cart'] = array();
 
     if (!empty($_POST['action'])) {
       if (!empty($_POST['email'])) {
@@ -169,7 +175,7 @@ class PagesController extends Controller
   public function list()
   {
 
-    $_SESSION['list'] = array();
+
     //producten uit db halen
     $products = Product::all();
 
@@ -179,6 +185,7 @@ class PagesController extends Controller
     }
     //naar html 'sturen' voor echo
     $this->set('products', $products);
+
 
 
     if (!empty($_GET['product_product'])) {
@@ -192,8 +199,13 @@ class PagesController extends Controller
       if ($_SESSION['total'] > $_SESSION['user']['credit']) {
         print_r("teveel");
         print_r($_SESSION['list']);
-
       }
+
+      /* if ($selectedProduct[0]['price'] > $_SESSION['user']['credit']) {
+                header('Location: index.php?page=more');
+            } elseif ($_SESSION['total'] > $_SESSION['user']['credit']) {
+                header('Location: index.php?page=more');
+            } */
     }
 
     if (!empty($_GET['product_product'])) {
@@ -208,6 +220,29 @@ class PagesController extends Controller
 
   public function cart()
   {
+    //print_r($_SESSION['list']);
+
+    $selectedProducts = array();
+
+    foreach ($_SESSION['list'] as $productName) {
+      $selectedProducts[] = Product::where('product', '=', $productName)->get();
+    }
+
+    //zet de totale prijs op 0 wanneer geen producten meer in de mand zitten
+    $_SESSION['total'] = 0;
+
+    //zet de totale prijs op de som van alle producten die nog in het winkelmandje zitten
+    if (!empty($selectedProducts)) {
+      foreach ($selectedProducts as $product) {
+        $_SESSION['total'] += $product[0]['price'];
+      }
+    }
+
+    $this->set('selectedProducts',
+      $selectedProducts
+    );
+
+
   }
 }
 
