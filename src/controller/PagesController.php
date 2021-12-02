@@ -212,9 +212,7 @@ class PagesController extends Controller
       if ($_SESSION['total'] <= $_SESSION['user']['credit']) {
         array_push($_SESSION['list'], $_GET['product_product']);
         print_r($_SESSION['list']);
-
       }
-
     }
   }
 
@@ -231,6 +229,26 @@ class PagesController extends Controller
     //zet de totale prijs op 0 wanneer geen producten meer in de mand zitten
     $_SESSION['total'] = 0;
 
+
+    //wanneer er op het vuilbakje wordt gedrukt
+    if (!empty($_GET['action'])) {
+
+      if ($_GET['action'] == 'delete') {
+        //zet string nummer om naar een echt nummer
+        $StringNumber = intval($_GET['product_product']);
+
+        /*verwijder het element met de juiste index selectedproducts is een array en bv. het eerste element heeft index
+                0 deze index geef je mee aan de url (product=0) aan de hand van de url verwijder je dan dat element */
+
+        unset($selectedProducts[$StringNumber]);
+
+        //zoek de index van het verwijderde product (volgens naam) in de session om die later te gaan verwijderen
+        $listIndex = array_search($productName, $_SESSION['list']);
+
+        unset($_SESSION['list'][$listIndex]);
+      }
+    }
+
     //zet de totale prijs op de som van alle producten die nog in het winkelmandje zitten
     if (!empty($selectedProducts)) {
       foreach ($selectedProducts as $product) {
@@ -238,15 +256,14 @@ class PagesController extends Controller
       }
     }
 
-    $this->set('selectedProducts',
+    $this->set(
+      'selectedProducts',
       $selectedProducts
     );
-
-
   }
 }
 
 
 
 
-//unset($_SESSION['total']);
+

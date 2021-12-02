@@ -2,13 +2,13 @@
   <h1 class="menu__title">
     <img src="./assets/images/title.svg" alt="mealplanner" class="titleImage">
   </h1>
-  <h2 class="menu__subtitle"> <?php echo $_SESSION['user']['nickname']?> , you have € <?php echo $_SESSION['user']['credit'] ?> left </h2>
+  <h2 class="menu__subtitle"> <?php echo $_SESSION['user']['nickname'] ?> , you have € <?php echo $_SESSION['user']['credit'] ?> left </h2>
   <p class="menu__paragraph">Create or view your shopping lists or check out what food you still have at home!</p>
   <nav class="navigation__container">
     <div class="main__buttons">
       <div class="list__button">
-        <a href="#">
-          <p>Shoppig List</p>
+        <a href="index.php?page=list">
+          <p>Make a shoppig List</p>
           <img src="assets/images/listIcon.svg" alt="shopping list icon">
         </a>
       </div>
