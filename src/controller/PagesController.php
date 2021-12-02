@@ -194,18 +194,18 @@ class PagesController extends Controller
 
       $_SESSION['total'] = $_SESSION['total'] + $selectedProduct[0]['price'];
 
-      print_r($_SESSION['total']);
+      //print_r($_SESSION['total']);
 
       if ($_SESSION['total'] > $_SESSION['user']['credit']) {
-        print_r("teveel");
-        print_r($_SESSION['list']);
+        header('Location: index.php?page=cart');
+        //print_r("teveel");
+        //print_r($_SESSION['list']);
       }
 
-      /* if ($selectedProduct[0]['price'] > $_SESSION['user']['credit']) {
-                header('Location: index.php?page=more');
-            } elseif ($_SESSION['total'] > $_SESSION['user']['credit']) {
-                header('Location: index.php?page=more');
-            } */
+      //$_SESSION['user']['credit'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
+      $_SESSION['overschot'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
+      //print_r($_SESSION['overschot']);
+
     }
 
     if (!empty($_GET['product_product'])) {
