@@ -171,6 +171,14 @@ class PagesController extends Controller
 
   public function menu()
   {
+    $newCredit = $_SESSION['user']['credit'] - $_SESSION['total'];
+
+    if (!empty($_GET['confirm'])) {
+      $_SESSION['total'] = 0;
+      $_SESSION['cart'] = array();
+      $user = User::where('email', '=', $_SESSION['user']['email'])->update(['credit' => $newCredit]);
+      $_SESSION['user']['credit'] = $newCredit;
+    }
   }
 
   public function list()

@@ -41,7 +41,16 @@
         <p>Total</p>
         <p><?php echo $total ?></p>
       </section>
-      <a href="index.php?page=menu">confirm</a>
+
+      <section>
+        <form class="jsForm form" method="get" action="index.php?page=cart">
+          <input type="hidden" value="true" name="confirm">
+          <input type="hidden" value="menu" name="page">
+          <a href="index.php?page=menu">
+            <input type="submit" value="confirm" class="submitButton">
+          </a>
+        </form>
+      </section>
     </div>
   <?php endif; ?>
 
