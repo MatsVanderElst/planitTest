@@ -27,6 +27,7 @@ class PagesController extends Controller
     $_SESSION['total'] = 0;
     $_SESSION['cart'] = array();
 
+
     //adhv post form binnenhalen zie vorige forms
     if (!empty($_POST['action'])) {
       if ($_POST["action"] === "login") {
@@ -176,6 +177,9 @@ class PagesController extends Controller
   {
 
 
+    $_SESSION['overschot'] = $_SESSION['user']['credit'];
+
+
     //producten uit db halen
     $products = Product::all();
 
@@ -201,6 +205,12 @@ class PagesController extends Controller
         //print_r("teveel");
         //print_r($_SESSION['list']);
       }
+
+      /*if ($_SESSION['total'] = 0) {
+        $_SESSION['overschot'] = ($_SESSION['user']['credit']);
+      } else {
+        $_SESSION['overschot'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
+      }*/
 
       //$_SESSION['user']['credit'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
       $_SESSION['overschot'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
