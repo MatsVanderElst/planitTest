@@ -1,6 +1,8 @@
 <div class="list__container">
   <h1 class="list__title">
-    <img src="./assets/images/title.svg" alt="mealplanner" class="titleImage">
+    <a href="index.php?page=menu">
+      <img src="./assets/images/title.svg" alt="mealplanner" class="titleImage">
+    </a>
   </h1>
 
   <article>

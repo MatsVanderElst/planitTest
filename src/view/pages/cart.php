@@ -37,12 +37,10 @@
 
   <?php if (!empty($_SESSION['list'])) : ?>
     <div>
-
       <section>
         <p>Total</p>
         <p><?php echo $total ?></p>
       </section>
-
       <a href="index.php?page=menu">confirm</a>
     </div>
   <?php endif; ?>
