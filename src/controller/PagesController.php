@@ -25,7 +25,7 @@ class PagesController extends Controller
     unset($_SESSION['user']);
 
     $_SESSION['total'] = 0;
-    $_SESSION['cart'] = array();
+    $_SESSION['list'] = array();
 
 
     //adhv post form binnenhalen zie vorige forms
@@ -62,7 +62,7 @@ class PagesController extends Controller
     unset($_SESSION['user']);
 
     $_SESSION['total'] = 0;
-    $_SESSION['cart'] = array();
+    $_SESSION['list'] = array();
 
     if (!empty($_POST['action'])) {
       if (!empty($_POST['email'])) {
@@ -172,10 +172,10 @@ class PagesController extends Controller
   public function menu()
   {
     $newCredit = $_SESSION['user']['credit'] - $_SESSION['total'];
-
+    //zorgt er voor dat winkelmandje leeg wordt gemaakt na duwne op confirm zo kan gebruioker nieuwe lijst opstellen Ook wordt hier het budget vd user upgedate in de db
     if (!empty($_GET['confirm'])) {
       $_SESSION['total'] = 0;
-      $_SESSION['cart'] = array();
+      $_SESSION['list'] = array();
       $user = User::where('email', '=', $_SESSION['user']['email'])->update(['credit' => $newCredit]);
       $_SESSION['user']['credit'] = $newCredit;
     }
