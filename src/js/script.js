@@ -1,4 +1,69 @@
+
+/*
+const handleSubmitForm = e => {
+  e.preventDefault();
+  submitWithJS();
+};
+
+const handleInputField = e => {
+  submitWithJS();
+};
+
+const submitWithJS = async () => {
+  const $form = document.querySelector('.product__form');
+  const data = new FormData($form);
+  const entries = [...data.entries()];
+  console.log('entries:', entries);
+  const qs = new URLSearchParams(entries).toString();
+  console.log('querystring', qs);
+  const url = `index.php?page=list&product=${qs}`;
+  console.log('url', url);
+
+  const response = await fetch(url);
+  const shows = await response.json();
+  updateList(shows);
+
+  window.history.pushState(
+    {},
+    '',
+    `index.php?page=list&product=${qs}`
+  );
+};
+
+
+const updateList = products => {
+  const $products = document.querySelector('.product__list');
+  $products.innerHTML = products.map(product => {
+    return `
+       <div class="product__single">
+
+        <form method="get" action="index.php?page=list" class="price">
+          <input type="hidden" value="list" name="page">
+          <input type="hidden" value=${product.product} name="product_product">
+
+          <button class="add" type="submit" value="list">
+            <span class="material-icons">
+              post_add
+            </span>
+          </button>
+
+        </form>
+
+
+        <p class="product__name">${product.product}</p>
+        <p class="product__price">${product.price}</p>
+      </div>
+      `;
+  }).join(``);
+};
+*/
+
+
 export const init = () => {
   console.log('start executing this JavaScript');
- 
+/*
+  document.documentElement.classList.add('has-js');
+  document.querySelectorAll('.searchbar').forEach($field => $field.addEventListener('input', handleInputField));
+  document.querySelector('.product__form').addEventListener('submit', handleSubmitForm);
+*/
 };
