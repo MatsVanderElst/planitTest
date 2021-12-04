@@ -1,4 +1,4 @@
-
+/*
 
 const handleSubmitForm = e => {
   e.preventDefault();
@@ -16,20 +16,22 @@ const submitWithJS = async () => {
   console.log('entries:', entries);
   const qs = new URLSearchParams(entries).toString();
   console.log('querystring', qs);
-  //const url = `index.php?page=list&product=${qs}`;
-  //console.log('url', url);
+  const url = `index.php?page=list&product=${qs}`;
+  console.log('url', url);
 
-  //const response = await fetch(url);
-  //const result = await response.json();
-  // const products = document.querySelector('.product__list');
-  //updateList();
+  const response = await fetch(url);
+  const result = await response.json();
+  console.log('hey');
+  console.log(result);
+  //const products = document.querySelector('.product__list');
+  updateList(result);
 
   window.history.pushState(
     {},
     '',
     `index.php?page=list&product=${qs}`
   );
-  await location.replace(`index.php?page=list&product=${qs}`);
+  //await location.replace(`index.php?page=list&product=${qs}`);
 };
 
 
@@ -57,7 +59,7 @@ const updateList = products => {
       </div>
       `;
   }).join(``);
-};
+}; */
 
 
 
@@ -65,7 +67,8 @@ export const init = () => {
   console.log('start executing this JavaScript');
 
   document.documentElement.classList.add('has-js');
+  /*
   document.querySelectorAll('.searchbar').forEach($field => $field.addEventListener('input', handleInputField));
   document.querySelector('.product__form').addEventListener('submit', handleSubmitForm);
-
+*/
 };
