@@ -1,3 +1,4 @@
+
 /*
 
 const handleSubmitForm = e => {
@@ -19,19 +20,25 @@ const submitWithJS = async () => {
   const url = `index.php?page=list&product=${qs}`;
   console.log('url', url);
 
+*/
+  //deze
+  /*
   const response = await fetch(url);
   const result = await response.json();
-  console.log('hey');
-  console.log(result);
-  //const products = document.querySelector('.product__list');
+
+  const products = document.querySelector('.product__list');
   updateList(result);
+  */
+  //tot hier
+
+  /*
 
   window.history.pushState(
     {},
     '',
     `index.php?page=list&product=${qs}`
   );
-  //await location.replace(`index.php?page=list&product=${qs}`);
+  await location.replace(`index.php?page=list&product=${qs}`);
 };
 
 
@@ -59,16 +66,18 @@ const updateList = products => {
       </div>
       `;
   }).join(``);
-}; */
+};
 
+*/
 
 
 export const init = () => {
   console.log('start executing this JavaScript');
 
   document.documentElement.classList.add('has-js');
-  /*
+/*
   document.querySelectorAll('.searchbar').forEach($field => $field.addEventListener('input', handleInputField));
   document.querySelector('.product__form').addEventListener('submit', handleSubmitForm);
 */
 };
+
