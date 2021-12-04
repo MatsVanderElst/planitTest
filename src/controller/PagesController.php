@@ -35,6 +35,7 @@ class PagesController extends Controller
             $_SESSION['user']['nickname'] = $exists[0]->nickname;
             $_SESSION['user']['credit'] = $exists[0]->credit;
             $_SESSION['user']['email'] = $exists[0]->email;
+            $_SESSION['user']['favstore'] = $exists[0]->favstore;
             header('Location: index.php?page=menu');
           } else {
             //pw error
@@ -149,6 +150,8 @@ class PagesController extends Controller
           if (empty($errors)) {
             //update the user
             $user->update(['favstore' => $store]);
+            // update session
+            $_SESSION['user']['favstore'] = $user['favstore'];
             header('Location:index.php?page=menu');
             exit();
           } else {
@@ -189,7 +192,14 @@ class PagesController extends Controller
     if (!empty($_GET['product'])) {
       $products = Product::where('product', 'LIKE', '%' . $_GET['product'] . '%')->get();
     }
-/*
+
+    //naar html 'sturen' voor echo
+    $this->set('products', $products);
+
+
+
+/* PAGINATION MAAR WERKT NIET :l
+
     $itemsPerPage = 25;
     $totalPages = ceil($products->count() / $itemsPerPage);
     $currentPage = 1;
@@ -199,12 +209,13 @@ class PagesController extends Controller
     $offset = ($currentPage - 1) * $itemsPerPage;
 
     $products = $products->limit($itemsPerPage)->offset($offset)->get();
-*/
-    //naar html 'sturen' voor echo
-    $this->set('products', $products);
 
     //$this->set('totalPages', $totalPages);
     //$this->set('currentPage', $currentPage);
+*/
+
+
+
 
 
 
