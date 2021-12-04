@@ -54,7 +54,16 @@
 
 
         <p class="product__name"><?php echo $product['product'] ?></p>
-        <p class="product__price"><?php echo $product['price'] ?></p>
+
+        <?php if ($_SESSION['user']['favstore'] == 'delhaize') : ?>
+          <p class="product__price"><?php echo $product['price'] + 0.4 ?></p>
+        <?php elseif ($_SESSION['user']['favstore'] == 'carrefour') : ?>
+          <p class="product__price"><?php echo $product['price'] - 0.2 ?></p>
+        <?php elseif ($_SESSION['user']['favstore'] == 'colruyt') : ?>
+          <p class="product__price"><?php echo $product['price'] - 0.5 ?></p>
+        <?php elseif ($_SESSION['user']['favstore'] == 'Albert Hein') : ?>
+          <p class="product__price"><?php echo $product['price'] - 0.3 ?></p>
+        <?php endif; ?>
       </div>
     <?php endforeach; ?>
   </article>
@@ -68,10 +77,10 @@
         <span class="pagination__link"><?php echo $page; ?></span>
       <?php else : ?>
         <a class="pagination__link" href="index.php?page=list<?php
-                                                    $params = $_GET;
-                                                    $params['p'] = $page;
-                                                    echo http_build_query($params);
-                                                    ?>"><?php echo $page; ?></a>
+                                                              $params = $_GET;
+                                                              $params['p'] = $page;
+                                                              echo http_build_query($params);
+                                                              ?>"><?php echo $page; ?></a>
       <?php endif; ?>
     </li>
   <?php endfor; ?>
