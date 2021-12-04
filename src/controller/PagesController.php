@@ -224,7 +224,20 @@ class PagesController extends Controller
       $selectedProduct = Product::where('product', '=', $_GET['product_product'])->get();
       //print_r($selectedProduct);
 
-      $_SESSION['total'] = $_SESSION['total'] + $selectedProduct[0]['price'];
+      
+      //prijs aanpassen adhv gekozen winkel
+      if ($_SESSION['user']['favstore'] == 'delhaize') {
+        $_SESSION['total'] = $_SESSION['total'] + $selectedProduct[0]['price'] + 0.4;
+      } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
+        $_SESSION['total'] = $_SESSION['total'] + $selectedProduct[0]['price'] - 0.2;
+      } elseif ($_SESSION['user']['favstore'] == 'colruyt') {
+        $_SESSION['total'] = $_SESSION['total'] + $selectedProduct[0]['price'] - 0.5;
+      } elseif ($_SESSION['user']['favstore'] == 'alberthein') {
+        $_SESSION['total'] = $_SESSION['total'] + $selectedProduct[0]['price'] - 0.3;
+      } else {
+        $_SESSION['total'] = $_SESSION['total'] + $selectedProduct[0]['price'];
+      }
+
 
       //print_r($_SESSION['total']);
 

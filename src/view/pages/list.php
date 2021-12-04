@@ -61,8 +61,10 @@
           <p class="product__price"><?php echo $product['price'] - 0.2 ?></p>
         <?php elseif ($_SESSION['user']['favstore'] == 'colruyt') : ?>
           <p class="product__price"><?php echo $product['price'] - 0.5 ?></p>
-        <?php elseif ($_SESSION['user']['favstore'] == 'Albert Hein') : ?>
+        <?php elseif ($_SESSION['user']['favstore'] == 'alberthein') : ?>
           <p class="product__price"><?php echo $product['price'] - 0.3 ?></p>
+        <?php else :?>
+          <p class="product__price"><?php echo $product['price'] ?></p>
         <?php endif; ?>
       </div>
     <?php endforeach; ?>
