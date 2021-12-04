@@ -231,3 +231,7 @@
 .product__price {
   color: #efdfb8;
 }
+
+.has-js .formButton {
+  display: none;
+}
