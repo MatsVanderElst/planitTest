@@ -199,12 +199,12 @@ class PagesController extends Controller
     $offset = ($currentPage - 1) * $itemsPerPage;
 
     $products = $products->limit($itemsPerPage)->offset($offset)->get();
-    */
+
     //naar html 'sturen' voor echo
     $this->set('products', $products);
-
-    //$this->set('totalPages', $totalPages);
-   // $this->set('currentPage', $currentPage);
+*/
+    $this->set('totalPages', $totalPages);
+    $this->set('currentPage', $currentPage);
 
 
 

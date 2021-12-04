@@ -21,7 +21,7 @@ const submitWithJS = async () => {
   console.log('url', url);
 
 */
-  //deze
+  //als ik deze lijnen weglaat wordt updatelist nie uitgevoerd maar wertk het js submitten wel? // hou ik deze lijnen erbij krij ik error "Unexpected Token < in JSON at Position 0"
   /*
   const response = await fetch(url);
   const result = await response.json();
