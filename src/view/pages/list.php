@@ -59,3 +59,20 @@
     <?php endforeach; ?>
   </article>
 </div>
+
+
+<ul class="pagination">
+  <?php for ($page = 1; $page <= $totalPages; $page++) : ?>
+    <li>
+      <?php if ($currentPage == $page) : ?>
+        <span class="pagination__link"><?php echo $page; ?></span>
+      <?php else : ?>
+        <a class="pagination__link" href="index.php?page=list<?php
+                                                    $params = $_GET;
+                                                    $params['p'] = $page;
+                                                    echo http_build_query($params);
+                                                    ?>"><?php echo $page; ?></a>
+      <?php endif; ?>
+    </li>
+  <?php endfor; ?>
+</ul>

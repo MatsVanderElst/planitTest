@@ -195,8 +195,23 @@ class PagesController extends Controller
     if (!empty($_GET['product'])) {
       $products = Product::where('product', 'LIKE', '%' . $_GET['product'] . '%')->get();
     }
+/*
+    $itemsPerPage = 25;
+    $totalPages = ceil($products->count() / $itemsPerPage);
+    $currentPage = 1;
+    if (isset($_GET['p']) && $_GET['p'] > 0 && $_GET['p'] <= $totalPages) {
+      $currentPage = $_GET['p'];
+    }
+    $offset = ($currentPage - 1) * $itemsPerPage;
+
+    $products = $products->limit($itemsPerPage)->offset($offset)->get();
+    */
     //naar html 'sturen' voor echo
     $this->set('products', $products);
+
+    //$this->set('totalPages', $totalPages);
+   // $this->set('currentPage', $currentPage);
+
 
 
 
