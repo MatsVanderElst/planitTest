@@ -42,7 +42,7 @@
 
         <form method="get" action="index.php?page=list" class="price">
           <input type="hidden" value="list" name="page">
-          <input type="hidden" value=<?php echo $product['product'] ?> name="product_product">
+          <input type="hidden" value="<?php echo $product['product'] ?>" name="product_product">
 
           <button class="add" type="submit" value="list">
             <span class="material-icons">
@@ -78,7 +78,7 @@
       <?php if ($currentPage == $page) : ?>
         <span class="pagination__link"><?php echo $page; ?></span>
       <?php else : ?>
-        <a class="pagination__link" href="index.php?page=list<?php
+        <a class="pagination__link" href="index.php?<?php
                                                               $params = $_GET;
                                                               $params['p'] = $page;
                                                               echo http_build_query($params);
