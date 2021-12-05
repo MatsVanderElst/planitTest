@@ -211,6 +211,7 @@
   height: 3rem;
   border: 3px solid #ffa957;
   border-radius: 6px;
+  align-self: center;
 
 }
 
@@ -221,6 +222,7 @@
   justify-content: space-between;
   width: 80vw;
   margin-top: 1.2rem;
+  align-self: center;
 }
 
 .product__name {
@@ -235,3 +237,13 @@
 .has-js .formButton {
   display: none;
 }
+
+.cart {
+  text-decoration: none;
+  color: #efdfb8;
+}
+
+.listTitle {
+  text-align: center;
+}
+
