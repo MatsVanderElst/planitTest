@@ -9,8 +9,20 @@
   <?php
   $total = 0;
   foreach ($selectedProducts as $product)
+  if ($_SESSION['user']['favstore'] == 'delhaize') {
+    $total += $product[0]['price'] + 0.4;
+  } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
+    $total += $product[0]['price'] - 0.2;
+  } elseif ($_SESSION['user']['favstore'] == 'colruyt') {
+    $total += $product[0]['price'] - 0.5;
+  } elseif ($_SESSION['user']['favstore'] == 'alberthein') {
+    $total += $product[0]['price'] - 0.3;
+  } else {
     $total += $product[0]['price'];
+  }
   ?>
+
+  
 
 
   <?php if (!empty($_SESSION['list'])) : ?>
@@ -27,7 +39,17 @@
             </span>
           </div>
           <p><?php echo $product[0]['product'] ?></p>
-          <p><?php echo $product[0]['price'] ?></p>
+          <?php if ($_SESSION['user']['favstore'] == 'delhaize') : ?>
+            <p class="product__price"><?php echo $product[0]['price'] + 0.4 ?></p>
+          <?php elseif ($_SESSION['user']['favstore'] == 'carrefour') : ?>
+            <p class="product__price"><?php echo $product[0]['price'] - 0.2 ?></p>
+          <?php elseif ($_SESSION['user']['favstore'] == 'colruyt') : ?>
+            <p class="product__price"><?php echo $product[0]['price'] - 0.5 ?></p>
+          <?php elseif ($_SESSION['user']['favstore'] == 'alberthein') : ?>
+            <p class="product__price"><?php echo $product[0]['price'] - 0.3 ?></p>
+          <?php else : ?>
+            <p class="product__price"><?php echo $product[0]['price'] ?></p>
+          <?php endif; ?>
         </div>
       </div>
       <hr class="stroke">
