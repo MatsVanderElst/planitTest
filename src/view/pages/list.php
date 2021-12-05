@@ -28,7 +28,7 @@
     <section>
       <form class="product__form" method="get" action="index.php?page=list">
         <input type="hidden" name="page" value="list" />
-        <input class="searchbar" type="text" name="product" placeholder="Bell Pepper" value="<?php if (!empty($_GET['product'])) echo $_GET['product']; ?>" />
+        <input class="searchbar" type="text" name="product" placeholder="Apple" value="<?php if (!empty($_GET['product'])) echo $_GET['product']; ?>" />
         <button class="formButton" type="submit">Search</button>
       </form>
     </section>
