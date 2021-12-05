@@ -231,7 +231,7 @@
 }
 
 .product__price {
-  color: #efdfb8;
+  color: #484e72;
 }
 
 .has-js .formButton {
@@ -247,3 +247,24 @@
   text-align: center;
 }
 
+.cart__products {
+  background-color: whitesmoke;
+  width: 80vw;
+  border-radius: 6px;
+}
+
+.single__product {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.stroke {
+  border: none;
+  height: 5px;
+  width: 60vw;
+  background-color: #ffa957;
+  border-radius: 100px;
+}
