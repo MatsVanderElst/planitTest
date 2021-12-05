@@ -3,8 +3,7 @@
 require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../model/User.php';
 require_once __DIR__ . '/../model/Product.php';
-
-
+use Illuminate\Database\Capsule\Manager as DB;
 
 class PagesController extends Controller
 {
@@ -189,16 +188,18 @@ class PagesController extends Controller
     $products = Product::all();
     //zoekfunctie
     if (!empty($_GET['product'])) {
-      $products = Product::where('product', 'LIKE', '%' . $_GET['product'] . '%')->get();
+      $productsQuery = Product::where('product', 'LIKE', '%' . $_GET['product'] . '%');
+    }else{
+      $productsQuery = DB::table('products');
+      $products = $productsQuery->get();
     }
 
     //naar html 'sturen' voor echo
-    $this->set('products', $products);
-
-
+    
+    
 
     /* PAGINATION MAAR WERKT NIET :l
-
+    */
     $itemsPerPage = 25;
     $totalPages = ceil($products->count() / $itemsPerPage);
     $currentPage = 1;
@@ -206,12 +207,13 @@ class PagesController extends Controller
       $currentPage = $_GET['p'];
     }
     $offset = ($currentPage - 1) * $itemsPerPage;
-
-    $products = $products->limit($itemsPerPage)->offset($offset)->get();
-
-    //$this->set('totalPages', $totalPages);
-    //$this->set('currentPage', $currentPage);
-    */
+    
+    $products = $productsQuery->offset($offset)->limit($itemsPerPage)->get();
+    
+    $this->set('products', $products);
+    $this->set('totalPages', $totalPages);
+    $this->set('currentPage', $currentPage);
+    
 
 
     if (!empty($_GET['product_product'])) {
