@@ -224,7 +224,7 @@ class PagesController extends Controller
       $selectedProduct = Product::where('product', '=', $_GET['product_product'])->get();
       //print_r($selectedProduct);
 
-      
+
       //prijs aanpassen adhv gekozen winkel
       if ($_SESSION['user']['favstore'] == 'delhaize') {
         $_SESSION['total'] = $_SESSION['total'] + $selectedProduct[0]['price'] + 0.4;
@@ -303,9 +303,21 @@ class PagesController extends Controller
     //zet de totale prijs op de som van alle producten die nog in het winkelmandje zitten
     if (!empty($selectedProducts)) {
       foreach ($selectedProducts as $product) {
-        $_SESSION['total'] += $product[0]['price'];
+        if ($_SESSION['user']['favstore'] == 'delhaize') {
+          $_SESSION['total'] += $product[0]['price'] + 0.4;
+        } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
+          $_SESSION['total'] += $product[0]['price'] - 0.2;
+        } elseif ($_SESSION['user']['favstore'] == 'colruyt') {
+          $_SESSION['total'] += $product[0]['price'] - 0.5;
+        } elseif ($_SESSION['user']['favstore'] == 'alberthein') {
+          $_SESSION['total'] += $product[0]['price'] - 0.3;
+        } else {
+          $_SESSION['total'] += $product[0]['price'];
+        }
       }
     }
+
+
 
     $this->set('selectedProducts', $selectedProducts);
   }
