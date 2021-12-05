@@ -1,5 +1,5 @@
 
-/*
+
 
 const handleSubmitForm = e => {
   e.preventDefault();
@@ -17,28 +17,28 @@ const submitWithJS = async () => {
   console.log('entries:', entries);
   const qs = new URLSearchParams(entries).toString();
   console.log('querystring', qs);
-  const url = `index.php?page=list&product=${qs}`;
+  const url = `index.php?${qs}&json=true`;
   console.log('url', url);
 
-*/
   //als ik deze lijnen weglaat wordt updatelist nie uitgevoerd maar wertk het js submitten wel? // hou ik deze lijnen erbij krij ik error "Unexpected Token < in JSON at Position 0"
-  /*
+  
   const response = await fetch(url);
   const result = await response.json();
+  console.log(result);
 
   const products = document.querySelector('.product__list');
   updateList(result);
-  */
+
   //tot hier
 
-  /*
+  
 
   window.history.pushState(
     {},
     '',
-    `index.php?page=list&product=${qs}`
+    `index.php?${qs}`
   );
-  await location.replace(`index.php?page=list&product=${qs}`);
+  await location.replace(`index.php?${qs}`);
 };
 
 
@@ -68,16 +68,16 @@ const updateList = products => {
   }).join(``);
 };
 
-*/
+
 
 
 export const init = () => {
   console.log('start executing this JavaScript');
 
   document.documentElement.classList.add('has-js');
-/*
+
   document.querySelectorAll('.searchbar').forEach($field => $field.addEventListener('input', handleInputField));
   document.querySelector('.product__form').addEventListener('submit', handleSubmitForm);
-*/
+
 };
 

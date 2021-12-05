@@ -203,11 +203,17 @@ class PagesController extends Controller
     
     $products = $products->offset($offset)->limit($itemsPerPage)->get();
     
+    // Check if we need to respond with json
+    if (!empty($_GET['json'])) {
+      $jsonProducts = $products->toJson();
+      echo($jsonProducts);
+      exit(); 
+    }
+
     $this->set('products', $products);
     $this->set('totalPages', $totalPages);
     $this->set('currentPage', $currentPage);
     
-
 
     if (!empty($_GET['product_product'])) {
       $selectedProduct = Product::where('product', '=', $_GET['product_product'])->get();
@@ -254,6 +260,8 @@ class PagesController extends Controller
         print_r($_SESSION['list']);
       }
     }
+
+    
   }
 
   public function cart()
