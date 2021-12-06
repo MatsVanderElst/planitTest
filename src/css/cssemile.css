@@ -324,7 +324,7 @@
 }
 
 .pagination__link {
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   color: #efdfb8;
   margin: 1rem;
   text-decoration: underline;
@@ -370,4 +370,26 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.empty {
+  background-color: whitesmoke;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.emptyP {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.cart__title {
+  text-align: center;
+  margin-top: -40rem;
+  position: absolute;
+}
+
+.titleImage-cart {
+  width: 80vw;
 }

@@ -1,9 +1,15 @@
 <div class="cart__container">
+  <h1 class="cart__title">
+    <a href="index.php?page=menu">
+      <img src="./assets/images/title.svg" alt="mealplanner" class="titleImage-cart">
+    </a>
+  </h1>
+
   <div>
     <?php if (empty($_SESSION['list'])) : ?>
-      <div>
-        <p> Your shoppinglist is still empty</p>
-        <a href="index.php?page=list">make A shoppinglist</a>
+      <div class="empty">
+        <p class="emptyP"> Your shopping list is still empty</p>
+        <a href="index.php?page=list">click to create a shopping list</a>
       </div>
     <?php endif; ?>
   </div>
@@ -26,8 +32,9 @@
 
 
 
-  <div class="cart__products">
-    <?php if (!empty($_SESSION['list'])) : ?>
+
+  <?php if (!empty($_SESSION['list'])) : ?>
+    <div class="cart__products">
       <?php foreach ($selectedProducts as $product) : ?>
         <div>
           <div class="single__product">
@@ -56,8 +63,9 @@
         </div>
         <hr class="stroke">
       <?php endforeach; ?>
-    <?php endif; ?>
-  </div>
+    </div>
+  <?php endif; ?>
+
 
   <?php if (!empty($_SESSION['list'])) : ?>
     <div>
