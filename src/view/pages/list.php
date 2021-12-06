@@ -1,11 +1,11 @@
 <div class="list__container">
   <h1 class="list__title">
     <a href="index.php?page=menu">
-      <img src="./assets/images/title.svg" alt="mealplanner" class="titleImage">
+      <img src="./assets/images/title.svg" alt="mealplanner" class="titleImage-list">
     </a>
   </h1>
 
-  <article>
+  <article class="welcome-list">
     <section>
       <p class="list__welcome"><?php echo $_SESSION['user']['nickname'] ?>, <br> you have € <?php echo $_SESSION['overschot'] ?> left this week</p>
     </section>
@@ -16,7 +16,14 @@
     </section>
   </article>
 
-  <article>
+  <article class="search__basket">
+    <section>
+      <form class="product__form" method="get" action="index.php?page=list">
+        <input type="hidden" name="page" value="list" />
+        <input class="searchbar" type="text" name="product" placeholder="Apple" value="<?php if (!empty($_GET['product'])) echo $_GET['product']; ?>" />
+        <button class="formButton" type="submit">Search</button>
+      </form>
+    </section>
     <section>
       <a href="index.php?page=cart" class="basket">
         <span class="material-icons cart">
@@ -24,13 +31,6 @@
         </span>
         <span class="amountCart"><?php if (!empty($_SESSION['list'])) echo count($_SESSION['list']) ?></span>
       </a>
-    </section>
-    <section>
-      <form class="product__form" method="get" action="index.php?page=list">
-        <input type="hidden" name="page" value="list" />
-        <input class="searchbar" type="text" name="product" placeholder="Apple" value="<?php if (!empty($_GET['product'])) echo $_GET['product']; ?>" />
-        <button class="formButton" type="submit">Search</button>
-      </form>
     </section>
   </article>
 
@@ -63,27 +63,26 @@
           <p class="product__price"><?php echo $product['price'] - 0.5 ?></p>
         <?php elseif ($_SESSION['user']['favstore'] == 'alberthein') : ?>
           <p class="product__price"><?php echo $product['price'] - 0.3 ?></p>
-        <?php else :?>
+        <?php else : ?>
           <p class="product__price"><?php echo $product['price'] ?></p>
         <?php endif; ?>
       </div>
     <?php endforeach; ?>
   </article>
+
+  <ul class="pagination">
+    <?php for ($page = 1; $page <= $totalPages; $page++) : ?>
+      <li>
+        <?php if ($currentPage == $page) : ?>
+          <span class="pagination__link"><?php echo $page; ?></span>
+        <?php else : ?>
+          <a class="pagination__link" href="index.php?<?php
+                                                      $params = $_GET;
+                                                      $params['p'] = $page;
+                                                      echo http_build_query($params);
+                                                      ?>"><?php echo $page; ?></a>
+        <?php endif; ?>
+      </li>
+    <?php endfor; ?>
+  </ul>
 </div>
-
-
-<ul class="pagination">
-  <?php for ($page = 1; $page <= $totalPages; $page++) : ?>
-    <li>
-      <?php if ($currentPage == $page) : ?>
-        <span class="pagination__link"><?php echo $page; ?></span>
-      <?php else : ?>
-        <a class="pagination__link" href="index.php?<?php
-                                                              $params = $_GET;
-                                                              $params['p'] = $page;
-                                                              echo http_build_query($params);
-                                                              ?>"><?php echo $page; ?></a>
-      <?php endif; ?>
-    </li>
-  <?php endfor; ?>
-</ul>

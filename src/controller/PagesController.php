@@ -191,29 +191,29 @@ class PagesController extends Controller
     }else{
       $products = Product::query();
     }
-    
-    
-    $itemsPerPage = 25;
+
+
+    $itemsPerPage = 15;
     $totalPages = ceil($allProducts->count() / $itemsPerPage);
     $currentPage = 1;
     if (isset($_GET['p']) && $_GET['p'] > 0 && $_GET['p'] <= $totalPages) {
       $currentPage = $_GET['p'];
     }
     $offset = ($currentPage - 1) * $itemsPerPage;
-    
+
     $products = $products->offset($offset)->limit($itemsPerPage)->get();
-    
+
     // Check if we need to respond with json
     if (!empty($_GET['json'])) {
       $jsonProducts = $products->toJson();
       echo($jsonProducts);
-      exit(); 
+      exit();
     }
 
     $this->set('products', $products);
     $this->set('totalPages', $totalPages);
     $this->set('currentPage', $currentPage);
-    
+
 
     if (!empty($_GET['product_product'])) {
       $selectedProduct = Product::where('product', '=', $_GET['product_product'])->get();
@@ -257,11 +257,11 @@ class PagesController extends Controller
     if (!empty($_GET['product_product'])) {
       if ($_SESSION['total'] <= $_SESSION['user']['credit']) {
         array_push($_SESSION['list'], $_GET['product_product']);
-        print_r($_SESSION['list']);
+        //print_r($_SESSION['list']);
       }
     }
 
-    
+
   }
 
   public function cart()
