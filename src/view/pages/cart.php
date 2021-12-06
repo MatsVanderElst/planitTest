@@ -10,15 +10,15 @@
   $total = 0;
   foreach ($selectedProducts as $product)
     if ($_SESSION['user']['favstore'] == 'delhaize') {
-      $total += $product[0]['price'] + 0.4;
+      $total += $product['price'] + 0.4;
     } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
-      $total += $product[0]['price'] - 0.2;
+      $total += $product['price'] - 0.2;
     } elseif ($_SESSION['user']['favstore'] == 'colruyt') {
-      $total += $product[0]['price'] - 0.5;
+      $total += $product['price'] - 0.5;
     } elseif ($_SESSION['user']['favstore'] == 'alberthein') {
-      $total += $product[0]['price'] - 0.3;
+      $total += $product['price'] - 0.3;
     } else {
-      $total += $product[0]['price'];
+      $total += $product['price'];
     }
   ?>
 
@@ -38,17 +38,17 @@
                 </a>
               </span>
             </div>
-            <p><?php echo $product[0]['product'] ?></p>
+            <p><?php echo $product['product'] ?></p>
             <?php if ($_SESSION['user']['favstore'] == 'delhaize') : ?>
-              <p class="product__price"><?php echo $product[0]['price'] + 0.4 ?></p>
+              <p class="product__price"><?php echo $product['price'] + 0.4 ?></p>
             <?php elseif ($_SESSION['user']['favstore'] == 'carrefour') : ?>
-              <p class="product__price"><?php echo $product[0]['price'] - 0.2 ?></p>
+              <p class="product__price"><?php echo $product['price'] - 0.2 ?></p>
             <?php elseif ($_SESSION['user']['favstore'] == 'colruyt') : ?>
-              <p class="product__price"><?php echo $product[0]['price'] - 0.5 ?></p>
+              <p class="product__price"><?php echo $product['price'] - 0.5 ?></p>
             <?php elseif ($_SESSION['user']['favstore'] == 'alberthein') : ?>
-              <p class="product__price"><?php echo $product[0]['price'] - 0.3 ?></p>
+              <p class="product__price"><?php echo $product['price'] - 0.3 ?></p>
             <?php else : ?>
-              <p class="product__price"><?php echo $product[0]['price'] ?></p>
+              <p class="product__price"><?php echo $product['price'] ?></p>
             <?php endif; ?>
           </div>
         </div>
@@ -65,12 +65,10 @@
       </section>
 
       <section>
-        <form class="jsForm form" method="get" action="index.php?page=cart">
-          <input type="hidden" value="true" name="confirm">
+        <form class="jsForm form" method="get" action="index.php">
+          <input type="hidden" value="confirm" name="action">
           <input type="hidden" value="menu" name="page">
-          <a href="index.php?page=menu">
-            <input type="submit" value="confirm" class="submitButton">
-          </a>
+          <input type="submit" value="confirm" class="submitButton">
         </form>
       </section>
     </div>

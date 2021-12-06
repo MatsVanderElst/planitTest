@@ -33,6 +33,10 @@ $routes = array(
     'controller' => 'pages',
     'action' => 'cart'
   ),
+  'fridge' => array(
+    'controller' => 'pages',
+    'action' => 'fridge'
+  )
 
 );
 

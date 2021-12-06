@@ -166,10 +166,15 @@ class PagesController extends Controller
 
   public function menu()
   {
+
+    $action = $_GET['action'];
+
     $newCredit = $_SESSION['user']['credit'] - $_SESSION['total'];
     //zorgt er voor dat winkelmandje leeg wordt gemaakt na duwne op confirm zo kan gebruioker nieuwe lijst opstellen Ook wordt hier het budget vd user upgedate in de db
-    if (!empty($_GET['confirm'])) {
+    if (!empty($_GET['action']) && $_GET['action']=='confirm') {
       $_SESSION['total'] = 0;
+      // steekt u items bij in de frigo bij wat er al in zit
+      $_SESSION['user']['fridge'] = array_merge($_SESSION['user']['fridge'],$_SESSION['list']);
       $_SESSION['list'] = array();
       $user = User::where('email', '=', $_SESSION['user']['email'])->update(['credit' => $newCredit]);
       $_SESSION['user']['credit'] = $newCredit;
@@ -270,9 +275,9 @@ class PagesController extends Controller
 
     $selectedProducts = array();
 
-    foreach ($_SESSION['list'] as $productName) {
-      $selectedProducts[] = Product::where('product', '=', $productName)->get();
-    }
+    
+      $selectedProducts = Product::whereIn('product', $_SESSION['list'])->get()->toArray();
+    
 
     //zet de totale prijs op 0 wanneer geen producten meer in de mand zitten
     $_SESSION['total'] = 0;
@@ -287,7 +292,7 @@ class PagesController extends Controller
 
         /*verwijder het element met de juiste index selectedproducts is een array en bv. het eerste element heeft index
                 0 deze index geef je mee aan de url (product=0) aan de hand van de url verwijder je dan dat element */
-
+        $productName = $selectedProducts[$StringNumber]['product'];
         unset($selectedProducts[$StringNumber]);
 
         //zoek de index van het verwijderde product (volgens naam) in de session om die later te gaan verwijderen
@@ -301,15 +306,15 @@ class PagesController extends Controller
     if (!empty($selectedProducts)) {
       foreach ($selectedProducts as $product) {
         if ($_SESSION['user']['favstore'] == 'delhaize') {
-          $_SESSION['total'] += $product[0]['price'] + 0.4;
+          $_SESSION['total'] += $product['price'] + 0.4;
         } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
-          $_SESSION['total'] += $product[0]['price'] - 0.2;
+          $_SESSION['total'] += $product['price'] - 0.2;
         } elseif ($_SESSION['user']['favstore'] == 'colruyt') {
-          $_SESSION['total'] += $product[0]['price'] - 0.5;
+          $_SESSION['total'] += $product['price'] - 0.5;
         } elseif ($_SESSION['user']['favstore'] == 'alberthein') {
-          $_SESSION['total'] += $product[0]['price'] - 0.3;
+          $_SESSION['total'] += $product['price'] - 0.3;
         } else {
-          $_SESSION['total'] += $product[0]['price'];
+          $_SESSION['total'] += $product['price'];
         }
       }
     }
@@ -318,6 +323,11 @@ class PagesController extends Controller
 
     $this->set('selectedProducts', $selectedProducts);
   }
+
+  public function fridge(){
+    $iets = $_SESSION['user'];
+  }
+
 }
 
 
