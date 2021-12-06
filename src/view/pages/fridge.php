@@ -6,39 +6,16 @@
   <article class="formcontent__credit">
     <img src="./assets/images/hamburger.svg" alt="hamburger illustration" class="creditburger">
  
-      <p class="fridgeSubTitle"> <?php echo $_SESSION['user']['nickname'] ?>, There are <?php echo $_SESSION['user']['fridgeItemCount'] ?>, item’s in your fridgee </p>
+      <p class="fridgeSubTitle"> <?php echo $_SESSION['user']['nickname'] ?>, There are <?php echo $fridgeItemCount ?>, item’s in your fridge </p>
     <p class="fridgeParagraph">Here’s an overview of the products you Have at home. Tap the product to see it’s details.</p>
     <ul>
-        <li class="fridgeItem">
-            <a>
-                <p>Banana</p>
-            </a>
-        </li>
-        <li class="fridgeItem">
-            <a>
-                <p>Banana</p>
-            </a>
-        </li>
-        <li class="fridgeItem">
-            <a>
-                <p>Banana</p>
-            </a>
-        </li>
-        <li class="fridgeItem">
-            <a>
-                <p>Banana</p>
-            </a>
-        </li>
-        <li class="fridgeItem">
-            <a>
-                <p>Banana</p>
-            </a>
-        </li>
-        <li class="fridgeItem">
-            <a>
-                <p>Banana</p>
-            </a>
-        </li>
+        <?php foreach ($fridge as $fridgeItem) : ?>
+            <li class="fridgeItem">
+                <a >
+                    <p><?php echo $fridgeItem['product']; ?></p>
+                </a>
+            </li>
+        <?php endforeach; ?>
     </ul>
 
 

@@ -14,6 +14,7 @@
     <?php endif; ?>
   </div>
 
+  <!-- moet hier geen endforeach komen? -->
   <?php
   $total = 0;
   foreach ($selectedProducts as $product)

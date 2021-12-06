@@ -13,7 +13,7 @@
         </a>
       </div>
       <div class="products__button">
-        <a href="#">
+        <a href="index.php?page=fridge">
           <p>products at home</p>
           <img src="assets/images/houseIcon.svg" alt="home icon">
         </a>

@@ -166,15 +166,25 @@ class PagesController extends Controller
 
   public function menu()
   {
-
-    $action = $_GET['action'];
-
     $newCredit = $_SESSION['user']['credit'] - $_SESSION['total'];
     //zorgt er voor dat winkelmandje leeg wordt gemaakt na duwne op confirm zo kan gebruioker nieuwe lijst opstellen Ook wordt hier het budget vd user upgedate in de db
     if (!empty($_GET['action']) && $_GET['action']=='confirm') {
       $_SESSION['total'] = 0;
-      // steekt u items bij in de frigo bij wat er al in zit
-      $_SESSION['user']['fridge'] = array_merge($_SESSION['user']['fridge'],$_SESSION['list']);
+
+      // haal product details op uit de DB
+      $groceries = Product::whereIn('product', $_SESSION['list'])->get()->toArray();
+
+      if (!empty($_SESSION['user']['fridge'])){
+        // steekt u items bij in de frigo bij wat er al in zit
+
+        $_SESSION['user']['fridge'] = array_merge($_SESSION['user']['fridge'],$groceries);
+
+      }else{
+        $_SESSION['user']['fridge'] = $groceries;
+      }
+
+
+
       $_SESSION['list'] = array();
       $user = User::where('email', '=', $_SESSION['user']['email'])->update(['credit' => $newCredit]);
       $_SESSION['user']['credit'] = $newCredit;
@@ -325,7 +335,19 @@ class PagesController extends Controller
   }
 
   public function fridge(){
-    $iets = $_SESSION['user'];
+
+    $fridge = $_SESSION['user']['fridge'];
+    
+
+    if (!empty($fridge)){
+      $this->set("fridgeItemCount", count($fridge));
+    }else{
+      $this->set("fridgeItemCount", 0);
+    }
+
+    $this->set('fridge', $fridge);
+
+
   }
 
 }
