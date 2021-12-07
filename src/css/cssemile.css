@@ -18,6 +18,10 @@
   height: 80vh;
 }
 
+.titleImage {
+  width: 80vw;
+}
+
 .formStyle {
   font-size: 1.2rem;
   display: flex;
@@ -262,6 +266,8 @@
 .product__list {
   display: flex;
   flex-direction: column;
+  height: 35vh;
+  overflow-y: auto;
 }
 
 .product__name {
@@ -296,6 +302,8 @@
   border-radius: 6px;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  height: 10rem;
+  overflow-y: auto;
 }
 
 .single__product {
@@ -311,6 +319,7 @@
   width: 60vw;
   background-color: #ffa957;
   border-radius: 100px;
+  margin-bottom: 2rem;
 }
 
 .stroke:last-child {
@@ -321,14 +330,26 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-top: 1.5rem;
 }
 
 .pagination__link {
   font-size: 1.3rem;
   color: #efdfb8;
   margin: 1rem;
-  text-decoration: underline;
   margin-bottom: 5rem;
+}
+
+.pagination__link:hover {
+  color: whitesmoke;
+}
+
+.pagination__link-span {
+  font-size: 1.3rem;
+  color: whitesmoke;
+  margin: 1rem;
+  margin-bottom: 5rem;
+  text-decoration: underline;
 }
 
 .search__basket {

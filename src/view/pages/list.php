@@ -74,7 +74,7 @@
     <?php for ($page = 1; $page <= $totalPages; $page++) : ?>
       <li>
         <?php if ($currentPage == $page) : ?>
-          <span class="pagination__link"><?php echo $page; ?></span>
+          <span class="pagination__link-span"><?php echo $page; ?></span>
         <?php else : ?>
           <a class="pagination__link" href="index.php?<?php
                                                       $params = $_GET;

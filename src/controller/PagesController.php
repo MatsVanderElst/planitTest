@@ -285,9 +285,9 @@ class PagesController extends Controller
 
     $selectedProducts = array();
 
-    
+
       $selectedProducts = Product::whereIn('product', $_SESSION['list'])->get()->toArray();
-    
+
 
     //zet de totale prijs op 0 wanneer geen producten meer in de mand zitten
     $_SESSION['total'] = 0;
@@ -337,7 +337,7 @@ class PagesController extends Controller
   public function fridge(){
 
     $fridge = $_SESSION['user']['fridge'];
-    
+
 
     if (!empty($fridge)){
       $this->set("fridgeItemCount", count($fridge));
