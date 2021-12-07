@@ -120,6 +120,7 @@
   background-color: #484e72;
 }
 
+
 @media only screen and (min-width: 700px) {
 
   .formcontent {
@@ -272,6 +273,7 @@
 
 .product__name {
   color: #efdfb8;
+  width: 7rem;
 }
 
 .product__price {
@@ -302,7 +304,7 @@
   border-radius: 6px;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  height: 10rem;
+  height: 15rem;
   overflow-y: auto;
 }
 
@@ -413,4 +415,41 @@
 
 .titleImage-cart {
   width: 80vw;
+}
+
+@media only screen and (min-width: 600px) {
+
+  .titleImage-list {
+    width: 480px;
+  }
+
+  .product__single {
+    background-color: whitesmoke;
+    padding: .5rem;
+    border-radius: 6px;
+    border: 3px solid #ffa957;
+  }
+
+  .product__price {
+    color: #393e5b;
+  }
+
+  .product__name {
+    color: #393e5b;
+  }
+}
+
+@media only screen and (min-width: 650px) {
+
+  .product__single {
+    width: 524px;
+  }
+
+  .searchbar {
+    width: 431px;
+  }
+
+  .search__basket {
+    width: 666px;
+  }
 }
