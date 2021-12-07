@@ -2,7 +2,7 @@
 
 use \Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class FridgeItem extends Model
 {
   public $timestamps = false;
 }

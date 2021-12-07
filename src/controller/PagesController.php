@@ -3,6 +3,8 @@
 require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../model/User.php';
 require_once __DIR__ . '/../model/Product.php';
+require_once __DIR__ . '/../model/FridgeItem.php';
+
 
 class PagesController extends Controller
 {
@@ -83,14 +85,23 @@ class PagesController extends Controller
         $errors = User::validate($user);
         //geen errors? --> juiste user in session steken
         if (empty($errors)) {
+
+          //in db steken
+          $user = User::create([
+            'nickname' => $_POST['nickname'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+            'credit' => 0,
+            'favstore' => "none"
+          ]);
+
           $_SESSION['user']['nickname'] = $user['nickname'];
           $_SESSION['user']['credit'] = $user['credit'];
           $_SESSION['user']['id'] = $user['id'];
           $_SESSION['user']['email'] = $user['email'];
           $_SESSION['user']['password'] = $user['password'];
 
-          //in db steken
-          $user->save();
+
           header('Location: index.php?page=credit');
           exit();
           //errors tonen als er zijn
@@ -174,11 +185,21 @@ class PagesController extends Controller
       // haal product details op uit de DB
       $groceries = Product::whereIn('product', $_SESSION['list'])->get()->toArray();
 
+
+      //groceries in DB steken
+      foreach($groceries as $product){
+        $fridgeItem = new FridgeItem;
+        $fridgeItem->user_id = $_SESSION['user']['id'];
+        $fridgeItem->product_id = $product['id'];
+        $shelfLife = $product['shelf_life'];
+        $expirationDate = Date('y:m:d', strtotime("+$shelfLife days"));
+        $fridgeItem->expiration_date = $expirationDate;
+        $fridgeItem->save();
+      }
+
       if (!empty($_SESSION['user']['fridge'])){
         // steekt u items bij in de frigo bij wat er al in zit
-
         $_SESSION['user']['fridge'] = array_merge($_SESSION['user']['fridge'],$groceries);
-
       }else{
         $_SESSION['user']['fridge'] = $groceries;
       }

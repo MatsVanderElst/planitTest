@@ -5,8 +5,7 @@ use \Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
   public $timestamps = false;
-  public $incrementing = false;
-
+  
   protected $fillable = ['nickname', 'email', 'password', 'credit', 'id', 'favstore'];
 
   public static function validate($data)
