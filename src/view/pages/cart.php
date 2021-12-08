@@ -41,7 +41,7 @@
           <div class="single__product">
             <div>
               <span>
-                <a href="index.php?page=cart&action=delete&product_product=<?php echo array_search($product, $selectedProducts) ?>">
+                <a href="index.php?page=cart&action=delete&deleteProduct=<?php echo $product['id'] ?>">
                   <span class="material-icons bin">
                     delete
                   </span>

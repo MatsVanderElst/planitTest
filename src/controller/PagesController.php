@@ -182,29 +182,25 @@ class PagesController extends Controller
     if (!empty($_GET['action']) && $_GET['action']=='confirm') {
       $_SESSION['total'] = 0;
 
-      // haal product details op uit de DB
-      $groceries = Product::whereIn('product', $_SESSION['list'])->get()->toArray();
-
+      $quantitiesById = array_count_values($_SESSION['list']);
 
       //groceries in DB steken
-      foreach($groceries as $product){
+      foreach($quantitiesById as $productId => $quantity){
+        $product = Product::find($productId);
         $fridgeItem = new FridgeItem;
         $fridgeItem->user_id = $_SESSION['user']['id'];
         $fridgeItem->product_id = $product['id'];
         $shelfLife = $product['shelf_life'];
         $expirationDate = Date('y:m:d', strtotime("+$shelfLife days"));
+        $fridgeItem->quantity = $quantity;
         $fridgeItem->expiration_date = $expirationDate;
         $fridgeItem->save();
       }
 
-      if (!empty($_SESSION['user']['fridge'])){
-        // steekt u items bij in de frigo bij wat er al in zit
-        $_SESSION['user']['fridge'] = array_merge($_SESSION['user']['fridge'],$groceries);
-      }else{
-        $_SESSION['user']['fridge'] = $groceries;
-      }
-
-
+      
+        // haal fridgeitems uit DB en steek ze in de SESSIE
+        /* $_SESSION['user']['fridge'] = FridgeItem::where('user_id',"=", $_SESSION['user']['id']); */
+      
 
       $_SESSION['list'] = array();
       $user = User::where('email', '=', $_SESSION['user']['email'])->update(['credit' => $newCredit]);
@@ -251,22 +247,22 @@ class PagesController extends Controller
     $this->set('currentPage', $currentPage);
 
 
-    if (!empty($_GET['product_product'])) {
-      $selectedProduct = Product::where('product', '=', $_GET['product_product'])->get();
+    if (!empty($_GET['addProduct'])) {
+      $addedProduct = Product::where('id', '=', $_GET['addProduct'])->get();
       //print_r($selectedProduct);
 
 
       //prijs aanpassen adhv gekozen winkel
       if ($_SESSION['user']['favstore'] == 'delhaize') {
-        $_SESSION['total'] = $_SESSION['total'] + $selectedProduct[0]['price'] + 0.4;
+        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] + 0.4;
       } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
-        $_SESSION['total'] = $_SESSION['total'] + $selectedProduct[0]['price'] - 0.2;
+        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] - 0.2;
       } elseif ($_SESSION['user']['favstore'] == 'colruyt') {
-        $_SESSION['total'] = $_SESSION['total'] + $selectedProduct[0]['price'] - 0.5;
+        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] - 0.5;
       } elseif ($_SESSION['user']['favstore'] == 'alberthein') {
-        $_SESSION['total'] = $_SESSION['total'] + $selectedProduct[0]['price'] - 0.3;
+        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] - 0.3;
       } else {
-        $_SESSION['total'] = $_SESSION['total'] + $selectedProduct[0]['price'];
+        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'];
       }
 
 
@@ -290,9 +286,9 @@ class PagesController extends Controller
 
     }
 
-    if (!empty($_GET['product_product'])) {
+    if (!empty($_GET['addProduct'])) {
       if ($_SESSION['total'] <= $_SESSION['user']['credit']) {
-        array_push($_SESSION['list'], $_GET['product_product']);
+        array_push($_SESSION['list'], $_GET['addProduct']);
         //print_r($_SESSION['list']);
       }
     }
@@ -306,8 +302,10 @@ class PagesController extends Controller
 
     $selectedProducts = array();
 
-
-      $selectedProducts = Product::whereIn('product', $_SESSION['list'])->get()->toArray();
+    foreach($_SESSION['list'] as $productId){
+      $selectedProduct = Product::find($productId);
+      array_push($selectedProducts, $selectedProduct);
+    }
 
 
     //zet de totale prijs op 0 wanneer geen producten meer in de mand zitten
@@ -319,17 +317,19 @@ class PagesController extends Controller
 
       if ($_GET['action'] == 'delete') {
         //zet string nummer om naar een echt nummer
-        $StringNumber = intval($_GET['product_product']);
+        $deleteProductId = intval($_GET['deleteProduct']);
 
-        /*verwijder het element met de juiste index selectedproducts is een array en bv. het eerste element heeft index
-                0 deze index geef je mee aan de url (product=0) aan de hand van de url verwijder je dan dat element */
-        $productName = $selectedProducts[$StringNumber]['product'];
-        unset($selectedProducts[$StringNumber]);
+        $index = 0;
 
-        //zoek de index van het verwijderde product (volgens naam) in de session om die later te gaan verwijderen
-        $listIndex = array_search($productName, $_SESSION['list']);
-
-        unset($_SESSION['list'][$listIndex]);
+        
+        foreach($selectedProducts as $product){
+          if($product['id'] == $deleteProductId){
+            unset($selectedProducts[$index]);
+            unset($_SESSION['list'][$index]);
+            break;
+          }
+          $index = $index + 1;
+        }
       }
     }
 
@@ -350,23 +350,21 @@ class PagesController extends Controller
       }
     }
 
-
+    /* $_SESSION['list'] = $selectedProducts; */
 
     $this->set('selectedProducts', $selectedProducts);
   }
 
   public function fridge(){
 
-    $fridge = $_SESSION['user']['fridge'];
+    $items = FridgeItem::where("user_id", "=", $_SESSION['user']['id'])->get();
 
 
-    if (!empty($fridge)){
-      $this->set("fridgeItemCount", count($fridge));
-    }else{
-      $this->set("fridgeItemCount", 0);
-    }
 
-    $this->set('fridge', $fridge);
+    $this->set("fridgeItemCount", $items->count());
+
+
+    $this->set('fridge', $items);
 
 
   }

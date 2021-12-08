@@ -12,7 +12,9 @@
         <?php foreach ($fridge as $fridgeItem) : ?>
             <li class="fridgeItem">
                 <a >
-                    <p><?php echo $fridgeItem['product']; ?></p>
+                    <p><?php echo $fridgeItem['product_id']  /* TODO check relative database hoofdstuk vr naam */; ?></p>
+                    <p><?php echo $fridgeItem['quantity']; ?></p>
+                    <p><?php echo $fridgeItem['expiration_date']; ?></p>
                 </a>
             </li>
         <?php endforeach; ?>
