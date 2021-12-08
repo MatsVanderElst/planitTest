@@ -223,7 +223,7 @@ class PagesController extends Controller
     $allProducts = Product::all();
     //zoekfunctie
     if (!empty($_GET['product'])) {
-      $products = Product::where('product', 'LIKE', '%' . $_GET['product'] . '%');
+      $products = Product::where('product', 'LIKE', '%' . $_GET['product'] . '%');  
     }else{
       $products = Product::query();
     }
