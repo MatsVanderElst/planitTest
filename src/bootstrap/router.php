@@ -36,6 +36,10 @@ $routes = array(
   'fridge' => array(
     'controller' => 'pages',
     'action' => 'fridge'
+  ),
+  'settings' => array(
+    'controller' => 'pages',
+    'action' => 'settings'
   )
 
 );
