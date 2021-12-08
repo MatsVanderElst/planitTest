@@ -35,7 +35,7 @@
     </div>
   </nav>
   <footer>
-    <a>
+    <a href="index.php?page=settings">
       <img class="settings__button" src="assets/images/settingsIcon.svg" alt="settings icon">
     </a>
   </footer>

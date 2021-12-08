@@ -371,6 +371,10 @@ class PagesController extends Controller
 
   }
 
+  public function settings() {
+
+  }
+
 }
 
 
