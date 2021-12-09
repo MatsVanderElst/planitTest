@@ -197,10 +197,10 @@ class PagesController extends Controller
         $fridgeItem->save();
       }
 
-      
+
         // haal fridgeitems uit DB en steek ze in de SESSIE
         /* $_SESSION['user']['fridge'] = FridgeItem::where('user_id',"=", $_SESSION['user']['id']); */
-      
+
 
       $_SESSION['list'] = array();
       $user = User::where('email', '=', $_SESSION['user']['email'])->update(['credit' => $newCredit]);
@@ -219,7 +219,7 @@ class PagesController extends Controller
     $allProducts = Product::all();
     //zoekfunctie
     if (!empty($_GET['product'])) {
-      $products = Product::where('product', 'LIKE', '%' . $_GET['product'] . '%');  
+      $products = Product::where('product', 'LIKE', '%' . $_GET['product'] . '%');
     }else{
       $products = Product::query();
     }
@@ -321,7 +321,7 @@ class PagesController extends Controller
 
         $index = 0;
 
-        
+
         foreach($selectedProducts as $product){
           if($product['id'] == $deleteProductId){
             unset($selectedProducts[$index]);
@@ -370,6 +370,34 @@ class PagesController extends Controller
   }
 
   public function settings() {
+    if ($_SESSION) {
+      // check if form was submitted
+      if (!empty($_POST['action'])) {
+        // which form whas submitted?
+        if ($_POST['action'] === 'credit') {
+          $credits = $_POST['credit'];
+          $user = User::where('email', '=', $_SESSION['user']['email'])->first(); //->update(['credit' => $credits]);
+          //validate the input
+          $errors = User::validate($user);
+          if (empty($errors)) {
+
+            //update the user
+            $user->update(['credit' => $credits]);
+            // update session
+            $_SESSION['user']['credit'] = $user['credit'];
+            header('Location:index.php?page=settings');
+            exit();
+          } else {
+            $this->set('errors', $errors);
+          }
+        }
+        $this->set('user', $user);
+      }
+    } else {
+      header('Location:index.php');
+      exit();
+    }
+
 
   }
 

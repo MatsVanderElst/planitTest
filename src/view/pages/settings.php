@@ -3,7 +3,7 @@
     <img src="./assets/images/title.svg" alt="mealplanner" class="titleImage">
   </h1>
 
-  <form class="creditform jsForm" action="index.php?page=credit" method="post">
+  <form class="creditform jsForm" action="index.php?page=settings" method="post">
     <input type="hidden" name="action" value="credit">
     <article class="formcontent__credit">
       <img src="./assets/images/hamburger.svg" alt="hamburger illustration" class="creditburger">
@@ -18,14 +18,14 @@
     <input type="submit" value="submit" class="submitButton">
   </form>
 
-  <form class="storeform" action="index.php?page=store" method="post">
+  <form class="storeform" action="index.php?page=settings" method="post">
     <input type="hidden" name="action" value="store">
     <article class="storeformcontent">
       <p class="storeParagraph">What is your favorite grocery store chain?</p>
       <div class="storeStyle">
         <table>
           <tr>
-            <td><input class="storeRadioButton" name="store" type="radio" value="carrefour"></td>
+            <td><input class="storeRadioButton" name="store" type="radio" value="carrefour" required></td>
             <td class="lbl"><label class="labelStyling" for="store">Carrefour</label></td>
           </tr>
           <tr>
