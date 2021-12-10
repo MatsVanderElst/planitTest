@@ -506,7 +506,10 @@
   .product__list {
     overflow-y: unset;
     flex-wrap: wrap;
+  }
 
+  .search__basket {
+    margin-left: -3rem;
   }
 
 }
@@ -521,6 +524,12 @@
     overflow-y: unset;
     flex-wrap: wrap;
   }
+
+  .cart__title {
+    margin-top: -40rem;
+  }
+
+
 }
 
 @media only screen and (min-width: 1200px) {
@@ -532,5 +541,20 @@
   .product__list {
     overflow-y: unset;
     flex-wrap: wrap;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+
+  .search__basket {
+    margin-left: 1rem;
+  }
+
+  .list__welcome {
+    margin-left: 4rem;
+  }
+
+  .list__text {
+    margin-left: 4rem;
   }
 }
