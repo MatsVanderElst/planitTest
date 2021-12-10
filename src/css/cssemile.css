@@ -593,3 +593,33 @@
   }
 
 }
+
+.formContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.creditformTwo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.storeStyleTwo {
+  background-color: whitesmoke;
+  border: 2pt solid #393e5b;
+  border-radius: 15px;
+  height: 14rem;
+  width: 40%;
+  min-width: 15rem;
+  max-width: 40rem;
+  text-align: center;
+
+  margin: 0 auto;
+
+}
