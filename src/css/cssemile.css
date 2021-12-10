@@ -30,6 +30,30 @@
   padding: 2rem;
 }
 
+.formStyle-first {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  color: #393e5b;
+  padding: 2rem;
+}
+
+@media only screen and (max-width: 849px) {
+
+  .formStyle:last-child {
+    padding-top: 0;
+  }
+
+  .formStyle-first {
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    color: #393e5b;
+    padding: 2rem;
+    padding-bottom: 0;
+  }
+}
+
 .input {
   margin-top: 1.5rem;
   font-size: 1.2rem;
@@ -528,8 +552,6 @@
   .cart__title {
     margin-top: -40rem;
   }
-
-
 }
 
 @media only screen and (min-width: 1200px) {
@@ -557,4 +579,9 @@
   .list__text {
     margin-left: 4rem;
   }
+
+  .product__list {
+    height: 319px;
+  }
+
 }

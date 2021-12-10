@@ -6,7 +6,7 @@
   <article class="formcontent__register">
     <img src="./assets/images/hamburger.svg" alt="hamburger illustration" class="registerburger">
 
-    <div class="formStyle">
+    <div class="formStyle-first">
       <label class="formlabel" for="nickname">Nickname</label>
       <input class="input" required name="nickname" type="text" placeholder="Emile">
       <span class="error"><?php if (!empty($errors['nickname'])) echo $errors['nickname']; ?></span>
