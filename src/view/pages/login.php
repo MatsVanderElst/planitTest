@@ -14,7 +14,7 @@
       <span class="error"><?php if (!empty($errors['email'])) echo $errors['email']; ?></span>
     </div>
 
-    <div class="formStyle">
+    <div class="formStyle-login">
       <label class="formlabel" for="password">Password</label>
       <input class="input" required name="password" type="password" placeholder="***********">
       <span class="error"><?php if (!empty($errors['password'])) echo $errors['password']; ?></span>
