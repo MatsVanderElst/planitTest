@@ -36,6 +36,8 @@ class PagesController extends Controller
             $_SESSION['user']['credit'] = $exists[0]->credit;
             $_SESSION['user']['email'] = $exists[0]->email;
             $_SESSION['user']['favstore'] = $exists[0]->favstore;
+            $_SESSION['user']['id'] = $exists[0]->id;
+
             header('Location: index.php?page=menu');
           } else {
             //pw error
