@@ -72,7 +72,7 @@ a{
   text-align: center;
 
   margin: 0 auto;
-  
+
 }
 
 .lbl {
@@ -152,6 +152,8 @@ a{
   width: 100%;
   margin-left: 1rem;
   margin-top: 1.5rem;
+  position: relative;
+  z-index: 20;
 }
 
 .frm {
@@ -233,11 +235,11 @@ a{
   width: 3rem;
 }
 
-.secondary__buttons{ 
+.secondary__buttons{
   display: grid;
-  grid-template-columns: 1fr 1fr; 
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  
+
   margin-top: 2rem;
 }
 
@@ -248,7 +250,7 @@ a{
   height: 6rem;
   margin: auto;
   border-radius: 25px;
-  
+
   margin-right: 0.5rem;
 }
 
@@ -263,7 +265,7 @@ a{
   color: #EFDFB8;
   font-weight: 800;
   font-size: 1.5rem;
-  
+
   margin-right: 0.5rem;
   margin-left: auto;
   margin-bottom: 1rem;
@@ -274,7 +276,7 @@ a{
   color: #EFDFB8;
   font-weight: 800;
   font-size: 1.5rem;
-  
+
   margin-right: 3rem;
   margin-bottom: 1rem
 }
@@ -324,7 +326,7 @@ a{
     font-size: 1.5rem;
     padding-right: 10rem;
   }
-  
+
   .menu__subtitle {
     width: 45rem;
     font-size: 1.8rem;
@@ -392,11 +394,11 @@ a{
   }
 
   .discounts__title {
-    visibility: hidden;  
+    visibility: hidden;
   }
 
   .recipes__title {
-    visibility: hidden;  
+    visibility: hidden;
   }
 
 
@@ -411,7 +413,7 @@ a{
     margin-top: 1rem;
   }
 
-  
+
 
   .storeRadioButton{
     margin-left: 3rem;  }
