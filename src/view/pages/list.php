@@ -78,10 +78,10 @@
           <span class="pagination__link-span"><?php echo $page; ?></span>
         <?php else : ?>
           <a class="pagination__link" href="index.php?<?php
-                                                      $params['page'] = 'list';
-                                                      $params['p'] = $page;
-                                                      echo http_build_query($params);
-                                                      ?>"><?php echo $page; ?></a>
+                                                            $params['page'] = 'list';
+                                                            $params['p'] = $page;
+                                                            echo http_build_query($params);
+                                                            ?>"><?php echo $page; ?></a>
         <?php endif; ?>
       </li>
     <?php endfor; ?>

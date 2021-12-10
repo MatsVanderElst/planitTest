@@ -1,6 +1,4 @@
 
-
-
 const handleSubmitForm = e => {
   e.preventDefault();
   submitWithJS();
@@ -24,10 +22,22 @@ const submitWithJS = async () => {
 
   const response = await fetch(url);
   const result = await response.json();
-  console.log(result);
+  console.log(result.length);
 
   //const products = document.querySelector('.product__list');
   updateList(result);
+
+
+  //pagination verbergen bij te weinig resultaten
+
+  /*
+  const $paginationFirst = document.querySelector('.pagination__link-span');
+  const $paginationRest = document.querySelector('.pagination__link');
+  if (result.length <= 11) {
+    $paginationFirst.classList.add('hide');
+    $paginationRest.classList.add('hide');
+  }
+ */
 
   //tot hier
 
@@ -38,7 +48,7 @@ const submitWithJS = async () => {
     '',
     `index.php?${qs}`
   );
-  //await location.replace(`index.php?${qs}`);
+
 };
 
 
@@ -78,6 +88,7 @@ export const init = () => {
 
   document.querySelectorAll('.searchbar').forEach($field => $field.addEventListener('input', handleInputField));
   document.querySelector('.product__form').addEventListener('submit', handleSubmitForm);
+  //countKids();
 
 };
 
