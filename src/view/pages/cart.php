@@ -9,7 +9,7 @@
     <?php if (empty($_SESSION['list'])) : ?>
       <div class="empty">
         <p class="emptyP"> Your shopping list is still empty</p>
-        <a href="index.php?page=list">click to create a shopping list</a>
+        <a class="emptyA" href="index.php?page=list">click to create a shopping list</a>
       </div>
     <?php endif; ?>
   </div>
@@ -69,7 +69,7 @@
 
 
   <?php if (!empty($_SESSION['list'])) : ?>
-    <div>
+    <div class="totalDiv">
       <section class="total__cart">
         <p>Total:</p>
         <p class="totalEcho"><?php echo $total ?></p>

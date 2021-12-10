@@ -225,7 +225,7 @@ class PagesController extends Controller
     }
 
 
-    $itemsPerPage = 15;
+    $itemsPerPage = 12;
     $totalPages = ceil($allProducts->count() / $itemsPerPage);
     $currentPage = 1;
     if (isset($_GET['p']) && $_GET['p'] > 0 && $_GET['p'] <= $totalPages) {

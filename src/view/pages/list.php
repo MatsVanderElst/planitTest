@@ -35,40 +35,41 @@
   </article>
 
 
+  <div class="product__list-container">
+    <article class="product__list">
+      <?php foreach ($products as $product) : ?>
+        <div class="product__single">
 
-  <article class="product__list">
-    <?php foreach ($products as $product) : ?>
-      <div class="product__single">
+          <form method="get" action="index.php?page=list" class="price">
+            <input type="hidden" value="list" name="page">
+            <input type="hidden" value="<?php echo $product['id'] ?>" name="addProduct">
 
-        <form method="get" action="index.php?page=list" class="price">
-          <input type="hidden" value="list" name="page">
-          <input type="hidden" value="<?php echo $product['id'] ?>" name="addProduct">
+            <button class="add" type="submit" value="list">
+              <span class="material-icons">
+                post_add
+              </span>
+            </button>
 
-          <button class="add" type="submit" value="list">
-            <span class="material-icons">
-              post_add
-            </span>
-          </button>
-
-        </form>
+          </form>
 
 
-        <p class="product__name"><?php echo $product['product'] ?></p>
+          <p class="product__name"><?php echo $product['product'] ?></p>
 
-        <?php if ($_SESSION['user']['favstore'] == 'delhaize') : ?>
-          <p class="product__price"><?php echo $product['price'] + 0.4 ?></p>
-        <?php elseif ($_SESSION['user']['favstore'] == 'carrefour') : ?>
-          <p class="product__price"><?php echo $product['price'] - 0.2 ?></p>
-        <?php elseif ($_SESSION['user']['favstore'] == 'colruyt') : ?>
-          <p class="product__price"><?php echo $product['price'] - 0.5 ?></p>
-        <?php elseif ($_SESSION['user']['favstore'] == 'alberthein') : ?>
-          <p class="product__price"><?php echo $product['price'] - 0.3 ?></p>
-        <?php else : ?>
-          <p class="product__price"><?php echo $product['price'] ?></p>
-        <?php endif; ?>
-      </div>
-    <?php endforeach; ?>
-  </article>
+          <?php if ($_SESSION['user']['favstore'] == 'delhaize') : ?>
+            <p class="product__price"><?php echo $product['price'] + 0.4 ?></p>
+          <?php elseif ($_SESSION['user']['favstore'] == 'carrefour') : ?>
+            <p class="product__price"><?php echo $product['price'] - 0.2 ?></p>
+          <?php elseif ($_SESSION['user']['favstore'] == 'colruyt') : ?>
+            <p class="product__price"><?php echo $product['price'] - 0.5 ?></p>
+          <?php elseif ($_SESSION['user']['favstore'] == 'alberthein') : ?>
+            <p class="product__price"><?php echo $product['price'] - 0.3 ?></p>
+          <?php else : ?>
+            <p class="product__price"><?php echo $product['price'] ?></p>
+          <?php endif; ?>
+        </div>
+      <?php endforeach; ?>
+    </article>
+  </div>
 
   <ul class="pagination">
     <?php for ($page = 1; $page <= $totalPages; $page++) : ?>
