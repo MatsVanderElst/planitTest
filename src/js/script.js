@@ -6,7 +6,7 @@ const handleSubmitForm = e => {
   submitWithJS();
 };
 
-const handleInputField = e => {
+const handleInputField = () => {
   submitWithJS();
 };
 
@@ -26,7 +26,7 @@ const submitWithJS = async () => {
   const result = await response.json();
   console.log(result);
 
-  const products = document.querySelector('.product__list');
+  //const products = document.querySelector('.product__list');
   updateList(result);
 
   //tot hier
