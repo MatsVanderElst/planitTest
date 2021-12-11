@@ -595,11 +595,9 @@
 }
 
 .formContainer {
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .creditformTwo {
@@ -611,11 +609,10 @@
   margin-top: 2rem;
 }
 
-/*
 .stores {
-  align-self: center;
+  display: flex;
+  flex-direction: column;
 }
-*/
 
 .formStyleTwo {
   font-size: 1.2rem;
@@ -624,4 +621,34 @@
   color: #393e5b;
   padding: 2rem;
   align-items: center;
+}
+
+.extraMargin {
+  margin-bottom: 1rem;
+}
+
+.extraMarginTop {
+  margin-top: 2rem;
+}
+
+.choices {
+  margin-bottom: 1.5rem;
+}
+
+.choices:first-child {
+  margin-top: 1rem;
+}
+
+.choices:last-child {
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 900px) {
+
+  .formContainer {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+  }
+
 }
