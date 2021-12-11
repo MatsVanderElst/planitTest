@@ -181,13 +181,13 @@ class PagesController extends Controller
   {
     $newCredit = $_SESSION['user']['credit'] - $_SESSION['total'];
     //zorgt er voor dat winkelmandje leeg wordt gemaakt na duwne op confirm zo kan gebruioker nieuwe lijst opstellen Ook wordt hier het budget vd user upgedate in de db
-    if (!empty($_GET['action']) && $_GET['action']=='confirm') {
+    if (!empty($_GET['action']) && $_GET['action'] == 'confirm') {
       $_SESSION['total'] = 0;
 
       $quantitiesById = array_count_values($_SESSION['list']);
 
       //groceries in DB steken
-      foreach($quantitiesById as $productId => $quantity){
+      foreach ($quantitiesById as $productId => $quantity) {
         $product = Product::find($productId);
         $fridgeItem = new FridgeItem;
         $fridgeItem->user_id = $_SESSION['user']['id'];
@@ -200,8 +200,8 @@ class PagesController extends Controller
       }
 
 
-        // haal fridgeitems uit DB en steek ze in de SESSIE
-        /* $_SESSION['user']['fridge'] = FridgeItem::where('user_id',"=", $_SESSION['user']['id']); */
+      // haal fridgeitems uit DB en steek ze in de SESSIE
+      /* $_SESSION['user']['fridge'] = FridgeItem::where('user_id',"=", $_SESSION['user']['id']); */
 
 
       $_SESSION['list'] = array();
@@ -222,7 +222,7 @@ class PagesController extends Controller
     //zoekfunctie
     if (!empty($_GET['product'])) {
       $products = Product::where('product', 'LIKE', '%' . $_GET['product'] . '%');
-    }else{
+    } else {
       $products = Product::query();
     }
 
@@ -240,7 +240,7 @@ class PagesController extends Controller
     // Check if we need to respond with json
     if (!empty($_GET['json'])) {
       $jsonProducts = $products->toJson();
-      echo($jsonProducts);
+      echo ($jsonProducts);
       exit();
     }
 
@@ -294,8 +294,6 @@ class PagesController extends Controller
         //print_r($_SESSION['list']);
       }
     }
-
-
   }
 
   public function cart()
@@ -304,7 +302,7 @@ class PagesController extends Controller
 
     $selectedProducts = array();
 
-    foreach($_SESSION['list'] as $productId){
+    foreach ($_SESSION['list'] as $productId) {
       $selectedProduct = Product::find($productId);
       array_push($selectedProducts, $selectedProduct);
     }
@@ -324,8 +322,8 @@ class PagesController extends Controller
         $index = 0;
 
 
-        foreach($selectedProducts as $product){
-          if($product['id'] == $deleteProductId){
+        foreach ($selectedProducts as $product) {
+          if ($product['id'] == $deleteProductId) {
             unset($selectedProducts[$index]);
             unset($_SESSION['list'][$index]);
             break;
@@ -357,7 +355,8 @@ class PagesController extends Controller
     $this->set('selectedProducts', $selectedProducts);
   }
 
-  public function fridge(){
+  public function fridge()
+  {
 
     $items = FridgeItem::where("user_id", "=", $_SESSION['user']['id'])->get();
 
@@ -367,18 +366,19 @@ class PagesController extends Controller
 
 
     $this->set('fridge', $items);
-
-
   }
 
-  public function settings() {
+  public function settings()
+  {
+    $user = User::where('email', '=', $_SESSION['user']['email'])->first(); //->update(['credit' => $credits]);
     if ($_SESSION) {
       // check if form was submitted
       if (!empty($_POST['action'])) {
+
         // which form whas submitted?
         if ($_POST['action'] === 'credit') {
           $credits = $_POST['credit'];
-          $user = User::where('email', '=', $_SESSION['user']['email'])->first(); //->update(['credit' => $credits]);
+
           //validate the input
           $errors = User::validate($user);
           if (empty($errors)) {
@@ -393,20 +393,27 @@ class PagesController extends Controller
           } else {
             $this->set('errors', $errors);
           }
+        } else if ($_POST['action'] === 'store') {
+          $store = $_POST['store'];
+          //$user = User::where('email', '=', $_SESSION['user']['email'])->first();
+          //validate the user we retrieved from session
+          $errors = User::validate($user);
+          if (empty($errors)) {
+            //update the user
+            $user->update(['favstore' => $store]);
+            // update session
+            $_SESSION['user']['favstore'] = $user['favstore'];
+            header('Location:index.php?page=settings');
+            exit();
+          } else {
+            $this->set('errors', $errors);
+          }
         }
-        $this->set('user', $user);
       }
+      $this->set('user', $user);
     } else {
       header('Location:index.php');
       exit();
     }
-
-
   }
-
 }
-
-
-
-
-
