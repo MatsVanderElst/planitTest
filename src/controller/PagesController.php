@@ -384,7 +384,8 @@ class PagesController extends Controller
           if (empty($errors)) {
 
             //update the user
-            $user->update(['credit' => $credits]);
+            //$user->update(['credit' => $credits]);
+            $user->increment('credit', $credits);
             // update session
             $_SESSION['user']['credit'] = $user['credit'];
             header('Location:index.php?page=settings');
