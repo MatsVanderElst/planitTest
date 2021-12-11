@@ -40,6 +40,10 @@ $routes = array(
   'settings' => array(
     'controller' => 'pages',
     'action' => 'settings'
+  ),
+  'productDetail' => array(
+    'controller' => 'pages',
+    'action' => 'productDetail'
   )
 
 );

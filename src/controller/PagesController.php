@@ -428,4 +428,14 @@ class PagesController extends Controller
       exit();
     }
   }
+
+  public function productDetail()
+  {
+    $product = Product::find($_GET['detailedProduct']);
+    $this->set("product", $product);
+  
+  }
+
+
 }
+
