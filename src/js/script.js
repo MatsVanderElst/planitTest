@@ -79,8 +79,6 @@ const updateList = products => {
 };
 
 
-
-
 export const init = () => {
   console.log('start executing this JavaScript');
 
