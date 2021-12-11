@@ -608,18 +608,20 @@
   justify-content: center;
   flex-direction: column;
   width: 100vw;
+  margin-top: 2rem;
 }
 
-.storeStyleTwo {
-  background-color: whitesmoke;
-  border: 2pt solid #393e5b;
-  border-radius: 15px;
-  height: 14rem;
-  width: 40%;
-  min-width: 15rem;
-  max-width: 40rem;
-  text-align: center;
+/*
+.stores {
+  align-self: center;
+}
+*/
 
-  margin: 0 auto;
-
+.formStyleTwo {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  color: #393e5b;
+  padding: 2rem;
+  align-items: center;
 }
