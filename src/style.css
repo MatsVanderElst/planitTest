@@ -39,6 +39,7 @@ li {
   background-image: url("assets/images/mobileBackground1.png");
   background-repeat:no-repeat;
   background-size:100% 100vh;
+  background-position: top;
 }
 a{
   text-decoration: none;
@@ -297,6 +298,13 @@ a{
 .settings__button{
   margin-top: 4rem;
 }
+
+.fridgeHeader__container{
+  margin: 2rem;
+  max-width: 25rem;
+  text-align: center;
+}
+
 
 
 @media only screen and (min-width: 760px) {

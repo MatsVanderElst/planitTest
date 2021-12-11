@@ -357,15 +357,27 @@ class PagesController extends Controller
 
   public function fridge()
   {
+    
+    if (!empty($_GET['action'])) {
+      if ($_GET['action'] == "use"){
+        //find item with correct id
+        $fridgeItem=FridgeItem::find($_GET['productId']);
+        if($fridgeItem['quantity'] === 1){
+          // delete te record from the db
+          $fridgeItem->delete(); 
+        }else{
+          $fridgeItem['quantity'] = $fridgeItem['quantity'] - 1;
+          $fridgeItem->save();
+        }
 
+      }
+      
+    }
+    
     $items = FridgeItem::where("user_id", "=", $_SESSION['user']['id'])->get();
-
-
-
     $this->set("fridgeItemCount", $items->count());
-
-
     $this->set('fridge', $items);
+
   }
 
   public function settings()
