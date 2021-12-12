@@ -152,6 +152,15 @@
   background-color: #484e72;
 }
 
+.hasAcc {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
 @media only screen and (min-width: 700px) {
 
   .formcontent {

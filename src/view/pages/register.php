@@ -25,4 +25,8 @@
     </div>
   </article>
   <input type="submit" value="Register" class="submitButton">
+  <article class="hasAcc">
+    <p>Already have an account?</p>
+    <a class="underline" href="index.php?page=login">Login</a>
+  </article>
 </form>
