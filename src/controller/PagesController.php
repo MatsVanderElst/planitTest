@@ -67,6 +67,8 @@ class PagesController extends Controller
         $exits = User::where('email', '=', $_POST['email'])->get();
         if (!empty($exits[0])) {
           $error['exists'] = "This e-mail is already in use.";
+          $_SESSION['error'] = $error['exists'];
+          //print_r($_SESSION['error']);
           header('Location: index.php?page=register');
 
           //exit wanneer email al bestaat
@@ -116,6 +118,8 @@ class PagesController extends Controller
 
   public function credit()
   {
+
+    unset($_SESSION['error']);
 
     if ($_SESSION) {
       // check if form was submitted
@@ -433,7 +437,7 @@ class PagesController extends Controller
   {
     $product = Product::find($_GET['detailedProduct']);
     $this->set("product", $product);
-  
+
   }
 
 

@@ -15,7 +15,7 @@
     <div class="formStyle">
       <label class="formlabel" for="email">E-mail</label>
       <input class="input" required name="email" type="email" placeholder="John.doe@gmail.com">
-      <span class="error"><?php if (!empty($errors['email'])) echo $errors['email']; ?></span>
+      <span class="error"><?php if (!empty($_SESSION['error'])) echo $_SESSION['error']; ?></span>
     </div>
 
     <div class="formStyle">
