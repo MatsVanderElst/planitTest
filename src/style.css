@@ -68,11 +68,14 @@ a{
   border-radius: 15px;
   height: 14rem;
   width: 40%;
+  height: max-content;
   min-width: 15rem;
   max-width: 40rem;
   text-align: center;
 
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 
 }
 
@@ -85,17 +88,28 @@ a{
   font-style: normal;
   margin-left: 20rem;
   margin-top: 3rem;
+  align-self: center;
+}
+
+.storeItem{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin: 0.5rem;
+  align-self: center;
 }
 
 .labelStyling{
   margin-left: 2rem;
-  margin-top: 5rem;
+  margin: 00.5rem ;
 }
 
 .storeParagraph{
   color: #393e5b;
   margin: auto;
-  margin-top: 8rem;
+  margin-top: 7rem;
   margin-bottom: 2rem;
 
   width: 20rem;
@@ -150,10 +164,7 @@ a{
 }
 
 .storeRadioButton {
-  width: 100%;
-  margin-left: 1rem;
-  margin-top: 1.5rem;
-  position: relative;
+  margin: 0.5rem;
   z-index: 20;
 }
 
@@ -208,7 +219,7 @@ a{
 }
 
 .list__button img{
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .products__button{
@@ -232,7 +243,7 @@ a{
 }
 
 .products__button img{
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   width: 3rem;
 }
 
@@ -299,6 +310,11 @@ a{
   margin-top: 4rem;
 }
 
+.fridgeBackroundContainer{
+  background-color: #393e5b;
+  height: 100%;
+}
+
 .fridgeHeader__container{
   margin: 2rem;
   max-width: 25rem;
@@ -309,6 +325,114 @@ a{
   text-align: center;
 }
 
+.formcontent__fridge{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fridgeSubTitle{
+  color: #efdfb8;
+  font-size: 1.7rem;
+}
+
+.fridgeParagraph{
+  color: #efdfb8;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.productsList{
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 80%;
+  max-width: 30rem;
+  height: 30rem;
+  overflow-y: scroll;
+
+  background-color: whitesmoke;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 3px solid #ffa957;
+}
+
+
+.fridgeItem{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0.6rem;
+  align-self: center;
+  border-bottom: solid #393e5b 0.1rem;
+}
+
+.fridgeitem_name{
+  color: #393e5b;
+}
+
+.fridgeburger{
+  display: none;
+}
+
+.formcontent__productDetail{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formcontent__productDetail ul{
+  align-self: center;
+}
+
+.fridgeDetailParagraph{
+  margin-top: 9rem;
+}
+
+.itemDetails{
+  margin-top: 2rem;
+  background-color: whitesmoke;
+  width: 20rem;
+  border-radius: 25px;
+  
+}
+
+.DetailFridgeItem{
+  margin: 0.5rem;
+}
+
+.editDateContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formcontent__editDate{
+  margin-top: 15rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  max-width: 40rem;
+  border: solid 0.3rem #393e5b;
+  border-radius: 25px;
+  padding: 0.5rem;
+  background-color: whitesmoke;
+}
+
+.editDate_form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+
+}
 
 
 
@@ -417,7 +541,7 @@ a{
 
 
   .storeWelcomeMessage{
-    margin-top: 8rem ;
+    margin-top: 6rem ;
     font-size: 2rem;
     color: #F5401D;
   }
@@ -425,11 +549,6 @@ a{
   .storeParagraph{
     margin-top: 1rem;
   }
-
-
-
-  .storeRadioButton{
-    margin-left: 3rem;  }
 
 
 }
