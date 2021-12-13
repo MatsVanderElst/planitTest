@@ -67,6 +67,8 @@ class PagesController extends Controller
         $exits = User::where('email', '=', $_POST['email'])->get();
         if (!empty($exits[0])) {
           $error['exists'] = "This e-mail is already in use.";
+          $_SESSION['error'] = $error['exists'];
+          //print_r($_SESSION['error']);
           header('Location: index.php?page=register');
 
           //exit wanneer email al bestaat
@@ -117,6 +119,13 @@ class PagesController extends Controller
   public function credit()
   {
 
+    //anti hack --> niet ingelogd
+    if (empty($_SESSION['user'])) {
+      header('location:index.php?page=register');
+    }
+
+    unset($_SESSION['error']);
+
     if ($_SESSION) {
       // check if form was submitted
       if (!empty($_POST['action'])) {
@@ -149,6 +158,11 @@ class PagesController extends Controller
   public function store()
   {
 
+    //anti hack --> niet ingelogd
+    if (empty($_SESSION['user'])) {
+      header('location:index.php?page=register');
+    }
+
     if ($_SESSION) {
       // check if form was submitted
       if (!empty($_POST['action'])) {
@@ -179,6 +193,12 @@ class PagesController extends Controller
 
   public function menu()
   {
+
+    //anti hack --> niet ingelogd
+    if (empty($_SESSION['user'])) {
+      header('location:index.php?page=register');
+    }
+
     $newCredit = $_SESSION['user']['credit'] - $_SESSION['total'];
     //zorgt er voor dat winkelmandje leeg wordt gemaakt na duwne op confirm zo kan gebruioker nieuwe lijst opstellen Ook wordt hier het budget vd user upgedate in de db
     if (!empty($_GET['action']) && $_GET['action'] == 'confirm') {
@@ -212,6 +232,11 @@ class PagesController extends Controller
 
   public function list()
   {
+
+    //anti hack --> niet ingelogd
+    if (empty($_SESSION['user'])) {
+      header('location:index.php?page=register');
+    }
 
 
     $_SESSION['overschot'] = $_SESSION['user']['credit'];
@@ -298,6 +323,11 @@ class PagesController extends Controller
 
   public function cart()
   {
+
+    //anti hack --> niet ingelogd
+    if (empty($_SESSION['user'])) {
+      header('location:index.php?page=register');
+    }
     //print_r($_SESSION['list']);
 
     $selectedProducts = array();
@@ -357,23 +387,27 @@ class PagesController extends Controller
 
   public function fridge()
   {
-    
+    //anti hack --> niet ingelogd
+    if (empty($_SESSION['user'])) {
+      header('location:index.php?page=register');
+    }
+
     if (!empty($_GET['action'])) {
       if ($_GET['action'] == "use"){
         //find item with correct id
         $fridgeItem=FridgeItem::find($_GET['productId']);
         if($fridgeItem['quantity'] === 1){
           // delete te record from the db
-          $fridgeItem->delete(); 
+          $fridgeItem->delete();
         }else{
           $fridgeItem['quantity'] = $fridgeItem['quantity'] - 1;
           $fridgeItem->save();
         }
 
       }
-      
+
     }
-    
+
     $items = FridgeItem::where("user_id", "=", $_SESSION['user']['id'])->get();
     $this->set("fridgeItemCount", $items->count());
     $this->set('fridge', $items);
@@ -382,6 +416,11 @@ class PagesController extends Controller
 
   public function settings()
   {
+
+    //anti hack --> niet ingelogd
+    if (empty($_SESSION['user'])) {
+      header('location:index.php?page=register');
+    }
     $user = User::where('email', '=', $_SESSION['user']['email'])->first(); //->update(['credit' => $credits]);
     if ($_SESSION) {
       // check if form was submitted
@@ -431,9 +470,14 @@ class PagesController extends Controller
 
   public function productDetail()
   {
+
+    //anti hack --> niet ingelogd
+    if (empty($_SESSION['user'])) {
+      header('location:index.php?page=register');
+    }
     $product = Product::find($_GET['detailedProduct']);
     $this->set("product", $product);
-  
+
   }
   public function editDate()
   {

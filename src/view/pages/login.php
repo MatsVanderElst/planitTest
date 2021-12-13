@@ -23,4 +23,9 @@
 
   </article>
   <input type="submit" value="Login" class="submitButton">
+
+  <article class="hasAcc">
+    <p>No account yet?</p>
+    <a class="underline" href="index.php?page=register">Register</a>
+  </article>
 </form>

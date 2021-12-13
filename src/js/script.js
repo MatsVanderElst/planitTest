@@ -60,7 +60,7 @@ const updateList = products => {
 
         <form method="get" action="index.php?page=list" class="price">
           <input type="hidden" value="list" name="page">
-          <input type="hidden" value=${product.product} name="addProduct">
+          <input type="hidden" value=${product.id} name="addProduct">
 
           <button class="add" type="submit" value="list">
             <span class="material-icons">
