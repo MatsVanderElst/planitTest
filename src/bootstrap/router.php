@@ -44,6 +44,10 @@ $routes = array(
   'productDetail' => array(
     'controller' => 'pages',
     'action' => 'productDetail'
+  ),
+  'editDate' => array(
+    'controller' => 'pages',
+    'action' => 'editDate'
   )
 
 );

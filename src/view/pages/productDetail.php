@@ -14,6 +14,7 @@
                     <p class="fridgeItem__sodium">sodium :<?php echo $product['sugar']; ?></p>
                     <p class="fridgeItem__nutriScore">nutriscore :<?php echo $product['nutriscore']; ?></p>
                 </a>
+                
             </li>
     </ul>
     
