@@ -11,20 +11,23 @@
         <?php foreach ($fridge as $fridgeItem) : ?>
             <li class="fridgeItem">
                 <a>
-                    <p class="fridgeItem__name"><?php echo $fridgeItem->product['product']  /* TODO check relative database hoofdstuk vr naam */; ?></p>
+                  <a href="index.php?page=productDetail&detailedProduct=<?php echo $fridgeItem->product['id'] ?>">
+                    <p class="fridgeItem__name"><?php echo $fridgeItem->product['product']; ?></p>
+                  </a>
                     <p class="fridgeItem__quantity"><?php echo $fridgeItem['quantity']; ?></p>
                     <p class="fridgeItem__expiration date"><?php echo $fridgeItem['expiration_date']; ?></p> 
-                    <a href="index.php?page=productDetail&detailedProduct=<?php echo $fridgeItem->product['id'] ?>">
-                      <button class="fridgeItem__detailButton">detail</button>
-                    </a>
-                </a>
-                <span>
-                <a href="index.php?page=fridge&action=use&productId=<?php echo $fridgeItem['id'] ?>">
-                  <span class="material-icons bin">
-                    delete
+                  </a>
+                  <a href="index.php?page=editDate&fridgeItemId=<?php echo $fridgeItem['id']; ?>">
+                    <button class="fridgeItem__detailButton">edit date</button>
+                  </a>
+
+                  <span>
+                  <a href="index.php?page=fridge&action=use&productId=<?php echo $fridgeItem['id'] ?>">
+                    <span class="material-icons bin">
+                      delete
+                    </span>
+                  </a>
                   </span>
-                </a>
-              </span>
             </li>
         <?php endforeach; ?>
     </ul>

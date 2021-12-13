@@ -479,6 +479,18 @@ class PagesController extends Controller
     $this->set("product", $product);
 
   }
+  public function editDate()
+  {
+    $datedProduct = FridgeItem::find($_GET['fridgeItemId']);
+    $this->set("fridgeItem", $datedProduct);
+  
+    if (!empty($_GET['action'])) {
+      if ($_GET['action'] == "editDate"){
+        $datedProduct['expiration_date'] = date("Y-m-d", strtotime($_GET['newDate']));
+        $datedProduct->save();
+      }
+    }
+  }
 
 
 }
