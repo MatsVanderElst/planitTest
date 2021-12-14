@@ -665,3 +665,12 @@
   }
 
 }
+
+.product__price-disc {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.product__price-red {
+  color: rgb(218, 63, 63);
+}
