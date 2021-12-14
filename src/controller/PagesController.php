@@ -316,26 +316,26 @@ class PagesController extends Controller
     if (!empty($_GET['addProduct'])) {
       if ($_SESSION['total'] <= $_SESSION['user']['credit']) {
         array_push($_SESSION['list'], $_GET['addProduct']);
-        print_r($_SESSION['list']);
+        //print_r($_SESSION['list']);
       }
     }
 
 
     if (!empty($_GET['addDiscProduct'])) {
-      $added = DiscountProduct::where('id', '=', $_GET['addDiscProduct'])->get();
+      $addedDiscProduct = DiscountProduct::where('id', '=', $_GET['addDiscProduct'])->get();
       //prijs aanpassen adhv gekozen winkel
       if (
         $_SESSION['user']['favstore'] == 'delhaize'
       ) {
-        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] + 0.4;
+        $_SESSION['total'] = $_SESSION['total'] + $addedDiscProduct[0]['price'] + 0.4;
       } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
-        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] - 0.2;
+        $_SESSION['total'] = $_SESSION['total'] + $addedDiscProduct[0]['price'] - 0.2;
       } elseif ($_SESSION['user']['favstore'] == 'colruyt') {
-        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] - 0.5;
+        $_SESSION['total'] = $_SESSION['total'] + $addedDiscProduct[0]['price'] - 0.5;
       } elseif ($_SESSION['user']['favstore'] == 'alberthein') {
-        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] - 0.3;
+        $_SESSION['total'] = $_SESSION['total'] + $addedDiscProduct[0]['price'] - 0.3;
       } else {
-        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'];
+        $_SESSION['total'] = $_SESSION['total'] + $addedDiscProduct[0]['price'];
       }
       //geen geld genoeg --> naar cart
       if ($_SESSION['total'] > $_SESSION['user']['credit']) {
@@ -349,7 +349,7 @@ class PagesController extends Controller
     if (!empty($_GET['addDiscProduct'])) {
       if ($_SESSION['total'] <= $_SESSION['user']['credit']) {
         array_push($_SESSION['list'], $_GET['addDiscProduct']);
-        print_r($_SESSION['list']);
+        //print_r($_SESSION['list']);
       }
     }
   }
@@ -364,12 +364,12 @@ class PagesController extends Controller
 
 
     $selectedProducts = array();
-    foreach ($_SESSION['list'] as $productId) {
-      $selectedProduct = Product::find($productId);
+    foreach ($_SESSION['list'] as $discProductId) {
+      $selectedProduct = Product::find($discProductId);
       //$selectedDiscountProduct = DiscountProduct::find($productId);
     array_push($selectedProducts, $selectedProduct, /*$selectedDiscountProduct*/);
     }
-    //print_r($selectedProducts);
+    //print_r($selectedProducts[0]['product']);
 
 
     $selectedDiscountProducts = array();
@@ -377,10 +377,10 @@ class PagesController extends Controller
       $selectedDiscountProduct = DiscountProduct::find($discProductId);
       array_push($selectedDiscountProducts, $selectedDiscountProduct);
     }
-    //print_r($selectedDiscountProducts[0]['product']);
+    //print_r($selectedDiscountProducts[5]['product']);
 
     $allProducts = array_merge($selectedProducts, $selectedDiscountProducts);
-    //print_r($allProducts[3]['product']);
+    //print_r($allProducts);
 
 
 

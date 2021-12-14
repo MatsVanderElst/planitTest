@@ -16,7 +16,7 @@
 
   <?php
   $total = 0;
-  foreach ($allProducts as $product)
+  foreach ($selectedProducts as $product)
     if ($_SESSION['user']['favstore'] == 'delhaize') {
       $total += $product['price'] + 0.4;
     } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
@@ -35,7 +35,7 @@
 
   <?php if (!empty($_SESSION['list'])) : ?>
     <div class="cart__products">
-      <?php foreach ($allProducts as $product) : ?>
+      <?php foreach ($selectedProducts as $product) : ?>
         <div>
           <div class="single__product">
             <div>
