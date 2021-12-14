@@ -14,10 +14,9 @@
     <?php endif; ?>
   </div>
 
-  <!-- moet hier geen endforeach komen? -->
   <?php
   $total = 0;
-  foreach ($selectedProducts as $product)
+  foreach ($allProducts as $product)
     if ($_SESSION['user']['favstore'] == 'delhaize') {
       $total += $product['price'] + 0.4;
     } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
@@ -36,7 +35,7 @@
 
   <?php if (!empty($_SESSION['list'])) : ?>
     <div class="cart__products">
-      <?php foreach ($selectedProducts as $product) : ?>
+      <?php foreach ($allProducts as $product) : ?>
         <div>
           <div class="single__product">
             <div>
@@ -65,6 +64,7 @@
         <hr class="stroke">
       <?php endforeach; ?>
     </div>
+
   <?php endif; ?>
 
 

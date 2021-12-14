@@ -68,6 +68,7 @@
           <?php endif; ?>
         </div>
       <?php endforeach; ?>
+      
     </article>
   </div>
 

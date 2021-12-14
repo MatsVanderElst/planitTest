@@ -252,7 +252,6 @@ class PagesController extends Controller
       $products = Product::query();
     }
 
-
     $itemsPerPage = 12;
     $totalPages = ceil($allProducts->count() / $itemsPerPage);
     $currentPage = 1;
@@ -317,26 +316,72 @@ class PagesController extends Controller
     if (!empty($_GET['addProduct'])) {
       if ($_SESSION['total'] <= $_SESSION['user']['credit']) {
         array_push($_SESSION['list'], $_GET['addProduct']);
-        //print_r($_SESSION['list']);
+        print_r($_SESSION['list']);
+      }
+    }
+
+
+    if (!empty($_GET['addDiscProduct'])) {
+      $added = DiscountProduct::where('id', '=', $_GET['addDiscProduct'])->get();
+      //prijs aanpassen adhv gekozen winkel
+      if (
+        $_SESSION['user']['favstore'] == 'delhaize'
+      ) {
+        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] + 0.4;
+      } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
+        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] - 0.2;
+      } elseif ($_SESSION['user']['favstore'] == 'colruyt') {
+        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] - 0.5;
+      } elseif ($_SESSION['user']['favstore'] == 'alberthein') {
+        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] - 0.3;
+      } else {
+        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'];
+      }
+      //geen geld genoeg --> naar cart
+      if ($_SESSION['total'] > $_SESSION['user']['credit']) {
+        header('Location: index.php?page=cart');
+      }
+      //$_SESSION['user']['credit'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
+      $_SESSION['overschot'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
+      //print_r($_SESSION['overschot']);
+    }
+
+    if (!empty($_GET['addDiscProduct'])) {
+      if ($_SESSION['total'] <= $_SESSION['user']['credit']) {
+        array_push($_SESSION['list'], $_GET['addDiscProduct']);
+        print_r($_SESSION['list']);
       }
     }
   }
 
   public function cart()
   {
-
     //anti hack --> niet ingelogd
     if (empty($_SESSION['user'])) {
       header('location:index.php?page=register');
     }
     //print_r($_SESSION['list']);
 
-    $selectedProducts = array();
 
+    $selectedProducts = array();
     foreach ($_SESSION['list'] as $productId) {
       $selectedProduct = Product::find($productId);
-      array_push($selectedProducts, $selectedProduct);
+      //$selectedDiscountProduct = DiscountProduct::find($productId);
+    array_push($selectedProducts, $selectedProduct, /*$selectedDiscountProduct*/);
     }
+    //print_r($selectedProducts);
+
+
+    $selectedDiscountProducts = array();
+    foreach ($_SESSION['list'] as $discProductId) {
+      $selectedDiscountProduct = DiscountProduct::find($discProductId);
+      array_push($selectedDiscountProducts, $selectedDiscountProduct);
+    }
+    //print_r($selectedDiscountProducts[0]['product']);
+
+    $allProducts = array_merge($selectedProducts, $selectedDiscountProducts);
+    //print_r($allProducts[3]['product']);
+
 
 
     //zet de totale prijs op 0 wanneer geen producten meer in de mand zitten
@@ -384,6 +429,9 @@ class PagesController extends Controller
     /* $_SESSION['list'] = $selectedProducts; */
 
     $this->set('selectedProducts', $selectedProducts);
+    $this->set('selectedDiscountProducts', $selectedDiscountProducts);
+    $this->set('allProducts', $allProducts);
+
   }
 
   public function fridge()
@@ -394,25 +442,22 @@ class PagesController extends Controller
     }
 
     if (!empty($_GET['action'])) {
-      if ($_GET['action'] == "use"){
+      if ($_GET['action'] == "use") {
         //find item with correct id
-        $fridgeItem=FridgeItem::find($_GET['productId']);
-        if($fridgeItem['quantity'] === 1){
+        $fridgeItem = FridgeItem::find($_GET['productId']);
+        if ($fridgeItem['quantity'] === 1) {
           // delete te record from the db
           $fridgeItem->delete();
-        }else{
+        } else {
           $fridgeItem['quantity'] = $fridgeItem['quantity'] - 1;
           $fridgeItem->save();
         }
-
       }
-
     }
 
     $items = FridgeItem::where("user_id", "=", $_SESSION['user']['id'])->get();
     $this->set("fridgeItemCount", $items->count());
     $this->set('fridge', $items);
-
   }
 
   public function settings()
@@ -478,7 +523,6 @@ class PagesController extends Controller
     }
     $product = Product::find($_GET['detailedProduct']);
     $this->set("product", $product);
-
   }
   public function editDate()
   {
@@ -486,37 +530,38 @@ class PagesController extends Controller
     $this->set("fridgeItem", $datedProduct);
 
     if (!empty($_GET['action'])) {
-      if ($_GET['action'] == "editDate"){
+      if ($_GET['action'] == "editDate") {
         $datedProduct['expiration_date'] = date("Y-m-d", strtotime($_GET['newDate']));
         $datedProduct->save();
       }
     }
   }
 
-  public function discountProduct() {
+  public function discountProduct()
+  {
 
     //anti hack --> niet ingelogd
     if (empty($_SESSION['user'])) {
       header('location:index.php?page=register');
     }
 
-
+    //beschikbaar budget ophalen
     $_SESSION['overschot'] = $_SESSION['user']['credit'];
-
 
     //producten uit db halen
     $discProducts = DiscountProduct::all();
-
-
-
-
     $this->set('discProducts', $discProducts);
 
-    if (!empty($_GET['addProduct'])) {
-      $addedProduct = DiscountProduct::where('id', '=', $_GET['addProduct'])->get();
-      //print_r($selectedProduct);
 
 
+
+
+
+
+
+    /*
+    if (!empty($_GET['addDiscProduct'])) {
+      $addedProduct = DiscountProduct::where('id', '=', $_GET['addDiscProduct'])->get();
       //prijs aanpassen adhv gekozen winkel
       if ($_SESSION['user']['favstore'] == 'delhaize') {
         $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] + 0.4;
@@ -529,37 +574,21 @@ class PagesController extends Controller
       } else {
         $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'];
       }
-
-
-      //print_r($_SESSION['total']);
-
+      //geen geld genoeg --> naar cart
       if ($_SESSION['total'] > $_SESSION['user']['credit']) {
         header('Location: index.php?page=cart');
-        //print_r("teveel");
-        //print_r($_SESSION['list']);
       }
-
-      /*if ($_SESSION['total'] = 0) {
-        $_SESSION['overschot'] = ($_SESSION['user']['credit']);
-      } else {
-        $_SESSION['overschot'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
-      }*/
-
       //$_SESSION['user']['credit'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
       $_SESSION['overschot'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
       //print_r($_SESSION['overschot']);
-
     }
 
-    if (!empty($_GET['addProduct'])) {
+    if (!empty($_GET['addDiscProduct'])) {
       if ($_SESSION['total'] <= $_SESSION['user']['credit']) {
-        array_push($_SESSION['list'], $_GET['addProduct']);
+        array_push($_SESSION['list'], $_GET['addDiscProduct']);
         //print_r($_SESSION['list']);
       }
     }
-
+    */
   }
-
-
 }
-
