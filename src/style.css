@@ -110,7 +110,7 @@ a{
   color: #393e5b;
   margin: auto;
   margin-top: 7rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   width: 20rem;
 
@@ -413,13 +413,14 @@ a{
 }
 
 .formcontent__editDate{
-  margin-top: 15rem;
+  margin-top: 2rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 80%;
   max-width: 40rem;
+  height: 15rem;
   border: solid 0.3rem #393e5b;
   border-radius: 25px;
   padding: 0.5rem;
@@ -431,13 +432,39 @@ a{
   flex-direction: column;
   align-items: center;
   margin-top: 2rem;
-
 }
 
+.editDateHeader__container{
+  font-size: 1.2rem;
+  color: #393e5b;
+  font-weight: 600;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 9rem;
+  text-align: center;
+}
 
+.logintitle {
+  overflow: visible;
+  width: auto;
+  text-align: center;
+  margin-top: 2rem;
+}
 
 @media only screen and (min-width: 760px) {
 
+  .editDateHeader__container{
+    font-size: 1.5rem;
+    color: #393e5b;
+    font-weight: 700;
+    margin: 2rem;
+    margin-top: 8rem;
+  }
+ 
+ 
+ 
+ 
+ 
   .menu__container{
     background-image: url("assets/images/backgroundHamburger.svg");
     background-repeat: no-repeat;
@@ -543,12 +570,21 @@ a{
   .storeWelcomeMessage{
     margin-top: 6rem ;
     font-size: 2rem;
-    color: #F5401D;
+    color: #393e5b;
   }
 
   .storeParagraph{
     margin-top: 1rem;
   }
+
+.labelStyling{
+  font-size: 1.5rem;
+  margin: 0.1rem;
+}
+
+.storeStyle{
+  max-width: 30rem;
+}
 
 
 }
