@@ -1,12 +1,12 @@
-<div>
-  <h1 class="logintitle">
+<div class="centerBack">
+  <h1 class="logintitle settingsTitle">
     <img src="./assets/images/title.svg" alt="mealplanner" class="titleImage">
   </h1>
   <div class="formContainer">
     <form class="creditformTwo jsForm" action="index.php?page=settings" method="post">
       <input type="hidden" name="action" value="credit">
       <article class="formcontent__credit">
-        <div class="formStyleTwo">
+        <div class="formStyleTwo higher">
           <label class="formlabel" for="credit">This adds money to your remaining <br> budget of previous weeks. </label>
           <input class="input" required name="credit" type="number" min="1" placeholder="100">
           <input type="submit" value="submit" class="submitButton extraMarginTop">
@@ -48,8 +48,8 @@
         </div>
       </article>
     </form>
-    <a class="submitButton" href="index.php?page=menu">
-      <button>Back</button>
-    </a>
   </div>
+  <a href="index.php?page=menu">
+    <button class="backButton">Back</button>
+  </a>
 </div>
