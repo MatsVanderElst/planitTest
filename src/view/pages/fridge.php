@@ -5,17 +5,17 @@
   <article class="formcontent__fridge">
     <img src="./assets/images/hamburger.svg" alt="hamburger illustration" class="fridgeburger">
     <div class="fridgeHeader__container">
-      <p class="fridgeSubTitle"> <?php echo $_SESSION['user']['nickname'] ?>, There are <?php echo $fridgeItemCount ?>, item’s in your fridge </p>
+      <p class="fridgeSubTitle"> <?php echo $_SESSION['user']['nickname'] ?>, There are <?php echo $fridgeItemCount ?> item’s in your fridge </p>
       <p class="fridgeParagraph">Here’s an overview of the products you Have at home. Tap the name to see it’s details.</p>
     </div>
     <ul class="productsList">
       <?php if ($fridgeItemCount == 0): ?>
      <div class="empty">
-       <p class="emptyP"> Your shopping list is still empty</p>
-       <a class="emptyA" href="index.php?page=list">click to create a shopping list</a>
+       <p class="emptyP"> Your fridge is still empty</p>
+       <a class="emptyA" href="index.php?page=list">click to add items to it</a>
      </div>
    <?php endif; ?>
-   
+
       <?php foreach ($fridge as $fridgeItem) : ?>
         <li class="fridgeItem">
           <a>

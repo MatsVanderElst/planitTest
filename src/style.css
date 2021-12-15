@@ -41,6 +41,7 @@ li {
   background-size:100% 100vh;
   background-position: top;
 }
+
 a{
   text-decoration: none;
 }
@@ -366,7 +367,7 @@ a{
   background-color: whitesmoke;
   padding: 0.5rem;
   border-radius: 6px;
-  border: 3px solid #ffa957;
+  border: 0.2rem solid #ffa957;
 }
 
 
@@ -375,16 +376,21 @@ a{
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  text-align: center;
   width: 80%;
   margin: 0.6rem;
   align-self: center;
-  border-bottom: solid #393e5b 0.1rem;
+  border: solid #393e5b 0.2rem;
+  border-radius: 25px;
   text-decoration: none;
+  padding: 0.3rem;
 }
+
+
 
 .fridgeitem_name{
   color: #393e5b;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 
 .fridgeburger{
