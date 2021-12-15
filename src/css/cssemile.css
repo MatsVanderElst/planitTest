@@ -696,3 +696,14 @@
 .product__price-red {
   color: rgb(218, 63, 63);
 }
+
+.add {
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+
+.add:hover {
+  cursor: pointer;
+  background-color: #ffa957;
+}
