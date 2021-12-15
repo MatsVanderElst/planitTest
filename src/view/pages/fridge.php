@@ -19,7 +19,7 @@
       <?php foreach ($fridge as $fridgeItem) : ?>
         <li class="fridgeItem">
           <a>
-            <a href="index.php?page=productDetail&detailedProduct=<?php echo $fridgeItem->product['id'] ?>">
+            <a  href="index.php?page=productDetail&detailedProduct=<?php echo $fridgeItem->product['id'] ?>">
               <p class="fridgeItem__name"><?php echo $fridgeItem->product['product']; ?></p>
             </a>
             <p class="fridgeItem__quantity"><?php echo $fridgeItem['quantity']; ?></p>

@@ -395,16 +395,15 @@ class PagesController extends Controller
         //zet string nummer om naar een echt nummer
         $deleteProductId = intval($_GET['deleteProduct']);
 
-        $index = 0;
-
-
-        foreach ($selectedProducts as $product) {
+        
+        
+        foreach ($selectedProducts as $index => $product) {
+          /* $index = 0; */
           if ($product['id'] == $deleteProductId) {
             unset($selectedProducts[$index]);
             unset($_SESSION['list'][$index]);
             break;
           }
-          $index = $index + 1;
         }
       }
     }
