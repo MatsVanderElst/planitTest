@@ -384,15 +384,19 @@ class PagesController extends Controller
         //zet string nummer om naar een echt nummer
         $deleteProductId = intval($_GET['deleteProduct']);
 
-
-
         foreach ($selectedProducts as $index => $product) {
           /* $index = 0; */
           if ($product['id'] == $deleteProductId) {
             unset($selectedProducts[$index]);
-            unset($_SESSION['list'][$index]);
+            foreach ($_SESSION['list'] as $listIndex => $productId) { /* ---> was assosiatieve array dus ook over loopen */
+              if ($productId == $deleteProductId) {
+                unset($_SESSION['list'][$listIndex]);
+                break;
+              }
+            }
             break;
           }
+
         }
       }
     }
