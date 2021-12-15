@@ -366,8 +366,11 @@ class PagesController extends Controller
     $selectedProducts = array();
     foreach ($_SESSION['list'] as $discProductId) {
       $selectedProduct = Product::find($discProductId);
+      if (is_null($selectedProduct) == false) {
+        array_push($selectedProducts, $selectedProduct);
+      }
       //$selectedDiscountProduct = DiscountProduct::find($productId);
-    array_push($selectedProducts, $selectedProduct, /*$selectedDiscountProduct*/);
+    //array_push($selectedProducts, $selectedProduct, /*$selectedDiscountProduct*/);
     }
     //print_r($selectedProducts[0]['product']);
 
@@ -375,7 +378,10 @@ class PagesController extends Controller
     $selectedDiscountProducts = array();
     foreach ($_SESSION['list'] as $discProductId) {
       $selectedDiscountProduct = DiscountProduct::find($discProductId);
-      array_push($selectedDiscountProducts, $selectedDiscountProduct);
+      if (is_null($selectedDiscountProduct) == false) {
+        array_push($selectedDiscountProducts, $selectedDiscountProduct);
+      }
+      //array_push($selectedDiscountProducts, $selectedDiscountProduct);
     }
     //print_r($selectedDiscountProducts[5]['product']);
 
@@ -395,8 +401,8 @@ class PagesController extends Controller
         //zet string nummer om naar een echt nummer
         $deleteProductId = intval($_GET['deleteProduct']);
 
-        
-        
+
+
         foreach ($selectedProducts as $index => $product) {
           /* $index = 0; */
           if ($product['id'] == $deleteProductId) {
