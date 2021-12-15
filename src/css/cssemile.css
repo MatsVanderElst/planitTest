@@ -123,6 +123,12 @@
   margin-right: 1rem;
 }
 
+.centerBack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .buttons {
   display: flex;
   flex-direction: row;
@@ -653,6 +659,12 @@
   margin-bottom: 0;
 }
 
+@media only screen and (max-width: 900px) {
+  .settingsTitle {
+    display: none;
+  }
+}
+
 @media only screen and (min-width: 900px) {
 
   .formContainer {
@@ -664,6 +676,16 @@
     margin-top: 5rem;
   }
 
+  .higher {
+    height: 419.2px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .centerBack {
+    display: unset;
+    margin: 0 auto;
+  }
 }
 
 .product__price-disc {
