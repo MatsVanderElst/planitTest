@@ -62,6 +62,16 @@ a{
   margin-top: 1rem;
 }
 
+.fridgeTitleImage{
+  height: auto;
+  margin-top: 0.5rem;
+}
+
+.productDettailTitleImage{
+  height: auto;
+  margin-top: 1rem;
+}
+
 .storeStyle {
   background-color: whitesmoke;
   border: 2pt solid #393e5b;
@@ -364,15 +374,17 @@ a{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 80%;
   margin: 0.6rem;
   align-self: center;
   border-bottom: solid #393e5b 0.1rem;
+  text-decoration: none;
 }
 
 .fridgeitem_name{
   color: #393e5b;
+  font-size: 1.5rem;
 }
 
 .fridgeburger{
@@ -392,6 +404,8 @@ a{
 
 .fridgeDetailParagraph{
   margin-top: 9rem;
+  color: #393e5b;
+  font-size: 1.5rem;
 }
 
 .itemDetails{
@@ -403,7 +417,10 @@ a{
 }
 
 .DetailFridgeItem{
-  margin: 0.5rem;
+  margin: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #393e5b;
 }
 
 .editDateContainer{
@@ -451,6 +468,30 @@ a{
   margin-top: 2rem;
 }
 
+.details{
+  margin-top: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 20rem;
+  height: 15rem;
+  border: solid 0.3rem #393e5b;
+  border-radius: 25px;
+  padding: 0.5rem;
+  background-color: whitesmoke;
+}
+
+
+
+@media only screen and (min-width: 650px){
+  .fridgeDetailParagraph{
+    margin-top: 7rem;
+  }
+}
+
 @media only screen and (min-width: 760px) {
 
   .editDateHeader__container{
@@ -461,7 +502,10 @@ a{
     margin-top: 8rem;
   }
  
- 
+  .productDettailTitleImage{
+    padding: 0;
+    width: 35rem;
+  }
  
  
  
@@ -480,6 +524,12 @@ a{
     width: 43rem;
     padding-right: 8rem;
   }
+
+  .fridgeTitleImage{
+    width: 43rem;
+    padding: 0;
+  }
+  
 
   .storeTitleImage{
     width: 43rem;
@@ -613,6 +663,12 @@ a{
     padding: 0;
     width: 35rem;
   }
+
+  .fridgeTitleImage{
+    padding: 0;
+    width: 35rem;
+  }
+
 
   .menu__subtitle{
     padding: 0;

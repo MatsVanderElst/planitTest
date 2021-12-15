@@ -1,6 +1,6 @@
 <div class="fridgeBackroundContainer">
   <h1 class="logintitle">
-    <img src="./assets/images/title.svg" alt="mealplanner" class="titleImage">
+    <img src="./assets/images/title.svg" alt="mealplanner" class="fridgeTitleImage">
   </h1>
   <article class="formcontent__fridge">
     <img src="./assets/images/hamburger.svg" alt="hamburger illustration" class="fridgeburger">
@@ -9,6 +9,13 @@
       <p class="fridgeParagraph">Here’s an overview of the products you Have at home. Tap the name to see it’s details.</p>
     </div>
     <ul class="productsList">
+      <?php if ($fridgeItemCount == 0): ?>
+     <div class="empty">
+       <p class="emptyP"> Your shopping list is still empty</p>
+       <a class="emptyA" href="index.php?page=list">click to create a shopping list</a>
+     </div>
+   <?php endif; ?>
+   
       <?php foreach ($fridge as $fridgeItem) : ?>
         <li class="fridgeItem">
           <a>
