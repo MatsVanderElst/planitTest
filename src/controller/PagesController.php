@@ -210,6 +210,11 @@ class PagesController extends Controller
       //groceries in DB steken
       foreach ($quantitiesById as $productId => $quantity) {
         $product = Product::find($productId);
+        
+        //via if doen? --> discount products pushen naar fridge zo dat deze ook volledig zichtbaar zijn in de DB
+          // nu is de naam niet zichtbaar
+        /* $discountProduct = DiscountProduct::find($productId); */
+
         $fridgeItem = new FridgeItem;
         $fridgeItem->user_id = $_SESSION['user']['id'];
         $fridgeItem->product_id = $product['id'];
@@ -277,20 +282,9 @@ class PagesController extends Controller
     if (!empty($_GET['addProduct'])) {
       $addedProduct = Product::where('id', '=', $_GET['addProduct'])->get();
       //print_r($selectedProduct);
-
-
-      //prijs aanpassen adhv gekozen winkel
-      if ($_SESSION['user']['favstore'] == 'delhaize') {
-        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] + 0.4;
-      } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
-        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] - 0.2;
-      } elseif ($_SESSION['user']['favstore'] == 'colruyt') {
-        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] - 0.5;
-      } elseif ($_SESSION['user']['favstore'] == 'alberthein') {
-        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'] - 0.3;
-      } else {
-        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['price'];
-      }
+     
+      //prijs aanpassen adhv gekozen winkel gebeurt nu in het model
+      $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['shopPrice'];
 
 
       //print_r($_SESSION['total']);
@@ -322,21 +316,10 @@ class PagesController extends Controller
 
 
     if (!empty($_GET['addDiscProduct'])) {
-      $addedDiscProduct = DiscountProduct::where('id', '=', $_GET['addDiscProduct'])->get();
-      //prijs aanpassen adhv gekozen winkel
-      if (
-        $_SESSION['user']['favstore'] == 'delhaize'
-      ) {
-        $_SESSION['total'] = $_SESSION['total'] + $addedDiscProduct[0]['price'] + 0.4;
-      } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
-        $_SESSION['total'] = $_SESSION['total'] + $addedDiscProduct[0]['price'] - 0.2;
-      } elseif ($_SESSION['user']['favstore'] == 'colruyt') {
-        $_SESSION['total'] = $_SESSION['total'] + $addedDiscProduct[0]['price'] - 0.5;
-      } elseif ($_SESSION['user']['favstore'] == 'alberthein') {
-        $_SESSION['total'] = $_SESSION['total'] + $addedDiscProduct[0]['price'] - 0.3;
-      } else {
-        $_SESSION['total'] = $_SESSION['total'] + $addedDiscProduct[0]['price'];
-      }
+      $addedDiscProduct = Product::where('id', '=', $_GET['addDiscProduct'])->get();
+      //prijs aanpassen adhv gekozen winkel gebeurt nu in het model
+      $_SESSION['total'] = $_SESSION['total'] + $addedDiscProduct[0]['discountShopPrice'];
+      
       //geen geld genoeg --> naar cart
       if ($_SESSION['total'] > $_SESSION['user']['credit']) {
         header('Location: index.php?page=cart');
@@ -367,7 +350,7 @@ class PagesController extends Controller
     foreach ($_SESSION['list'] as $discProductId) {
       $selectedProduct = Product::find($discProductId);
       if (is_null($selectedProduct) == false) {
-        array_push($selectedProducts, $selectedProduct);
+          array_push($selectedProducts, $selectedProduct);
       }
       //$selectedDiscountProduct = DiscountProduct::find($productId);
     //array_push($selectedProducts, $selectedProduct, /*$selectedDiscountProduct*/);
@@ -375,9 +358,9 @@ class PagesController extends Controller
     //print_r($selectedProducts[0]['product']);
 
 
-    $selectedDiscountProducts = array();
+    /* $selectedDiscountProducts = array();
     foreach ($_SESSION['list'] as $discProductId) {
-      $selectedDiscountProduct = DiscountProduct::find($discProductId);
+      $selectedDiscountProduct = Product::find($discProductId);
       if (is_null($selectedDiscountProduct) == false) {
         array_push($selectedDiscountProducts, $selectedDiscountProduct);
       }
@@ -386,7 +369,7 @@ class PagesController extends Controller
     //print_r($selectedDiscountProducts[5]['product']);
 
     $allProducts = array_merge($selectedProducts, $selectedDiscountProducts);
-    //print_r($allProducts);
+    //print_r($allProducts); */
 
 
 
@@ -415,27 +398,22 @@ class PagesController extends Controller
     }
 
     //zet de totale prijs op de som van alle producten die nog in het winkelmandje zitten
+
+    //alot of ifs, miss refactoren als we tijd hebben
     if (!empty($selectedProducts)) {
       foreach ($selectedProducts as $product) {
-        if ($_SESSION['user']['favstore'] == 'delhaize') {
-          $_SESSION['total'] += $product['price'] + 0.4;
-        } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
-          $_SESSION['total'] += $product['price'] - 0.2;
-        } elseif ($_SESSION['user']['favstore'] == 'colruyt') {
-          $_SESSION['total'] += $product['price'] - 0.5;
-        } elseif ($_SESSION['user']['favstore'] == 'alberthein') {
-          $_SESSION['total'] += $product['price'] - 0.3;
-        } else {
-          $_SESSION['total'] += $product['price'];
+        if ($product['discountStorePrice'] != null) {
+          $_SESSION['total'] += $product['discountStorePrice'];
+        } else{
+          $_SESSION['total'] += $product['storePrice'];
         }
       }
     }
+    
 
     /* $_SESSION['list'] = $selectedProducts; */
 
     $this->set('selectedProducts', $selectedProducts);
-    $this->set('selectedDiscountProducts', $selectedDiscountProducts);
-    $this->set('allProducts', $allProducts);
 
   }
 
@@ -554,16 +532,9 @@ class PagesController extends Controller
     $_SESSION['overschot'] = $_SESSION['user']['credit'];
 
     //producten uit db halen
-    $discProducts = DiscountProduct::all();
+    $discProducts = Product::whereNotNull('discount_price')->get();
     $this->set('discProducts', $discProducts);
-
-
-
-
-
-
-
-
+    
     /*
     if (!empty($_GET['addDiscProduct'])) {
       $addedProduct = DiscountProduct::where('id', '=', $_GET['addDiscProduct'])->get();

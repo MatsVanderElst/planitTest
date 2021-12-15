@@ -54,17 +54,12 @@
 
 
           <p class="product__name"><?php echo $product['product'] ?></p>
-
-          <?php if ($_SESSION['user']['favstore'] == 'delhaize') : ?>
-            <p class="product__price"><?php echo $product['price'] + 0.4 ?></p>
-          <?php elseif ($_SESSION['user']['favstore'] == 'carrefour') : ?>
-            <p class="product__price"><?php echo $product['price'] - 0.2 ?></p>
-          <?php elseif ($_SESSION['user']['favstore'] == 'colruyt') : ?>
-            <p class="product__price"><?php echo $product['price'] - 0.5 ?></p>
-          <?php elseif ($_SESSION['user']['favstore'] == 'alberthein') : ?>
-            <p class="product__price"><?php echo $product['price'] - 0.3 ?></p>
-          <?php else : ?>
-            <p class="product__price"><?php echo $product['price'] ?></p>
+          
+          
+          <?php if ($product['discountStorePrice'] != 0) : ?>
+            <p class="product__price dicount"><?php echo $product['discountStorePrice'] ?></p>
+          <?php else: ?>
+            <p class="product__price dicount"><?php echo $product['storePrice'] ?></p>
           <?php endif; ?>
         </div>
       <?php endforeach; ?>

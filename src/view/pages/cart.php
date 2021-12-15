@@ -16,18 +16,8 @@
 
   <?php
   $total = 0;
-  foreach ($allProducts as $product)
-    if ($_SESSION['user']['favstore'] == 'delhaize') {
-      $total += $product['price'] + 0.4;
-    } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
-      $total += $product['price'] - 0.2;
-    } elseif ($_SESSION['user']['favstore'] == 'colruyt') {
-      $total += $product['price'] - 0.5;
-    } elseif ($_SESSION['user']['favstore'] == 'alberthein') {
-      $total += $product['price'] - 0.3;
-    } else {
-      $total += $product['price'];
-    }
+  foreach ($selectedProducts as $product)
+    $total += $product['storePrice'];
   ?>
 
 
@@ -35,7 +25,7 @@
 
   <?php if (!empty($_SESSION['list'])) : ?>
     <div class="cart__products">
-      <?php foreach ($allProducts as $product) : ?>
+      <?php foreach ($selectedProducts as $product) : ?>
         <div>
           <div class="single__product">
             <div>
@@ -47,18 +37,11 @@
                 </a>
               </span>
             </div>
+              <!-- kan vervangen worden door logica in model -> geen code hier en niet in controller (kijk naar berekening Nutriscore) -->
+              <!-- heb het gedaan :) -->
             <p class="single__product-name"><?php echo $product['product'] ?></p>
-            <?php if ($_SESSION['user']['favstore'] == 'delhaize') : ?>
-              <p class="product__price-black"><?php echo $product['price'] + 0.4 ?></p>
-            <?php elseif ($_SESSION['user']['favstore'] == 'carrefour') : ?>
-              <p class="product__price-black"><?php echo $product['price'] - 0.2 ?></p>
-            <?php elseif ($_SESSION['user']['favstore'] == 'colruyt') : ?>
-              <p class="product__price-black"><?php echo $product['price'] - 0.5 ?></p>
-            <?php elseif ($_SESSION['user']['favstore'] == 'alberthein') : ?>
-              <p class="product__price-black"><?php echo $product['price'] - 0.3 ?></p>
-            <?php else : ?>
-              <p class="product__price-black"><?php echo $product['price'] ?></p>
-            <?php endif; ?>
+            <p class="product__price-black"><?php echo $product['storePrice']?></p>
+            
           </div>
         </div>
         <hr class="stroke">

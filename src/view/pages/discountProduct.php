@@ -44,22 +44,9 @@
 
           <p class="product__name"><?php echo $discProduct['product'] ?></p>
 
-          <?php if ($_SESSION['user']['favstore'] == 'delhaize') : ?>
-            <p class="product__price-disc"><?php echo $discProduct['normal_price'] + 0.4 ?></p>
-            <p class="product__price-red"><?php echo $discProduct['price'] + 0.4 ?></p>
-          <?php elseif ($_SESSION['user']['favstore'] == 'carrefour') : ?>
-            <p class="product__price-disc"><?php echo $discProduct['normal_price'] - 0.2 ?></p>
-            <p class="product__price-red"><?php echo $discProduct['price'] - 0.2 ?></p>
-          <?php elseif ($_SESSION['user']['favstore'] == 'colruyt') : ?>
-            <p class="product__price-disc"><?php echo $discProduct['normal_price'] - 0.5 ?></p>
-            <p class="product__price-red"><?php echo $discProduct['price'] - 0.5 ?></p>
-          <?php elseif ($_SESSION['user']['favstore'] == 'alberthein') : ?>
-            <p class="product__price-disc"><?php echo $discProduct['normal_price'] - 0.3 ?></p>
-            <p class="product__price-red"><?php echo $discProduct['price'] - 0.3 ?></p>
-          <?php else : ?>
-            <p class="product__price-disc"><?php echo $discProduct['normal_price'] ?></p>
-            <p class="product__price-red"><?php echo $discProduct['price'] ?></p>
-          <?php endif; ?>
+          <p class="product__price-disc"><?php echo $discProduct['storePrice']?></p>
+          <p class="product__price-red"><?php echo $discProduct['discountStorePrice']?></p>
+        
         </div>
       <?php endforeach; ?>
     </article>

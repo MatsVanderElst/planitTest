@@ -440,13 +440,15 @@ a{
   text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+
   align-items: center;
-  width: 80%;
+  width: fit-content;
   max-width: 40rem;
-  height: 15rem;
+  height: fit-content;
   border: solid 0.3rem #393e5b;
   border-radius: 25px;
-  padding: 0.5rem;
+  padding: 1rem;
   background-color: whitesmoke;
 }
 
@@ -460,12 +462,13 @@ a{
 .editDateHeader__container{
   font-size: 1.2rem;
   color: #393e5b;
-  font-weight: 600;
+  
   margin-left: 3rem;
   margin-right: 3rem;
-  margin-top: 9rem;
+  margin-top: 7rem;
   text-align: center;
 }
+
 
 .logintitle {
   overflow: visible;
