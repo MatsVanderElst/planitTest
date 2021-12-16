@@ -22,7 +22,7 @@
     <div class="secondary__buttons">
       <p class="discounts__title">Discouts</p>
       <div class="discounts__button">
-        <a href="#">
+        <a href="index.php?page=discountProduct">
           <img src="assets/images/ticketIcon.svg" alt="ticket icon">
         </a>
       </div>

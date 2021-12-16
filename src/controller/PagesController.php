@@ -4,6 +4,7 @@ require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../model/User.php';
 require_once __DIR__ . '/../model/Product.php';
 require_once __DIR__ . '/../model/FridgeItem.php';
+require_once __DIR__ . '/../model/ShoppingList.php';
 
 
 class PagesController extends Controller
@@ -569,5 +570,20 @@ class PagesController extends Controller
       }
     }
     */
+  }
+  
+  public function shoppingList(){
+
+    if (empty($_SESSION['user'])) {
+      header('location:index.php?page=register');
+    }
+
+    $user = User::where('email', '=', $_SESSION['user']['email'])->first();
+
+    if (!empty($user)) {
+      $shoppingLists = $user->shoppingLists;
+      $this->set('shoppingLists', $shoppingLists);
+    }
+
   }
 }

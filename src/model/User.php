@@ -8,6 +8,11 @@ class User extends Model
   
   protected $fillable = ['nickname', 'email', 'password', 'credit', 'id', 'favstore'];
 
+  public function shoppingLists()
+  {
+      return $this->hasMany(ShoppingList::class);
+  }
+
   public static function validate($data)
   {
     $errors = [];
@@ -27,4 +32,6 @@ class User extends Model
 
     return $errors;
   }
+  
+
 }
