@@ -645,7 +645,9 @@ a{
   max-width: 30rem;
 }
 
-
+.dicountColor{
+  color: red;
+}
 }
 
 @media only screen and (min-width: 850px) {

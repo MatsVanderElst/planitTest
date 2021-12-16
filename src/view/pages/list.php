@@ -57,9 +57,9 @@
           
           
           <?php if ($product['discountStorePrice'] != 0) : ?>
-            <p class="product__price dicount"><?php echo $product['discountStorePrice'] ?></p>
+            <p class="product__price dicountColor"><?php echo $product['discountStorePrice'] ?></p>
           <?php else: ?>
-            <p class="product__price dicount"><?php echo $product['storePrice'] ?></p>
+            <p class="product__price"><?php echo $product['storePrice'] ?></p>
           <?php endif; ?>
         </div>
       <?php endforeach; ?>

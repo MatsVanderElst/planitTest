@@ -40,8 +40,12 @@
               <!-- kan vervangen worden door logica in model -> geen code hier en niet in controller (kijk naar berekening Nutriscore) -->
               <!-- heb het gedaan :) -->
             <p class="single__product-name"><?php echo $product['product'] ?></p>
-            <p class="product__price-black"><?php echo $product['storePrice']?></p>
             
+            <?php if ($product['discountStorePrice'] != 0) : ?>
+            <p class="product__price-black dicountColor"><?php echo $product['discountStorePrice'] ?></p>
+          <?php else: ?>
+            <p class="product__price-black"><?php echo $product['storePrice'] ?></p>
+          <?php endif; ?>
           </div>
         </div>
         <hr class="stroke">

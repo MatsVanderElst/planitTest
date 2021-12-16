@@ -4,7 +4,6 @@ require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../model/User.php';
 require_once __DIR__ . '/../model/Product.php';
 require_once __DIR__ . '/../model/FridgeItem.php';
-require_once __DIR__ . '/../model/DiscountProduct.php';
 
 
 class PagesController extends Controller
