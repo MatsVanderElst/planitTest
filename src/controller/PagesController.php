@@ -200,7 +200,7 @@ class PagesController extends Controller
       header('location:index.php?page=register');
     }
 
-
+    if (!empty($_GET['listName'])) {
       $excistingList = ShoppingList::where('name', '=', $_GET['listName'])->where('user_id','=', $_SESSION['user']['id'])->first();
       
       if (empty($excistingList)) {
@@ -214,6 +214,7 @@ class PagesController extends Controller
         $excistingList->json_list = json_encode($_SESSION['list']);
         $excistingList->save();
       }
+    }
     
 
     $newCredit = $_SESSION['user']['credit'] - $_SESSION['total'];
@@ -259,14 +260,13 @@ class PagesController extends Controller
     if (empty($_SESSION['user'])) {
       header('location:index.php?page=register');
     }
-
-
     $_SESSION['overschot'] = $_SESSION['user']['credit'];
     //shoppinglist uit db halen
+
     if (!empty($_GET['shoppingListId'])) {
       $shoppingList = ShoppingList::find($_GET['shoppingListId']);
       $shoppinglistJson = $shoppingList->json_list;
-      $shoppingListItems = json_decode($shoppinglistJson);
+      $shoppingListItems = json_decode($shoppinglistJson, true);
       $_SESSION['list'] = $shoppingListItems;
     }
 
