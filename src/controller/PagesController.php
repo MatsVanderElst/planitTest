@@ -255,7 +255,13 @@ class PagesController extends Controller
 
 
     $_SESSION['overschot'] = $_SESSION['user']['credit'];
-
+    //shoppinglist uit db halen
+    if (!empty($_GET['shoppingListId'])) {
+      $shoppingList = ShoppingList::find($_GET['shoppingListId']);
+      $shoppinglistJson = $shoppingList->json_list;
+      $shoppingListItems = json_decode($shoppinglistJson);
+      $_SESSION['list'] = $shoppingListItems;
+    }
 
     //producten uit db halen
     $allProducts = Product::all();
