@@ -28,7 +28,7 @@
       </div>
       <p class="recipes__title">Recipess</p>
       <div class="recipes__button">
-        <a href="#">
+        <a href="index.php?page=shoppingList">
           <img src="assets/images/hamburgerIcon.svg" alt="hamburger icon">
         </a>
       </div>

@@ -200,6 +200,15 @@ class PagesController extends Controller
       header('location:index.php?page=register');
     }
 
+    //save the cart list to db if list name is given
+    if (!empty($_GET['listName'])) {
+      $shoppinglist = new ShoppingList;
+      $shoppinglist->json_list = json_encode($_SESSION['list']);
+      $shoppinglist->name = $_GET['listName'];
+      $shoppinglist->user_id= $_SESSION['user']['id'];
+      $shoppinglist->save();
+  }
+
     $newCredit = $_SESSION['user']['credit'] - $_SESSION['total'];
     //zorgt er voor dat winkelmandje leeg wordt gemaakt na duwne op confirm zo kan gebruioker nieuwe lijst opstellen Ook wordt hier het budget vd user upgedate in de db
     if (!empty($_GET['action']) && $_GET['action'] == 'confirm') {

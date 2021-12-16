@@ -12,7 +12,7 @@
         <?php if (!empty($shoppingLists)) : ?>
             <p class="emptyP"> Your saved shopping lists are</p>
             <?php foreach($shoppingLists as $shoppingList):?>
-                <a class="emptyA" href="index.php?page=list">click to create a shopping list</a>
+                <a class="emptyA" href="index.php?page=list"><p><?php echo $shoppingList['name']; ?></p></a>
             <?php endforeach; ?>
         <?php endif; ?>
       </div>    

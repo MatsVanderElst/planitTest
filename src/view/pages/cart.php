@@ -14,12 +14,14 @@
     <?php endif; ?>
   </div>
 
+  
+  
   <?php
   $total = 0;
   foreach ($selectedProducts as $product)
-    $total += $product['storePrice'];
+  $total += $product['storePrice'];
   ?>
-
+  
 
 
 
@@ -63,14 +65,16 @@
       </section>
 
       <section class="buttons">
-        <a href="index.php?page=list">
-          <button class="backButton">Back</button>
-        </a>
         <form class="jsForm form" method="get" action="index.php?page=cart">
+          <label class="formlabel" for="listName"> add a name to save your list!</label>
+          <input class="input" name="listName" type="text" placeholder="christmas list">
           <input type="hidden" value="confirm" name="action">
           <input type="hidden" value="menu" name="page">
           <input type="submit" value="confirm" class="submitButton">
         </form>
+        <a href="index.php?page=list">
+          <button class="backButton">Back</button>
+        </a>
       </section>
     </div>
   <?php endif; ?>

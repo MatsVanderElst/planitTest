@@ -53,6 +53,10 @@ $routes = array(
     'controller' => 'pages',
     'action' => 'discountProduct'
   ),
+  'shoppingList' => array(
+    'controller' => 'pages',
+    'action' => 'shoppingList'
+  )
 
 );
 
