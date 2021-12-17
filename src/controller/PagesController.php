@@ -305,9 +305,11 @@ class PagesController extends Controller
       $addedProduct = Product::where('id', '=', $_GET['addProduct'])->get();
       //print_r($selectedProduct);
 
-      //prijs aanpassen adhv gekozen winkel gebeurt nu in het model
-      $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['shopPrice'];
-
+      if (is_null($addedProduct[0]['discountStorePrice']) == false) {
+        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['discountStorePrice'];
+      } else {
+        $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['storePrice'];
+      }
 
       //print_r($_SESSION['total']);
 
@@ -316,12 +318,6 @@ class PagesController extends Controller
         //print_r("teveel");
         //print_r($_SESSION['list']);
       }
-
-      /*if ($_SESSION['total'] = 0) {
-        $_SESSION['overschot'] = ($_SESSION['user']['credit']);
-      } else {
-        $_SESSION['overschot'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
-      }*/
 
       //$_SESSION['user']['credit'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
       $_SESSION['overschot'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
@@ -337,26 +333,7 @@ class PagesController extends Controller
     }
 
 
-    if (!empty($_GET['addDiscProduct'])) {
-      $addedDiscProduct = Product::where('id', '=', $_GET['addDiscProduct'])->get();
-      //prijs aanpassen adhv gekozen winkel gebeurt nu in het model
-      $_SESSION['total'] = $_SESSION['total'] + $addedDiscProduct[0]['discountShopPrice'];
-
-      //geen geld genoeg --> naar cart
-      if ($_SESSION['total'] > $_SESSION['user']['credit']) {
-        header('Location: index.php?page=cart');
-      }
-      //$_SESSION['user']['credit'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
-      $_SESSION['overschot'] = ($_SESSION['user']['credit'] - $_SESSION['total']);
-      //print_r($_SESSION['overschot']);
-    }
-
-    if (!empty($_GET['addDiscProduct'])) {
-      if ($_SESSION['total'] <= $_SESSION['user']['credit']) {
-        array_push($_SESSION['list'], $_GET['addDiscProduct']);
-        //print_r($_SESSION['list']);
-      }
-    }
+    
   }
 
   public function cart()
