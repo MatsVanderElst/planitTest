@@ -40,6 +40,7 @@ const submitWithJS = async () => {
 
 const updateList = products => {
   const $products = document.querySelector('.product__list');
+  console.log($products);
   $products.innerHTML = products.map(product => {
 
     if (product.discount_price != null) {
@@ -60,10 +61,11 @@ const updateList = products => {
 
 
         <p class="product__name">${product.product}</p>
-        <p class="product__price dicountColor">${product.discount_price}</p>
+        <p class="product__price dicountColor">${product.discountStorePrice.toFixed(2)}</p>
       </div>
       `;
     } else {
+      console.log(product.price);
       return `
        <div class="product__single">
 
@@ -81,7 +83,7 @@ const updateList = products => {
 
 
         <p class="product__name">${product.product}</p>
-        <p class="product__price">${product.price}</p>
+        <p class="product__price">${product.storePrice.toFixed(2)}</p>
       </div>
       `;
     }
