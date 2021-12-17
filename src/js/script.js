@@ -97,7 +97,6 @@ const updateList = products => {
 
 
 
-
 export const init = () => {
   console.log('start executing this JavaScript');
 
@@ -105,7 +104,7 @@ export const init = () => {
 
   document.querySelectorAll('.searchbar').forEach($field => $field.addEventListener('input', handleInputField));
   document.querySelector('.product__form').addEventListener('submit', handleSubmitForm);
-  //countKids();
+
 
 };
 

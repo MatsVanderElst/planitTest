@@ -44,9 +44,8 @@
 
           <p class="product__name"><?php echo $discProduct['product'] ?></p>
 
-          <p class="product__price-disc"><?php echo $discProduct['storePrice']?></p>
-          <p class="product__price-red"><?php echo $discProduct['discountStorePrice']?></p>
-        
+          <p class="product__price-disc"><?php echo number_format((float)$discProduct['storePrice'], 2, '.', ''); ?></p>
+          <p class="product__price-red"><?php echo number_format((float)$discProduct['discountStorePrice'], 2, '.', ''); ?></p>
         </div>
       <?php endforeach; ?>
     </article>

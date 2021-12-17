@@ -51,21 +51,12 @@
             </button>
 
           </form>
-
-
-
           <p class="product__name"><?php echo $product['product'] ?></p>
-
-
           <?php if ($product['discountStorePrice'] != 0) : ?>
-             <p class="product__price dicountColor"><?php echo number_format((float)$product['discountStorePrice'], 2, '.', '');
-           // <p class="product__price dicountColor"><?php echo $product['discountStorePrice']
 
-            //<p class="product__price"><?php echo number_format((float)$product['storePrice'], 2, '.', '');
-            ?></p>
-          <?php else: ?>
-            <p class="product__price"><?php echo number_format((float)$product['storePrice'], 2, '.', '');
-            //<p class="product__price"><?php echo $product['storePrice'] ?></p>
+            <p class="product__price-red"><?php echo number_format((float)$product['discountStorePrice'], 2, '.', ''); ?></p>
+          <?php else : ?>
+            <p class="product__price"><?php echo number_format((float)$product['storePrice'], 2, '.', ''); ?></p>
           <?php endif; ?>
         </div>
       <?php endforeach; ?>
@@ -80,10 +71,10 @@
           <span class="pagination__link-span"><?php echo $page; ?></span>
         <?php else : ?>
           <a class="pagination__link" href="index.php?<?php
-                                                            $params['page'] = 'list';
-                                                            $params['p'] = $page;
-                                                            echo http_build_query($params);
-                                                            ?>"><?php echo $page; ?></a>
+                                                      $params['page'] = 'list';
+                                                      $params['p'] = $page;
+                                                      echo http_build_query($params);
+                                                      ?>"><?php echo $page; ?></a>
         <?php endif; ?>
       </li>
     <?php endfor; ?>

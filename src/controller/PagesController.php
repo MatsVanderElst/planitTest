@@ -271,7 +271,7 @@ class PagesController extends Controller
     }
 
     //producten uit db halen
-    $allProducts = Product::all();
+    $products = Product::all();
     //zoekfunctie
     if (!empty($_GET['product'])) {
       $products = Product::where('product', 'LIKE', '%' . $_GET['product'] . '%');
@@ -280,7 +280,7 @@ class PagesController extends Controller
     }
 
     $itemsPerPage = 12;
-    $totalPages = ceil($allProducts->count() / $itemsPerPage);
+    $totalPages = ceil($products->count() / $itemsPerPage);
     $currentPage = 1;
     if (isset($_GET['p']) && $_GET['p'] > 0 && $_GET['p'] <= $totalPages) {
       $currentPage = $_GET['p'];

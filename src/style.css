@@ -419,7 +419,7 @@ a{
   background-color: whitesmoke;
   width: 20rem;
   border-radius: 25px;
-  
+
 }
 
 .DetailFridgeItem{
@@ -462,7 +462,7 @@ a{
 .editDateHeader__container{
   font-size: 1.2rem;
   color: #393e5b;
-  
+
   margin-left: 3rem;
   margin-right: 3rem;
   margin-top: 7rem;
@@ -510,14 +510,14 @@ a{
     margin: 2rem;
     margin-top: 8rem;
   }
- 
+
   .productDettailTitleImage{
     padding: 0;
     width: 35rem;
   }
- 
- 
- 
+
+
+
   .menu__container{
     background-image: url("assets/images/backgroundHamburger.svg");
     background-repeat: no-repeat;
@@ -538,7 +538,7 @@ a{
     width: 43rem;
     padding: 0;
   }
-  
+
 
   .storeTitleImage{
     width: 43rem;
