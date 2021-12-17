@@ -660,6 +660,7 @@
 }
 
 @media only screen and (max-width: 900px) {
+
   .settingsTitle {
     display: none;
   }

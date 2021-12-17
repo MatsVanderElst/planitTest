@@ -18,28 +18,14 @@ const submitWithJS = async () => {
   const url = `index.php?${qs}&json=true`;
   console.log('url', url);
 
-  //als ik deze lijnen weglaat wordt updatelist nie uitgevoerd maar wertk het js submitten wel? // hou ik deze lijnen erbij krij ik error "Unexpected Token < in JSON at Position 0"
+
 
   const response = await fetch(url);
   const result = await response.json();
   console.log(result.length);
 
-  //const products = document.querySelector('.product__list');
+
   updateList(result);
-
-
-  //pagination verbergen bij te weinig resultaten
-
-  /*
-  const $paginationFirst = document.querySelector('.pagination__link-span');
-  const $paginationRest = document.querySelector('.pagination__link');
-  if (result.length <= 11) {
-    $paginationFirst.classList.add('hide');
-    $paginationRest.classList.add('hide');
-  }
- */
-
-  //tot hier
 
 
 
@@ -55,7 +41,30 @@ const submitWithJS = async () => {
 const updateList = products => {
   const $products = document.querySelector('.product__list');
   $products.innerHTML = products.map(product => {
-    return `
+
+    if (product.discount_price != null) {
+      return `
+       <div class="product__single">
+
+        <form method="get" action="index.php?page=list" class="price">
+          <input type="hidden" value="list" name="page">
+          <input type="hidden" value=${product.id} name="addProduct">
+
+          <button class="add" type="submit" value="list">
+            <span class="material-icons">
+              post_add
+            </span>
+          </button>
+
+        </form>
+
+
+        <p class="product__name">${product.product}</p>
+        <p class="product__price dicountColor">${product.discount_price}</p>
+      </div>
+      `;
+    } else {
+      return `
        <div class="product__single">
 
         <form method="get" action="index.php?page=list" class="price">
@@ -75,7 +84,11 @@ const updateList = products => {
         <p class="product__price">${product.price}</p>
       </div>
       `;
+    }
+
+
   }).join(``);
+  console.log($products);
 };
 
 
