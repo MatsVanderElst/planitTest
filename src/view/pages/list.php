@@ -53,17 +53,23 @@
           </form>
 
 
+
           <p class="product__name"><?php echo $product['product'] ?></p>
-          
-          
+
+
           <?php if ($product['discountStorePrice'] != 0) : ?>
-            <p class="product__price dicountColor"><?php echo $product['discountStorePrice'] ?></p>
+             <p class="product__price dicountColor"><?php echo number_format((float)$product['discountStorePrice'], 2, '.', '');
+           // <p class="product__price dicountColor"><?php echo $product['discountStorePrice']
+
+            //<p class="product__price"><?php echo number_format((float)$product['storePrice'], 2, '.', '');
+            ?></p>
           <?php else: ?>
-            <p class="product__price"><?php echo $product['storePrice'] ?></p>
+            <p class="product__price"><?php echo number_format((float)$product['storePrice'], 2, '.', '');
+            //<p class="product__price"><?php echo $product['storePrice'] ?></p>
           <?php endif; ?>
         </div>
       <?php endforeach; ?>
-      
+
     </article>
   </div>
 
