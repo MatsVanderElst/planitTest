@@ -70,7 +70,7 @@
       <section class="buttons">
         <form class="jsForm form" method="get" action="index.php?page=cart">
           <label class="formlabel" for="listName"> add a name to save your list! use the same name to overwrite one!</label>
-          <input class="input" name="listName" type="text" placeholder="christmas list">
+          <input class="input listName" name="listName" type="text" placeholder="christmas list">
           <input type="hidden" value="confirm" name="action">
           <input type="hidden" value="menu" name="page">
           <input type="submit" value="confirm" class="submitButton">
