@@ -3,16 +3,14 @@
 </h1>
 <article class="formcontent__listDetail">
     <div class="listDetailHeader__container">
-      <p class="listDetailParagraph">Here’s an overview of the product's details.</p>
     </div>
     <article class="welcome-list">
     <section>
       <p class="list__welcome"><?php echo $_SESSION['user']['nickname'] ?>, <br> you have € <?php echo $_SESSION['overschot'] ?> left this week</p>
     </section>
     <section>
-      <p class="list__text">Look for products to put on your list. <br> <br>
-        The items you choose will be subtracted
-        From your budget. </p>
+      <p class="list__text">Take a look at the products on your list. <br> <br>
+        click on the cart to add it to your cart, the items you choose will be subtracted From your budget. </p>
     </section>
     </article>
     <div class="product__list-container">

@@ -650,6 +650,11 @@ a{
 }
 }
 
+.formcontent__listDetail{
+  background-color: #393e5b;
+  height: 100%;
+}
+
 @media only screen and (min-width: 850px) {
 
   .menu__container{

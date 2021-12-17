@@ -5,9 +5,11 @@
     </a>
   </h1>
   <div>
-      <div class="empty">
+  <?php if (empty($shoppingLists)) : ?>  
+    <div class="empty">
         <p class="emptyP"> Your shopping list is still empty</p>
         <a class="emptyA" href="index.php?page=list">click to create a shopping list</a>
+        <?php endif; ?>
         <?php if (!empty($shoppingLists)) : ?>
           <p class="emptyP"> Your saved shopping lists are</p>
           <?php foreach($shoppingLists as $shoppingList):?>
