@@ -202,20 +202,20 @@ class PagesController extends Controller
 
     if (!empty($_GET['listName'])) {
       $excistingList = ShoppingList::where('name', '=', $_GET['listName'])->where('user_id','=', $_SESSION['user']['id'])->first();
-      
+
       if (empty($excistingList)) {
         $shoppinglist = new ShoppingList;
         $shoppinglist->json_list = json_encode($_SESSION['list']);
         $shoppinglist->name = $_GET['listName'];
         $shoppinglist->user_id= $_SESSION['user']['id'];
         $shoppinglist->save();
-        
+
       }else{
         $excistingList->json_list = json_encode($_SESSION['list']);
         $excistingList->save();
       }
     }
-    
+
 
     $newCredit = $_SESSION['user']['credit'] - $_SESSION['total'];
     //zorgt er voor dat winkelmandje leeg wordt gemaakt na duwne op confirm zo kan gebruioker nieuwe lijst opstellen Ook wordt hier het budget vd user upgedate in de db
@@ -227,7 +227,7 @@ class PagesController extends Controller
       //groceries in DB steken
       foreach ($quantitiesById as $productId => $quantity) {
         $product = Product::find($productId);
-        
+
         //via if doen? --> discount products pushen naar fridge zo dat deze ook volledig zichtbaar zijn in de DB
           // nu is de naam niet zichtbaar
         /* $discountProduct = DiscountProduct::find($productId); */
@@ -304,7 +304,7 @@ class PagesController extends Controller
     if (!empty($_GET['addProduct'])) {
       $addedProduct = Product::where('id', '=', $_GET['addProduct'])->get();
       //print_r($selectedProduct);
-     
+
       //prijs aanpassen adhv gekozen winkel gebeurt nu in het model
       $_SESSION['total'] = $_SESSION['total'] + $addedProduct[0]['shopPrice'];
 
@@ -341,7 +341,7 @@ class PagesController extends Controller
       $addedDiscProduct = Product::where('id', '=', $_GET['addDiscProduct'])->get();
       //prijs aanpassen adhv gekozen winkel gebeurt nu in het model
       $_SESSION['total'] = $_SESSION['total'] + $addedDiscProduct[0]['discountShopPrice'];
-      
+
       //geen geld genoeg --> naar cart
       if ($_SESSION['total'] > $_SESSION['user']['credit']) {
         header('Location: index.php?page=cart');
@@ -426,17 +426,18 @@ class PagesController extends Controller
 
     //zet de totale prijs op de som van alle producten die nog in het winkelmandje zitten
 
-    //alot of ifs, miss refactoren als we tijd hebben
     if (!empty($selectedProducts)) {
       foreach ($selectedProducts as $product) {
-        if ($product['discountStorePrice'] != null) {
+        if (is_null($product['discountStorePrice']) == false) {
           $_SESSION['total'] += $product['discountStorePrice'];
         } else{
           $_SESSION['total'] += $product['storePrice'];
         }
       }
     }
-    
+
+
+
 
     /* $_SESSION['list'] = $selectedProducts; */
 
@@ -561,7 +562,7 @@ class PagesController extends Controller
     //producten uit db halen
     $discProducts = Product::whereNotNull('discount_price')->get();
     $this->set('discProducts', $discProducts);
-    
+
     /*
     if (!empty($_GET['addDiscProduct'])) {
       $addedProduct = DiscountProduct::where('id', '=', $_GET['addDiscProduct'])->get();
@@ -594,7 +595,7 @@ class PagesController extends Controller
     }
     */
   }
-  
+
   public function shoppingList(){
 
     if (empty($_SESSION['user'])) {

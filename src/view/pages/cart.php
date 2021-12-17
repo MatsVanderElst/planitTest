@@ -14,14 +14,19 @@
     <?php endif; ?>
   </div>
 
-  
-  
+
+
   <?php
   $total = 0;
-  foreach ($selectedProducts as $product)
-  $total += $product['storePrice'];
+  foreach ($selectedProducts as $product) {
+    if (is_null($product['discountStorePrice']) == false) {
+      $total += $product['discountStorePrice'];
+    } else {
+      $total += $product['storePrice'];
+    }
+  }
   ?>
-  
+
 
 
 
@@ -39,15 +44,13 @@
                 </a>
               </span>
             </div>
-              <!-- kan vervangen worden door logica in model -> geen code hier en niet in controller (kijk naar berekening Nutriscore) -->
-              <!-- heb het gedaan :) -->
             <p class="single__product-name"><?php echo $product['product'] ?></p>
-            
+
             <?php if ($product['discountStorePrice'] != 0) : ?>
-            <p class="product__price-black dicountColor"><?php echo $product['discountStorePrice'] ?></p>
-          <?php else: ?>
-            <p class="product__price-black"><?php echo $product['storePrice'] ?></p>
-          <?php endif; ?>
+              <p class="product__price-black dicountColor"><?php echo $product['discountStorePrice'] ?></p>
+            <?php else : ?>
+              <p class="product__price-black"><?php echo $product['storePrice'] ?></p>
+            <?php endif; ?>
           </div>
         </div>
         <hr class="stroke">
