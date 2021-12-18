@@ -34,7 +34,7 @@
 
           <form method="get" action="index.php?page=list" class="price">
             <input type="hidden" value="list" name="page">
-            <input type="hidden" value="<?php echo $discProduct['id'] ?>" name="addDiscProduct">
+            <input type="hidden" value="<?php echo $discProduct['id'] ?>" name="addProduct">
             <button class="add" type="submit" value="list">
               <span class="material-icons">
                 post_add
