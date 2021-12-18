@@ -31,6 +31,8 @@
 
 
   <?php if (!empty($_SESSION['list'])) : ?>
+
+
     <div class="cart__products">
       <?php foreach ($selectedProducts as $product) : ?>
         <div>
@@ -69,15 +71,21 @@
 
       <section class="buttons">
         <form class="jsForm form" method="get" action="index.php?page=cart">
-          <label class="formlabel" for="listName"> add a name to save your list! use the same name to overwrite one!</label>
-          <input class="input listName" name="listName" type="text" placeholder="christmas list">
+          <section class="up jsFrom">
+            <label class="formlabel" for="listName"> Add a name to save your list.</label>
+            <input class="" required name="listName" type="text" placeholder="weekly groceries">
+            <span class="error"><?php if (!empty($errors['listName'])) echo $errors['listName']; ?></span>
+          </section>
+
+          <a href="index.php?page=list">
+            <button class="backButton">Back</button>
+          </a>
+
           <input type="hidden" value="confirm" name="action">
           <input type="hidden" value="menu" name="page">
           <input type="submit" value="confirm" class="submitButton">
         </form>
-        <a href="index.php?page=list">
-          <button class="backButton">Back</button>
-        </a>
+
       </section>
     </div>
   <?php endif; ?>

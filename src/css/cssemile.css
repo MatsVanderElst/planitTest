@@ -708,3 +708,8 @@
   cursor: pointer;
   background-color: #ffa957;
 }
+
+.up {
+  z-index: 20;
+  margin-top: 1rem;
+}
