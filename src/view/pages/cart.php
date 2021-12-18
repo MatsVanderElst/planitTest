@@ -70,20 +70,21 @@
       </section>
 
       <section class="buttons">
-        <form class="jsForm form" method="get" action="index.php?page=cart">
+        <form class="jsForm form " method="get" action="index.php?page=cart">
           <section class="up jsFrom">
             <label class="formlabel" for="listName"> Add a name to save your list.</label>
-            <input class="" required name="listName" type="text" placeholder="weekly groceries">
+            <input class="inputVak" required name="listName" type="text" placeholder="weekly groceries">
             <span class="error"><?php if (!empty($errors['listName'])) echo $errors['listName']; ?></span>
           </section>
+          <section class="center">
+            <a href="index.php?page=list">
+              <button class="backButton">Back</button>
+            </a>
 
-          <a href="index.php?page=list">
-            <button class="backButton">Back</button>
-          </a>
-
-          <input type="hidden" value="confirm" name="action">
-          <input type="hidden" value="menu" name="page">
-          <input type="submit" value="confirm" class="submitButton">
+            <input type="hidden" value="confirm" name="action">
+            <input type="hidden" value="menu" name="page">
+            <input type="submit" value="confirm" class="submitButton">
+          </section>
         </form>
 
       </section>
