@@ -668,6 +668,17 @@
   margin-bottom: 0;
 }
 
+.formContainer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.burgerSettings {
+  display: none;
+}
+
 @media only screen and (max-width: 900px) {
 
   .settingsTitle {
@@ -684,6 +695,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 5rem;
+    width: 80vw;
   }
 
   .higher {
@@ -696,6 +708,15 @@
     display: unset;
     margin: 0 auto;
   }
+}
+
+@media only screen and (min-width: 1200px) {
+
+  .burgerSettings {
+    display: unset;
+    width: 15vw;
+  }
+
 }
 
 .product__price-disc {
