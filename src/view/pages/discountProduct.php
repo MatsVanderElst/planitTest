@@ -9,19 +9,21 @@
     <section>
       <p class="list__welcome"><?php echo $_SESSION['user']['nickname'] ?>, <br> you have € <?php echo $_SESSION['overschot'] ?> left this week</p>
     </section>
-    <section>
-      <p class="list__text">Look for products to put on your list. <br> <br>
-        The items you choose will be subtracted
-        From your budget. </p>
-    </section>
-  </article>
-  <article>
-    <a href="index.php?page=cart" class="basket">
-      <span class="material-icons cart">
-        shopping_cart
-      </span>
-      <span class="amountCart"><?php if (!empty($_SESSION['list'])) echo count($_SESSION['list']) ?></span>
-    </a>
+    <div class="naast">
+      <section>
+        <p class="list__text">Look for products to put on your list. <br> <br>
+          The items you choose will be subtracted
+          From your budget. </p>
+      </section>
+      <section class="self">
+        <a href="index.php?page=cart" class="basket">
+          <span class="material-icons cart">
+            shopping_cart
+          </span>
+          <span class="amountCart"><?php if (!empty($_SESSION['list'])) echo count($_SESSION['list']) ?></span>
+        </a>
+      </section>
+    </div>
   </article>
 
 
@@ -50,6 +52,4 @@
       <?php endforeach; ?>
     </article>
   </div>
-
-
 </div>
