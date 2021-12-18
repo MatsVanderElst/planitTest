@@ -785,3 +785,52 @@
 .self {
   align-self: center;
 }
+
+.shoppingList__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list_listItem {
+  background-color: white;
+  border: 3px solid #ffa957;
+  border-radius: 20px;
+  width: 150px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem;
+  margin: 2rem;
+}
+
+.shopListContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  width: 60vw;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 5px solid #ffa957;
+  padding: 5rem;
+  height: 70vh;
+  overflow: scroll;
+}
+
+.item__container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.shopListLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
