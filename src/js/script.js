@@ -93,13 +93,6 @@ const updateList = products => {
   console.log($products);
 };
 
-//bit of progressive enhancement -> Adds cool list names :D!
-fetch('https://random-word-api.herokuapp.com/word?number=1&swear=1')
-  .then(response => response.json())
-  .then(data => document.querySelector(".listName").placeholder = data[0] + " list");
-
-
-
 
 
 export const init = () => {
