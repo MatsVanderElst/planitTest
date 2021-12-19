@@ -8,7 +8,7 @@
     <div class="main__buttons">
       <div class="list__button">
         <a href="index.php?page=list">
-          <p>Make a shoppig List</p>
+          <p>Create shoppig List</p>
           <img src="assets/images/listIcon.svg" alt="shopping list icon">
         </a>
       </div>
@@ -20,16 +20,18 @@
       </div>
     </div>
     <div class="secondary__buttons">
-      <p class="discounts__title">Discouts</p>
+      <p class="discounts__title">Discounts</p>
       <div class="discounts__button">
         <a href="index.php?page=discountProduct">
+          <p class="discounts__title-inside">Discounts</p>
           <img src="assets/images/ticketIcon.svg" alt="ticket icon">
         </a>
       </div>
-      <p class="recipes__title">Recipess</p>
+      <p class="recipes__title">Saved lists</p>
       <div class="recipes__button">
         <a href="index.php?page=shoppingList">
-          <img src="assets/images/hamburgerIcon.svg" alt="hamburger icon">
+          <p class="recipes__title-inside">Saved lists</p>
+          <img src="assets/images/listIcon.svg" alt="hamburger icon">
         </a>
       </div>
     </div>
