@@ -3,7 +3,7 @@
 </h1>
 <article class="formcontent__productDetail">
     <div class="fridgeDetailHeader__container">
-      <p class="fridgeDetailParagraph">Here’s an overview of the product's details.</p>
+      <p class="">Here’s an overview of the product's details.</p>
     </div>
     <div class="details">
             <p class="DetailFridgeItem">name: <?php echo $product['product']; ?></p>

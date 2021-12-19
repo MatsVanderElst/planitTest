@@ -6,7 +6,7 @@
   </h1>
 
 
-  <?php if (empty($shoppingLists)) : ?>
+  <?php if ($shoppingLists->count() == 0) : ?>
     <div class="noListst">
       <p class="emptyP"> Your shopping list is still empty</p>
       <a class="emptyA" href="index.php?page=list">click to create a shopping list</a>
@@ -16,7 +16,7 @@
 
 
 
-  <?php if (!empty($shoppingLists)) : ?>
+  <?php if ($shoppingLists->count() != 0) : ?>
     <div class="shopListContainer">
 
       <p class="allListTitle"> Your saved shopping lists.</p>

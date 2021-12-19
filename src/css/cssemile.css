@@ -921,3 +921,122 @@
     width: 960px;
   }
 }
+
+
+/* productDetail en editDate pages */
+
+
+.formcontent__productDetail{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formcontent__productDetail ul{
+  align-self: center;
+}
+
+.productDettailTitleImage{
+  height: auto;
+  margin-top: 1rem;
+}
+
+
+/* bij mij stond deze vanaf 760PX */
+.productDettailTitleImage{
+  padding: 0;
+  width: 35rem;
+}
+/* ------------------------------ */
+
+
+.details{
+  margin-top: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 20rem;
+  height: 15rem;
+  border: solid 0.3rem #393e5b;
+  border-radius: 25px;
+  padding: 0.5rem;
+  background-color: whitesmoke;
+}
+
+.DetailFridgeItem{
+  margin: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #393e5b;
+}
+
+.fridgeDetailParagraph{
+  margin-top: 9rem;
+  color: #393e5b;
+  font-size: 1.5rem;
+}
+
+@media only screen and (min-width: 650px){
+  .fridgeDetailParagraph{
+    margin-top: 7rem;
+  }
+}
+
+
+
+/* vanaf hier is het edit date */
+
+.editDateHeader__container{
+  font-size: 1.2rem;
+  color: #393e5b;
+
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 7rem;
+  text-align: center;
+}
+
+
+/* bij mij stond deze vanaf ook 760PX */
+.editDateHeader__container{
+  font-size: 1.5rem;
+  color: #393e5b;
+  font-weight: 700;
+  margin: 2rem;
+  margin-top: 8rem;
+}
+
+.formcontent__editDate{
+  margin-top: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  align-items: center;
+  width: fit-content;
+  max-width: 40rem;
+  height: fit-content;
+  border: solid 0.3rem #393e5b;
+  border-radius: 25px;
+  padding: 1rem;
+  background-color: whitesmoke;
+}
+
+.editDateContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.editDate_form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
