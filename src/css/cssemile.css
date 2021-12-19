@@ -923,7 +923,7 @@
 }
 
 
-/* productDetail en editDate pages */
+/* productDetail*/
 
 
 .formcontent__productDetail{
@@ -988,21 +988,14 @@
 
 
 
+
+
+
+
+
 /* vanaf hier is het edit date */
 
-.editDateHeader__container{
-  font-size: 1.2rem;
-  color: #393e5b;
-
-  margin-left: 3rem;
-  margin-right: 3rem;
-  margin-top: 7rem;
-  text-align: center;
-}
-
-
-/* bij mij stond deze vanaf ook 760PX */
-.editDateHeader__container{
+.editDateHeader__container {
   font-size: 1.5rem;
   color: #393e5b;
   font-weight: 700;
@@ -1010,7 +1003,7 @@
   margin-top: 8rem;
 }
 
-.formcontent__editDate{
+.formcontent__editDate {
   margin-top: 2rem;
   text-align: center;
   display: flex;
@@ -1018,25 +1011,81 @@
   justify-content: space-around;
 
   align-items: center;
-  width: fit-content;
-  max-width: 40rem;
-  height: fit-content;
-  border: solid 0.3rem #393e5b;
+  width: 80vw;
+  border: solid .3rem #393e5b;
   border-radius: 25px;
   padding: 1rem;
-  background-color: whitesmoke;
+  background-color: white;
 }
 
-.editDateContainer{
+.editDateContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-
-.editDate_form{
+.editDate_form {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 2rem;
+}
+
+.buttonFlex {
+  margin-bottom: 2rem;
+}
+
+.newDate {
+  font-size: 1.2rem;
+  height: 3rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 3px solid #ffa957;
+  border-radius: 10px;
+}
+
+.break {
+  margin-top: 1rem;
+}
+
+@media only screen and (max-width: 450px) {
+
+  .editDateHeader__container {
+    margin-top: 10rem;
+  }
+}
+
+@media only screen and (min-width: 450px) {
+
+  .editDateHeader__container {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (min-width: 670px) {
+
+  .editDateHeader__container {
+
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+
+  .buttonFlex {
+    display: flex;
+  }
+
+  .newDate {
+    width: 300px;
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+
+  .formcontent__editDate {
+
+    width: 720px;
+  }
 }
