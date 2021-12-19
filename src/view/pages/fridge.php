@@ -10,41 +10,38 @@
     </div>
     <ul class="productsList">
       <?php if ($fridgeItemCount == 0): ?>
-     <div class="empty">
-       <p class="emptyP"> Your fridge is still empty</p>
-       <a class="emptyA" href="index.php?page=list">click to add items to it</a>
-     </div>
-   <?php endif; ?>
-
+        <div class="empty">
+          <p class="emptyP"> Your fridge is still empty</p>
+          <a class="emptyA" href="index.php?page=list">click to add items to it</a>
+          </div>
+      <?php endif; ?>
       <?php foreach ($fridge as $fridgeItem) : ?>
         <li class="fridgeItem">
-          <a>
             <a  href="index.php?page=productDetail&detailedProduct=<?php echo $fridgeItem->product['id'] ?>">
               <p class="fridgeItem__name"><?php echo $fridgeItem->product['product']; ?></p>
             </a>
             <p class="fridgeItem__quantity"><?php echo $fridgeItem['quantity']; ?></p>
-            <div>
+            <div class="fridgeItem__date__container">
               <p class="fridgeItem__expiration date"><?php echo $fridgeItem['expiration_date']; ?></p>
-          </a>
-          <a href="index.php?page=editDate&fridgeItemId=<?php echo $fridgeItem['id']; ?>">
-            <span class="material-icons bin">
-              edit
+              <a href="index.php?page=editDate&fridgeItemId=<?php echo $fridgeItem['id']; ?>">
+                <span class="material-icons bin">
+                  edit
+                </span>
+              </a>
+            </div>
+            <span>
+              <a href="index.php?page=fridge&action=use&productId=<?php echo $fridgeItem['id'] ?>">
+                <span class="material-icons bin">
+                  delete
+                </span>
+              </a>
             </span>
-          </a>
-</div>
-<span>
-  <a href="index.php?page=fridge&action=use&productId=<?php echo $fridgeItem['id'] ?>">
-    <span class="material-icons bin">
-      delete
-    </span>
+          </li>
+          <?php endforeach; ?>
+    </ul>
+    <a href="index.php?page=menu">
+    <button class="backButton">Back</button>
   </a>
-</span>
-</li>
-<?php endforeach; ?>
-</ul>
-<a href="index.php?page=menu">
-  <button class="backButton">Back</button>
-</a>
-</article>
-<!-- <input type="submit" value="fridgedelete" class="submitButton"> -->
+  </article>
+
 </div>

@@ -63,10 +63,7 @@ a{
   margin-top: 1rem;
 }
 
-.fridgeTitleImage{
-  height: auto;
-  margin-top: 0.5rem;
-}
+
 
 
 
@@ -373,18 +370,18 @@ a{
 .productsList{
   border-radius: 25px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
 
   width: 80%;
   max-width: 30rem;
-  height: 30rem;
+  height: 23rem;
   overflow-y: scroll;
 
-  background-color: whitesmoke;
+  /* background-color: whitesmoke;
   padding: 0.5rem;
   border-radius: 6px;
-  border: 0.2rem solid #ffa957;
+  border: 0.2rem solid #ffa957; */
 }
 
 
@@ -392,15 +389,30 @@ a{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   text-align: center;
   width: 80%;
   margin: 0.6rem;
   align-self: center;
-  border: solid #393e5b 0.2rem;
-  border-radius: 25px;
-  text-decoration: none;
-  padding: 0.3rem;
+  background-color: whitesmoke;
+  padding: .3rem;
+  border-radius: 6px;
+  border: 3px solid #ffa957;;
+}
+
+
+
+.fridgeItem__date__container{
+  display: flex;
+}
+
+.fridgeItem__date__container a{
+  margin-top: 0.2rem;
+}
+
+.fridgeItem__expiration{
+  margin-right: 0.4rem;
+  height: auto;
 }
 
 .fridgeitem_name{
@@ -408,6 +420,10 @@ a{
   font-size: 1.7rem;
 }
 
+/* .fridgeItem p{
+  min-width: 4rem;
+}
+ */
 .fridgeburger{
   display: none;
 }
@@ -425,6 +441,28 @@ a{
   width: auto;
   text-align: center;
   margin-top: 2rem;
+}
+
+.fridgeTitleImage{
+  width: 80vw;
+}
+
+@media only screen and (max-width: 400px){
+  .fridgeItem p {
+    font-size: 0.8rem;
+  }
+
+  
+}
+
+@media only screen and (min-width: 560px) {
+  .fridgeItem p{
+    min-width: 6rem;
+  }
+
+  .productsList{
+    height: 30rem;
+  }
 }
 
 @media only screen and (max-width: 760px) {
@@ -463,10 +501,7 @@ a{
     padding-right: 8rem;
   }
 
-  .fridgeTitleImage{
-    width: 43rem;
-    padding: 0;
-  }
+  
 
 
   .storeTitleImage{
@@ -595,6 +630,10 @@ a{
     background-size: 22rem;
   }
 
+  .fridgeTitleImage{
+    padding: 0;
+    width: 35rem;
+  }
 }
 
 @media only screen and (min-width: 900px) {
@@ -609,10 +648,7 @@ a{
     width: 35rem;
   }
 
-  .fridgeTitleImage{
-    padding: 0;
-    width: 35rem;
-  }
+  
 
 
   .menu__subtitle{
@@ -623,6 +659,21 @@ a{
     padding: 0;
     width: 40rem;
   }
+
+  
 }
 
+@media only screen and (min-width: 1000px) {
+  .productsList{
+    width: 800px;
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    
+    width: fit-content;
+  }
+  
+
+}
 
