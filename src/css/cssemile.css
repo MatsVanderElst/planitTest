@@ -971,6 +971,12 @@
   margin-bottom: 2rem;
 }
 
+.buttonCont {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
 @media only screen and (max-width: 490px) {
 
   .formcontent__productDetail {

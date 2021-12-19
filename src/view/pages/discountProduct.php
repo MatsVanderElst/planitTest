@@ -51,5 +51,12 @@
         </div>
       <?php endforeach; ?>
     </article>
+    <article class="buttonCont">
+      <a href="index.php?page=menu">
+        <button class="backButton">Back</button>
+      </a>
+    </article>
   </div>
+
+
 </div>
