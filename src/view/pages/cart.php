@@ -72,8 +72,8 @@
       <section class="buttons">
         <form class="jsForm form " method="get" action="index.php?page=cart">
           <section class="up jsFrom">
-            <label class="formlabel" for="listName"> Add a name to save your list.</label>
-            <input class="inputVak" required name="listName" type="text" placeholder="weekly groceries">
+            <label class="formlabel" for="listName"> Add a name to save your list!</label>
+            <input class="inputVak" name="listName" type="text" maxlength="30" placeholder="weekly groceries">
             <span class="error"><?php if (!empty($errors['listName'])) echo $errors['listName']; ?></span>
           </section>
           <section class="center">

@@ -333,7 +333,7 @@ class PagesController extends Controller
     }
 
 
-    
+
   }
 
   public function cart()
@@ -578,11 +578,11 @@ class PagesController extends Controller
     if (empty($_SESSION['user'])) {
       header('location:index.php?page=register');
     }
-    
+
     if (!empty($_GET['action']) && $_GET['action'] == 'delete' && !empty($_GET['listId'])) {
       $listId = intval($_GET['listId']);
       ShoppingList::destroy($listId);
-      
+
     }
 
     $user = User::where('email', '=', $_SESSION['user']['email'])->first();
@@ -593,17 +593,19 @@ class PagesController extends Controller
     }
 
 
+
+
   }
 
   public function listDetail(){
     if (!empty($_GET['listId'])) {
       $listId = intval($_GET['listId']);
       $shoppingList = ShoppingList::find($listId);
-      
+
       $shoppingListIds = json_decode(str_replace('"', "", $shoppingList->json_list));
 
       $products = Product::whereIn('id', $shoppingListIds)->get();
-      
+
       $this->set("products",$products);
       $this->set("listId",$listId);
     }
