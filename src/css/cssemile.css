@@ -922,78 +922,68 @@
   }
 }
 
-
-/* productDetail*/
-
-
-.formcontent__productDetail{
+.formcontent__productDetail {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 80vh;
 }
 
-.formcontent__productDetail ul{
-  align-self: center;
+.productDettailTitleImage {
+  width: 80vw;
 }
 
-.productDettailTitleImage{
-  height: auto;
-  margin-top: 1rem;
+.fridgeDetailTitle {
+  color: #393e5b;
+  font-size: 1.8rem;
+  font-weight: 900;
 }
 
-
-/* bij mij stond deze vanaf 760PX */
-.productDettailTitleImage{
-  padding: 0;
-  width: 35rem;
-}
-/* ------------------------------ */
-
-
-.details{
+.details {
   margin-top: 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 80%;
-  max-width: 20rem;
-  height: 15rem;
-  border: solid 0.3rem #393e5b;
+  width: 60vw;
+  max-width: 25rem;
+  border: solid .3rem #393e5b;
   border-radius: 25px;
-  padding: 0.5rem;
+  padding: .5rem;
   background-color: whitesmoke;
 }
 
-.DetailFridgeItem{
+.extr {
+  margin-bottom: 1rem;
+}
+
+.DetailFridgeItem {
   margin: 1rem;
   font-size: 1.2rem;
   font-weight: 700;
   color: #393e5b;
 }
 
-.fridgeDetailParagraph{
-  margin-top: 9rem;
+.DetailFridgeItem-title {
+  margin: 1rem;
   color: #393e5b;
-  font-size: 1.5rem;
+  font-weight: 900;
+  font-size: 1.6rem;
+  text-decoration: underline;
+  margin-bottom: 2rem;
 }
 
-@media only screen and (min-width: 650px){
-  .fridgeDetailParagraph{
-    margin-top: 7rem;
+@media only screen and (max-width: 490px) {
+
+  .formcontent__productDetail {
+    height: 90vh;
   }
 }
 
+@media only screen and (min-width: 700px) {
 
-
-
-
-
-
-
-/* vanaf hier is het edit date */
+  .productDettailTitleImage {
+    width: 560px;
+  }
+}
 
 .editDateHeader__container {
   font-size: 1.5rem;
