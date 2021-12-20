@@ -447,6 +447,63 @@ a{
   width: 80vw;
 }
 
+.listDetail__text {
+  color: #efdfb8;
+  margin-top: 1rem;
+}
+
+.product__listDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+ 
+  height: 35vh;
+  overflow-y: scroll;
+  
+}
+
+.product__singleDetail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 80vw;
+  margin: 1.2rem;
+  margin-top: 0rem;
+
+  align-self: center;
+}
+
+.listDetailBackButton {
+  border-radius: 10px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: black;
+  background-color: whitesmoke;
+  height: 2rem;
+  width: 7rem;
+  margin-top: 1rem;
+  border: none;
+  box-shadow: 3px 3px black;
+  margin-right: 1rem;
+}
+
+.listDetailIcon{
+  margin-top: 2rem;
+  margin-left: 0rem;
+}
+
+.welcome-listDetail {
+  margin-left: none;
+}
+
+.listDetailIcon{
+  margin-bottom: 1.5rem;
+}
+
+
 @media only screen and (max-width: 400px){
   .fridgeItem p {
     font-size: 0.8rem;
@@ -465,6 +522,31 @@ a{
   }
 }
 
+@media only screen and (min-width: 600px){
+ 
+  .product__singleDetail {
+    background-color: whitesmoke;
+    padding: .5rem;
+    border-radius: 6px;
+    border: 3px solid #ffa957;
+  }
+}
+
+@media only screen and (min-width: 650px){
+ 
+  .product__singleDetail {
+    width: 524px;
+  }
+}
+
+@media only screen and (min-width: 700px){
+
+  .listDetailBackButton {
+    width: 10rem;
+    height: 3rem;
+  }
+}
+
 @media only screen and (max-width: 760px) {
 
   .recipes__title-inside {
@@ -479,11 +561,14 @@ a{
 
 @media only screen and (min-width: 760px) {
 
-  
+  .product__listDetail {
+    overflow-y: scroll;
+    flex-wrap: wrap;
+  }
 
-
-
-
+  .product__singleDetail{
+    width: 250px;
+  }
 
   .menu__container{
     background-image: url("assets/images/backgroundHamburger.svg");
@@ -619,6 +704,29 @@ a{
 .formcontent__listDetail{
   background-color: #393e5b;
   height: 100%;
+  padding: 3rem;
+  padding-top: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.formcontent__listDetail a{
+  text-align: center;
+}
+
+
+.loginDetailtitle{
+  background-color: #393e5b;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+.listDetail__welcome {
+  color: #efdfb8;
+  font-size: 1.7rem;
 }
 
 @media only screen and (min-width: 850px) {
@@ -660,7 +768,17 @@ a{
     width: 40rem;
   }
 
-  
+  .welcome-listDetail {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1.5rem;
+  }
+
+  .listDetailIcon{
+    margin-left: 1.5rem;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -673,7 +791,51 @@ a{
     
     width: fit-content;
   }
-  
 
+  .product__listDetail {
+    overflow-y: scroll;
+    flex-wrap: wrap;
+  }
+  
+  .product__singleDetail {
+    width: 300px;
+  }
+
+}
+
+@media only screen and (min-width: 1200px){
+  
+  .product__listDetail {
+    overflow-y: scroll;
+    flex-wrap: wrap;
+  }
+
+
+  .product__singleDetail{
+    width: 500px;
+  }
+}
+
+@media only screen and (min-width: 1400px){
+
+  .listDetail__welcome {
+    margin-left: 4rem;
+  }
+
+  .listDetail__text {
+    margin-left: 4rem;
+  }
+
+  .product__listDetail {
+    height: 319px;
+  }
+
+  .listDetailIcon{
+    margin-left: 5.3rem;
+  }
+
+  .listDetailBackButton{
+    margin-left: 4rem;
+  }
 }
 
