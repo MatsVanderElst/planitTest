@@ -447,16 +447,18 @@ a{
   width: 80vw;
 }
 
+/*
+
 .ProductListItem{
   margin: 0.5rem;
 }
 
 .product__list{
   display: flex;
-  
+
   flex-direction: column-reverse;
   justify-content: flex-end;
-  
+
   width: fit-content;
   padding: 0.7rem;
 }
@@ -500,12 +502,14 @@ a{
   font-size: 1.7rem;
 }
 
+*/
+
 @media only screen and (max-width: 400px){
   .fridgeItem p {
     font-size: 0.8rem;
   }
 
-  
+
 }
 
 @media only screen and (min-width: 560px) {
@@ -532,7 +536,7 @@ a{
 
 @media only screen and (min-width: 760px) {
 
-  
+
 
 
 
@@ -554,7 +558,7 @@ a{
     padding-right: 8rem;
   }
 
-  
+
 
 
   .storeTitleImage{
@@ -694,7 +698,7 @@ a{
 
   .menu__container{
     background-image: none;
-    
+
   }
 
   .titleImage{
@@ -702,7 +706,7 @@ a{
     width: 35rem;
   }
 
-  
+
 
 
   .menu__subtitle{
@@ -714,9 +718,9 @@ a{
     width: 40rem;
   }
 
-  
-}
 
+}
+/*
 @media only screen and (min-width: 1000px) {
   .productsList{
     width: 800px;
@@ -724,7 +728,7 @@ a{
     flex-flow: wrap;
     flex-direction: row;
     justify-content: flex-start;
-    
+
     width: fit-content;
   }
 
@@ -734,10 +738,10 @@ a{
     flex-flow: wrap;
     flex-direction: row;
     justify-content: flex-start;
-    
+
     width: fit-content;
   }
-  
+
 
 }
 
@@ -766,4 +770,6 @@ a{
     margin-left: 4rem;
   }
 }
+
+*/
 
