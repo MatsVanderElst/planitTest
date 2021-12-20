@@ -7,7 +7,7 @@
 
   <article class="welcome-list">
     <section>
-      <p class="list__welcome"><?php echo $_SESSION['user']['nickname'] ?>, <br> you have € <?php echo $_SESSION['overschot'] ?> left this week</p>
+      <p class="list__welcome"><?php echo $_SESSION['user']['nickname'] ?>, <br> you have € <?php echo number_format((float)$_SESSION['overschot'], 2, '.', ''); ?> left this week</p>
     </section>
     <div class="naast">
       <section>

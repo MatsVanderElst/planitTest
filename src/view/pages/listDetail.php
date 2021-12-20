@@ -6,7 +6,7 @@
     </div>
     <article class="welcome-list">
     <section>
-      <p class="listDetail__welcome"><?php echo $_SESSION['user']['nickname'] ?>, <br> you have € <?php echo $_SESSION['overschot'] ?> left this week</p>
+      <p class="listDetail__welcome"><?php echo $_SESSION['user']['nickname'] ?>, <br> you have € <?php echo number_format((float)$_SESSION['overschot'], 2, '.', ''); ?> left this week</p>
     </section>
     <section>
       <p class="listDetail__text">Take a look at the products on your list. <br> <br>
@@ -33,7 +33,7 @@
         </article>
      </div>
 
-  
+
 
     <a href="index.php?page=shoppingList">
           <button class="backButton">Back</button>
