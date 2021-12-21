@@ -588,7 +588,7 @@ class PagesController extends Controller
     $user = User::where('email', '=', $_SESSION['user']['email'])->first();
 
     if (!empty($user)) {
-      $shoppingLists = $user->shoppingLists;
+      $shoppingLists = $user->shoppingLists->reverse();
       $this->set('shoppingLists', $shoppingLists);
     }
 

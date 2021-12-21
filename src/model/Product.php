@@ -22,7 +22,7 @@ class Product extends Model
     }else{
       return 'A';
     }
-    
+
   }
 
 
@@ -34,9 +34,9 @@ class Product extends Model
     } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
         return $this['price'] + 0.2;
     } elseif ($_SESSION['user']['favstore'] == 'colruyt') {
-        return $this['price'] + 0.5;
+        return $this['price'] - 0.2;
     } elseif ($_SESSION['user']['favstore'] == 'alberthein') {
-        return $this['price'] + 0.3;
+        return $this['price'] - 0.3;
     } else {
       return $this['price'];
     }
@@ -53,9 +53,9 @@ class Product extends Model
      } elseif ($_SESSION['user']['favstore'] == 'carrefour') {
          return $this['discount_price'] + 0.2;
      } elseif ($_SESSION['user']['favstore'] == 'colruyt') {
-         return $this['discount_price'] + 0.5;
+         return $this['discount_price'] - 0.2;
      } elseif ($_SESSION['user']['favstore'] == 'alberthein') {
-         return $this['discount_price'] + 0.3;
+         return $this['discount_price'] - 0.3;
      } else {
        return $this['discount_price'];
      }
